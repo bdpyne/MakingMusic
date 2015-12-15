@@ -1,0 +1,13 @@
+func split (Chord c) : Tones 
+begin
+
+    // assign root to local variable
+
+    // determine major or minor
+
+    // use formula for major/minor chords 
+    // to make a list of tones
+
+    // return list
+end
+
