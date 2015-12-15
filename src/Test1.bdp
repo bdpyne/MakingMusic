@@ -1,13 +1,7 @@
-func split (Chord c) : Tones 
-begin
+declare assign(p1) {
+declare v = p1;
+put v;
+}
 
-    // assign root to local variable
 
-    // determine major or minor
-
-    // use formula for major/minor chords 
-    // to make a list of tones
-
-    // return list
-end
-
+assign(5);

@@ -3,9 +3,16 @@ implement a basic type system
 implement some functional behavior
 
 Ideas
-implement some music theory on top of Music
-make abstract Tone class 
+- implement some music theory on top of Music
+- make abstract Tone class that pitches extend
 
 Functions
-split: Chord->Tones
+split: 
+  - start with the signature Chord->Tones that splits by reading M or m to determine major/minor
+  
 zip: Tones x Durations->Phrase
+
+Initial Idea
+- generate code that has JMusic library calls for playing a small song
+  Problem: it tended towards a lot of assignment statements with nothing else
+           of interest
