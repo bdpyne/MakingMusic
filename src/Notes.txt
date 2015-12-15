@@ -1,0 +1,11 @@
+Goals
+implement a basic type system
+implement some functional behavior
+
+Ideas
+implement some music theory on top of Music
+make abstract Tone class 
+
+Functions
+split: Chord->Tones
+zip: Tones x Durations->Phrase
