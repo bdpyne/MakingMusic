@@ -23,7 +23,7 @@ public class SymbolTable {
 	return currentScope;
     }
 
-    public void declareVariable(String symbol, Integer value) {
+    public void declareVariable(String symbol, Value value) {
 	// check that the current symbol was not already declared in the
 	// current scope, if so then we have an error
 	if (currentScope.lookupSymbol(symbol) != null) {
@@ -31,6 +31,8 @@ public class SymbolTable {
 	    System.exit(1);
 	}
 	// all clear...enter the symbol into the scope
+        
+        System.out.println("symbol is " + symbol + " and value is " + value.getValue());
 	currentScope.enterVariable(symbol,value);
     }
 
@@ -45,7 +47,7 @@ public class SymbolTable {
 	currentScope.enterFunction(symbol,value);
     }
 
-    public Integer lookupVariable(String symbol) {
+    public Value lookupVariable(String symbol) {
 	// lookup the symbol in the current scope
 	SymbolTableScope lookupScope = currentScope;
 	Object value = lookupScope.lookupSymbol(symbol);
@@ -66,7 +68,7 @@ public class SymbolTable {
 	// by the nature of our search procedure -- now check 
 	// that it is a variable
 	if (lookupScope.lookupKind(symbol).equals(SymbolTableScope.VARIABLE)) {
-	    return (Integer) value;
+	    return (Value) value;
 	}
 	else {
 		System.err.println("Error (lookup): symbol '"+symbol+"' is not a variable.");
@@ -124,7 +126,7 @@ public class SymbolTable {
 	// we found a scope where symbol is defined, update it
 	// make sure that it is a variable
 	if (lookupScope.lookupKind(symbol).equals(SymbolTableScope.VARIABLE)) {
-	    lookupScope.enterVariable(symbol,initValue);
+	    lookupScope.enterVariable(symbol,new Value(initValue));
 	}
 	else {
 		System.err.println("Error (update): symbol '"+symbol+"' is not a variable.");

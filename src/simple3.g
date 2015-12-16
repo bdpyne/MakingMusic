@@ -25,7 +25,8 @@ prog returns [AST ast]
 	;
 
 stmt returns [Stmt ast]
-	:	'declare' VAR '(' ')' s=stmt			{ $ast = new FuncDeclStmt($VAR.text,new Function(new ArgList(),$s.ast));	}
+	:	'create song ' exp ';'?                         { $ast = new VarDeclStmt("songname",$exp.ast); }
+        |       'declare' VAR '(' ')' s=stmt			{ $ast = new FuncDeclStmt($VAR.text,new Function(new ArgList(),$s.ast));	}
 	|	'declare' VAR '(' l=formalParamList ')' s=stmt	{ $ast = new FuncDeclStmt($VAR.text,new Function($l.ast,$s.ast)); }
 	|	'declare' VAR '=' exp ';'?			{ $ast = new VarDeclStmt($VAR.text,$exp.ast); }
 	|	'declare' VAR ';'?				{ $ast = new VarDeclStmt($VAR.text,new NumExpr(0)); }
@@ -82,7 +83,8 @@ atom returns [Expr ast]
 	|	NUM				{ $ast = new NumExpr($NUM.text); }
 	|	'-' NUM				{ $ast = new NumExpr('-' + $NUM.text); }
 	|	VAR '(' ')'			{ $ast = new CallExpr($VAR.text);}
-	|	VAR '(' l=actualParamList ')' 	{ $ast = new CallExpr($VAR.text,$l.ast);}
+	|	VAR '(' l=actualParamList ')' 	{ $ast = new CallExpr($VAR.text,$l.ast); }
+        |       STRING                          { $ast = new ValueExpr(new Value($STRING.text)); }
 	;
 
 //*************************************************************************
@@ -96,5 +98,3 @@ COMMENT	:   	'//' ~('\n'|'\r')* '\r'? '\n' {$channel=HIDDEN;};
 WS  	:   	( ' ' | '\t' | '\r' | '\n' ) {$channel=HIDDEN;};
 STRING	:  	'"' ( ESC_SEQ | ~('\\'|'"') )* '"';
 ESC_SEQ	:   	'\\' ('b'|'t'|'n'|'f'|'r'|'\"'|'\''|'\\');
-TONE    :       ('A'..'G')('M'|'m')?('#'|'b')?;
-

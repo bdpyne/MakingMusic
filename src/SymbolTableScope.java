@@ -27,7 +27,7 @@ public class SymbolTableScope {
 	this.parentScope = parentScope;
     }
 
-    public void enterVariable(String name, Integer value) {
+    public void enterVariable(String name, Value value) {
 	this.value.put(name,value);
 	this.kind.put(name,VARIABLE);
     }
