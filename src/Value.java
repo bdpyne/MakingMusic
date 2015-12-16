@@ -25,6 +25,11 @@ public class Value {
         this.payload = val;
         this.type    = STRING;
     }
+    
+    public Value(Value val) {
+        this.payload = val.getValue();
+        this.type    = val.getType();
+    }
  
     
     public  Object getValue() {

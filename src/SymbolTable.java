@@ -30,9 +30,7 @@ public class SymbolTable {
 	    System.err.println("Error: redclaring variable "+symbol+".");
 	    System.exit(1);
 	}
-	// all clear...enter the symbol into the scope
-        
-        System.out.println("symbol is " + symbol + " and value is " + value.getValue());
+	// all clear...enter the symbol into the scope        
 	currentScope.enterVariable(symbol,value);
     }
 

@@ -189,8 +189,6 @@ public class InterpVisitor {
     // variable declaration statements
     private Value interp(VarDeclStmt ast) throws ReturnValueException {
 
-        System.out.println("key is " + ast.Var());
-        
 	// evaluate the init expression
 	Value value = this.dispatch(ast.getAST(0));
         
@@ -302,10 +300,8 @@ public class InterpVisitor {
 
     private Value interp(ValueExpr ast) {
         
-        Value v = ast.getValue();
-        
 	// fetch the variable value from symbol table
-	return v;
+	return new Value(ast.getValue());
     }
 
     // call expressions - call to functions within expressions -- have
