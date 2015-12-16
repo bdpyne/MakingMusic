@@ -1,1 +1,8 @@
 create song "MySong"
+
+Phrase p1 = {
+    use drum
+    play 5 Quarter notes
+}
+
+play p1

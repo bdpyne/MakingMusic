@@ -3,6 +3,7 @@ implement a basic type system
 implement some functional behavior
 
 Ideas
+- make Whole, Half, Quarter notes into a type
 - implement some music theory on top of Music
 - make abstract Tone class that pitches extend
 

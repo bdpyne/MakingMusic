@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g 2015-12-15 21:33:51
+// $ANTLR 3.5.2 C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g 2015-12-16 12:36:46
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -49,15 +49,15 @@ public class simple3Lexer extends Lexer {
 	public simple3Lexer(CharStream input, RecognizerSharedState state) {
 		super(input,state);
 	}
-	@Override public String getGrammarFileName() { return "/Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g"; }
+	@Override public String getGrammarFileName() { return "C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g"; }
 
 	// $ANTLR start "T__10"
 	public final void mT__10() throws RecognitionException {
 		try {
 			int _type = T__10;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:2:7: ( '(' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:2:9: '('
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:2:7: ( '(' )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:2:9: '('
 			{
 			match('('); 
 			}
@@ -76,8 +76,8 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__11;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:3:7: ( ')' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:3:9: ')'
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:3:7: ( ')' )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:3:9: ')'
 			{
 			match(')'); 
 			}
@@ -96,8 +96,8 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__12;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:4:7: ( '*' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:4:9: '*'
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:4:7: ( '*' )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:4:9: '*'
 			{
 			match('*'); 
 			}
@@ -116,8 +116,8 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__13;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:5:7: ( '+' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:5:9: '+'
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:5:7: ( '+' )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:5:9: '+'
 			{
 			match('+'); 
 			}
@@ -136,8 +136,8 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__14;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:6:7: ( ',' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:6:9: ','
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:6:7: ( ',' )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:6:9: ','
 			{
 			match(','); 
 			}
@@ -156,8 +156,8 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__15;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:7:7: ( '-' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:7:9: '-'
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:7:7: ( '-' )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:7:9: '-'
 			{
 			match('-'); 
 			}
@@ -176,8 +176,8 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__16;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:8:7: ( '/' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:8:9: '/'
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:8:7: ( '/' )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:8:9: '/'
 			{
 			match('/'); 
 			}
@@ -196,8 +196,8 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__17;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:9:7: ( ';' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:9:9: ';'
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:9:7: ( ';' )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:9:9: ';'
 			{
 			match(';'); 
 			}
@@ -216,8 +216,8 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__18;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:10:7: ( '<=' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:10:9: '<='
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:10:7: ( '<=' )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:10:9: '<='
 			{
 			match("<="); 
 
@@ -237,8 +237,8 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__19;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:11:7: ( '=' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:11:9: '='
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:11:7: ( '=' )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:11:9: '='
 			{
 			match('='); 
 			}
@@ -257,8 +257,8 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__20;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:12:7: ( '==' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:12:9: '=='
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:12:7: ( '==' )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:12:9: '=='
 			{
 			match("=="); 
 
@@ -278,8 +278,8 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__21;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:13:7: ( 'create song ' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:13:9: 'create song '
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:13:7: ( 'create song ' )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:13:9: 'create song '
 			{
 			match("create song "); 
 
@@ -299,8 +299,8 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__22;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:14:7: ( 'declare' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:14:9: 'declare'
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:14:7: ( 'declare' )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:14:9: 'declare'
 			{
 			match("declare"); 
 
@@ -320,8 +320,8 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__23;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:15:7: ( 'else' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:15:9: 'else'
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:15:7: ( 'else' )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:15:9: 'else'
 			{
 			match("else"); 
 
@@ -341,8 +341,8 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__24;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:16:7: ( 'get' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:16:9: 'get'
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:16:7: ( 'get' )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:16:9: 'get'
 			{
 			match("get"); 
 
@@ -362,8 +362,8 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__25;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:17:7: ( 'if' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:17:9: 'if'
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:17:7: ( 'if' )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:17:9: 'if'
 			{
 			match("if"); 
 
@@ -383,8 +383,8 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__26;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:18:7: ( 'put' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:18:9: 'put'
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:18:7: ( 'put' )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:18:9: 'put'
 			{
 			match("put"); 
 
@@ -404,8 +404,8 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__27;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:19:7: ( 'return' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:19:9: 'return'
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:19:7: ( 'return' )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:19:9: 'return'
 			{
 			match("return"); 
 
@@ -425,8 +425,8 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__28;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:20:7: ( 'while' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:20:9: 'while'
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:20:7: ( 'while' )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:20:9: 'while'
 			{
 			match("while"); 
 
@@ -446,8 +446,8 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__29;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:21:7: ( '{' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:21:9: '{'
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:21:7: ( '{' )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:21:9: '{'
 			{
 			match('{'); 
 			}
@@ -466,8 +466,8 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__30;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:22:7: ( '}' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:22:9: '}'
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:22:7: ( '}' )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:22:9: '}'
 			{
 			match('}'); 
 			}
@@ -486,8 +486,8 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = VAR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:95:7: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:95:9: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:95:7: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:95:9: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
 			{
 			if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
 				input.consume();
@@ -497,7 +497,7 @@ public class simple3Lexer extends Lexer {
 				recover(mse);
 				throw mse;
 			}
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:95:33: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:95:33: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
 			loop1:
 			while (true) {
 				int alt1=2;
@@ -508,7 +508,7 @@ public class simple3Lexer extends Lexer {
 
 				switch (alt1) {
 				case 1 :
-					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:
+					// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:
 					{
 					if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
 						input.consume();
@@ -542,10 +542,10 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = NUM;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:96:6: ( ( '0' .. '9' )+ )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:96:8: ( '0' .. '9' )+
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:96:6: ( ( '0' .. '9' )+ )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:96:8: ( '0' .. '9' )+
 			{
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:96:8: ( '0' .. '9' )+
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:96:8: ( '0' .. '9' )+
 			int cnt2=0;
 			loop2:
 			while (true) {
@@ -557,7 +557,7 @@ public class simple3Lexer extends Lexer {
 
 				switch (alt2) {
 				case 1 :
-					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:
+					// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:
 					{
 					if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
 						input.consume();
@@ -594,12 +594,12 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = COMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:97:9: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:97:14: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:97:9: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:97:14: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
 			{
 			match("//"); 
 
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:97:19: (~ ( '\\n' | '\\r' ) )*
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:97:19: (~ ( '\\n' | '\\r' ) )*
 			loop3:
 			while (true) {
 				int alt3=2;
@@ -610,7 +610,7 @@ public class simple3Lexer extends Lexer {
 
 				switch (alt3) {
 				case 1 :
-					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:
+					// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:
 					{
 					if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '\t')||(input.LA(1) >= '\u000B' && input.LA(1) <= '\f')||(input.LA(1) >= '\u000E' && input.LA(1) <= '\uFFFF') ) {
 						input.consume();
@@ -628,7 +628,7 @@ public class simple3Lexer extends Lexer {
 				}
 			}
 
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:97:33: ( '\\r' )?
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:97:33: ( '\\r' )?
 			int alt4=2;
 			int LA4_0 = input.LA(1);
 			if ( (LA4_0=='\r') ) {
@@ -636,7 +636,7 @@ public class simple3Lexer extends Lexer {
 			}
 			switch (alt4) {
 				case 1 :
-					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:97:33: '\\r'
+					// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:97:33: '\\r'
 					{
 					match('\r'); 
 					}
@@ -662,8 +662,8 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = WS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:98:6: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:98:11: ( ' ' | '\\t' | '\\r' | '\\n' )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:98:6: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:98:11: ( ' ' | '\\t' | '\\r' | '\\n' )
 			{
 			if ( (input.LA(1) >= '\t' && input.LA(1) <= '\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
 				input.consume();
@@ -690,11 +690,11 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = STRING;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:99:8: ( '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:99:12: '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"'
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:99:8: ( '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"' )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:99:12: '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"'
 			{
 			match('\"'); 
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:99:16: ( ESC_SEQ |~ ( '\\\\' | '\"' ) )*
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:99:16: ( ESC_SEQ |~ ( '\\\\' | '\"' ) )*
 			loop5:
 			while (true) {
 				int alt5=3;
@@ -708,14 +708,14 @@ public class simple3Lexer extends Lexer {
 
 				switch (alt5) {
 				case 1 :
-					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:99:18: ESC_SEQ
+					// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:99:18: ESC_SEQ
 					{
 					mESC_SEQ(); 
 
 					}
 					break;
 				case 2 :
-					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:99:28: ~ ( '\\\\' | '\"' )
+					// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:99:28: ~ ( '\\\\' | '\"' )
 					{
 					if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '!')||(input.LA(1) >= '#' && input.LA(1) <= '[')||(input.LA(1) >= ']' && input.LA(1) <= '\uFFFF') ) {
 						input.consume();
@@ -750,8 +750,8 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = ESC_SEQ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:100:9: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:100:14: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:100:9: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) )
+			// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:100:14: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
 			{
 			match('\\'); 
 			if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -775,194 +775,194 @@ public class simple3Lexer extends Lexer {
 
 	@Override
 	public void mTokens() throws RecognitionException {
-		// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:8: ( T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | VAR | NUM | COMMENT | WS | STRING | ESC_SEQ )
+		// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:8: ( T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | VAR | NUM | COMMENT | WS | STRING | ESC_SEQ )
 		int alt6=27;
 		alt6 = dfa6.predict(input);
 		switch (alt6) {
 			case 1 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:10: T__10
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:10: T__10
 				{
 				mT__10(); 
 
 				}
 				break;
 			case 2 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:16: T__11
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:16: T__11
 				{
 				mT__11(); 
 
 				}
 				break;
 			case 3 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:22: T__12
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:22: T__12
 				{
 				mT__12(); 
 
 				}
 				break;
 			case 4 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:28: T__13
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:28: T__13
 				{
 				mT__13(); 
 
 				}
 				break;
 			case 5 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:34: T__14
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:34: T__14
 				{
 				mT__14(); 
 
 				}
 				break;
 			case 6 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:40: T__15
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:40: T__15
 				{
 				mT__15(); 
 
 				}
 				break;
 			case 7 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:46: T__16
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:46: T__16
 				{
 				mT__16(); 
 
 				}
 				break;
 			case 8 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:52: T__17
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:52: T__17
 				{
 				mT__17(); 
 
 				}
 				break;
 			case 9 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:58: T__18
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:58: T__18
 				{
 				mT__18(); 
 
 				}
 				break;
 			case 10 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:64: T__19
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:64: T__19
 				{
 				mT__19(); 
 
 				}
 				break;
 			case 11 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:70: T__20
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:70: T__20
 				{
 				mT__20(); 
 
 				}
 				break;
 			case 12 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:76: T__21
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:76: T__21
 				{
 				mT__21(); 
 
 				}
 				break;
 			case 13 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:82: T__22
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:82: T__22
 				{
 				mT__22(); 
 
 				}
 				break;
 			case 14 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:88: T__23
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:88: T__23
 				{
 				mT__23(); 
 
 				}
 				break;
 			case 15 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:94: T__24
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:94: T__24
 				{
 				mT__24(); 
 
 				}
 				break;
 			case 16 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:100: T__25
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:100: T__25
 				{
 				mT__25(); 
 
 				}
 				break;
 			case 17 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:106: T__26
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:106: T__26
 				{
 				mT__26(); 
 
 				}
 				break;
 			case 18 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:112: T__27
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:112: T__27
 				{
 				mT__27(); 
 
 				}
 				break;
 			case 19 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:118: T__28
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:118: T__28
 				{
 				mT__28(); 
 
 				}
 				break;
 			case 20 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:124: T__29
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:124: T__29
 				{
 				mT__29(); 
 
 				}
 				break;
 			case 21 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:130: T__30
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:130: T__30
 				{
 				mT__30(); 
 
 				}
 				break;
 			case 22 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:136: VAR
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:136: VAR
 				{
 				mVAR(); 
 
 				}
 				break;
 			case 23 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:140: NUM
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:140: NUM
 				{
 				mNUM(); 
 
 				}
 				break;
 			case 24 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:144: COMMENT
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:144: COMMENT
 				{
 				mCOMMENT(); 
 
 				}
 				break;
 			case 25 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:152: WS
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:152: WS
 				{
 				mWS(); 
 
 				}
 				break;
 			case 26 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:155: STRING
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:155: STRING
 				{
 				mSTRING(); 
 
 				}
 				break;
 			case 27 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:162: ESC_SEQ
+				// C:\\Users\\bpyne\\NetBeansProjects\\MakingMusic\\src\\simple3.g:1:162: ESC_SEQ
 				{
 				mESC_SEQ(); 
 
