@@ -2,13 +2,13 @@
 
 public class ReturnValueException extends Exception {
 
-    private Integer returnValue = null;
+    private Value returnValue = null;
 
-    public ReturnValueException (Integer returnValue) {
+    public ReturnValueException (Value returnValue) {
 	this.returnValue = returnValue;
     }
 
-    public Integer getReturnValue () {
+    public Value getReturnValue () {
 	return this.returnValue;
     }
 }

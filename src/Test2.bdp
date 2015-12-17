@@ -1,2 +1,7 @@
 create song "MySong"
+
+fun myfunc() {
 generate
+}
+
+myfunc()

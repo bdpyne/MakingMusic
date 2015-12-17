@@ -32,8 +32,6 @@ public class Song implements JMC {
         Write.midi(this.score,"/Users/billpyne/Documents/" + this.name + ".mid");
         float[] data = Read.audio("/Users/billpyne/Documents/" + this.name + ".mid");
         Write.audio(data, "/Users/billpyne/Documents/" + this.name + ".aif");
-        
-        System.out.println("Name is " + this.name);
     }
     
     
