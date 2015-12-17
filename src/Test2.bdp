@@ -1,7 +1,5 @@
 create song "MySong"
 
-fun myfunc() {
-generate
+fun phrase() {
+put in
 }
-
-myfunc()

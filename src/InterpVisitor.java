@@ -42,7 +42,7 @@ public class InterpVisitor {
 	if (ast.getClass() == BlockStmt.class) return interp((BlockStmt)ast);
 //	else if (ast.getClass() == GetStmt.class) return interp((GetStmt)ast);
 //	else if (ast.getClass() == IfStmt.class) return interp((IfStmt)ast);
-//	else if (ast.getClass() == PutStmt.class) return interp((PutStmt)ast);
+	else if (ast.getClass() == PutStmt.class) return interp((PutStmt)ast);
 //	else if (ast.getClass() == WhileStmt.class) return interp((WhileStmt)ast);
         else if (ast.getClass() == StmtList.class) return interp((StmtList)ast);
 //	else if (ast.getClass() == BinopExpr.class) return interp((BinopExpr)ast);
@@ -154,14 +154,14 @@ public class InterpVisitor {
 //    }
 
     // put statements
-//    private Value interp(PutStmt ast) throws ReturnValueException {
-//	// interpret the expression
-//       	Integer value = this.dispatch(ast.getAST(0));
-//	System.out.println("Output Value: " + value.toString());
-//
-//	// statements do not have return values -- null
-//	return null;
-//    }
+    private Value interp(PutStmt ast) throws ReturnValueException {
+	// interpret the expression
+       	Value value = this.dispatch(ast.getAST(0));
+	System.out.println("Output Value: " + value.toString());
+
+	// statements do not have return values -- null
+	return null;
+    }
 
     // while statements
 //    private Value interp(WhileStmt ast) throws ReturnValueException {
