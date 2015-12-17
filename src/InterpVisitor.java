@@ -5,6 +5,10 @@ import java.io.*;
 
 public class InterpVisitor {
 
+    // Encapsulates song elements.
+    private Song song;
+    
+    
     // reading the console input
     private InputStreamReader converter = new InputStreamReader(System.in);
     private BufferedReader consoleInput = new BufferedReader(converter);
@@ -51,6 +55,8 @@ public class InterpVisitor {
 //	else if (ast.getClass() == CallExpr.class) return interp((CallExpr)ast);
 //	else if (ast.getClass() == ReturnStmt.class) return interp((ReturnStmt)ast);
         else if (ast.getClass() == ValueExpr.class) return interp((ValueExpr)ast);
+        else if (ast.getClass() == CreateSongStmt.class) return interp((CreateSongStmt)ast);
+        else if (ast.getClass() == PlayStmt.class) return interp((PlayStmt)ast);
 	else {
 	    System.out.println("Error (InterpVisitor): unknown class type");
 	    System.exit(1);
@@ -59,6 +65,25 @@ public class InterpVisitor {
     }
 
     //****** interpret statement level ASTs
+    
+    private Value interp(PlayStmt ast) {
+        
+        // now is when the tire meets the road
+        this.song.play();
+        
+        return null;
+    }
+    
+    private Value interp(CreateSongStmt ast) {
+
+        // instantiate the Song class and pass the song name
+        this.song = new Song(ast.getSongName());
+        
+        return null;
+    }
+    
+    
+    
     // assignment statements
 //    private Value interp(AssignStmt ast) throws ReturnValueException {
 //

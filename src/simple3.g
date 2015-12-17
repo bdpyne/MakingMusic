@@ -25,7 +25,8 @@ prog returns [AST ast]
 	;
 
 stmt returns [Stmt ast]
-	:	'create song ' exp ';'?                         { $ast = new VarDeclStmt("songname",$exp.ast); }
+	:	'create song ' STRING ';'?                      { $ast = new CreateSongStmt($STRING.text); }
+        |       'play' ';'?                                     { $ast = new PlayStmt(); }
         |       'declare' VAR '(' ')' s=stmt			{ $ast = new FuncDeclStmt($VAR.text,new Function(new ArgList(),$s.ast));	}
 	|	'declare' VAR '(' l=formalParamList ')' s=stmt	{ $ast = new FuncDeclStmt($VAR.text,new Function($l.ast,$s.ast)); }
 	|	'declare' VAR '=' exp ';'?			{ $ast = new VarDeclStmt($VAR.text,$exp.ast); }
