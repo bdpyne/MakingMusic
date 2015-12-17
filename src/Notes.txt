@@ -17,3 +17,20 @@ Initial Idea
 - generate code that has JMusic library calls for playing a small song
   Problem: it tended towards a lot of assignment statements with nothing else
            of interest
+
+
+Areas Explored
+- create basic object-oriented type system: declare a class, instantiate a class, public and private members and methods
+    - declare class: add it to the type table with class name/"class" as the key/value pair
+    - class members go into the symbol table with key of the form class name#member name
+    - class methods likewise go into the symbol table with the same key pattern
+    - use scopes to implement public/private: public goes into general scope while private goes into class
+        - What to do with types? Maybe a type table for each scope like we do with symbol tables?
+    - alternative to using the type table is to have a special type table just for classes: fall back in case the other implementation becomes unworkable
+    - decided to back away as it seemed to grow in complexity
+
+Areas to Explore
+- add single-inheritance subtyping to the above object-oriented type system
+    - naive implementation is to once again create a key with a pattern holding the subtype/supertype info
+        - Problem: chained inheritance -> keys could become long and complex
+    - inheritance is about relationships: suggestive of a graph implementation
