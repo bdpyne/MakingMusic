@@ -57,6 +57,8 @@ public class InterpVisitor {
         else if (ast.getClass() == ValueExpr.class) return interp((ValueExpr)ast);
         else if (ast.getClass() == CreateSongStmt.class) return interp((CreateSongStmt)ast);
         else if (ast.getClass() == GenerateStmt.class) return interp((GenerateStmt)ast);
+        else if (ast.getClass() == PartStmt.class) return interp((PartStmt)ast);
+        else if (ast.getClass() == PhraseStmt.class) return interp((PhraseStmt)ast);
 	else {          
 	    System.out.println("Error (InterpVisitor): unknown class type " + ast.getClass().getName());
 	    System.exit(1);
@@ -65,6 +67,20 @@ public class InterpVisitor {
     }
 
     //****** interpret statement level ASTs
+    
+    private Value interp(PhraseStmt ast) {
+        
+        song.addPhrase("drums");
+        
+        return null;
+    }
+    
+    private Value interp(PartStmt ast) {
+        
+        song.createPart(ast.getVarName(), ast.getInstrument());
+        
+        return null;
+    }
     
     private Value interp(GenerateStmt ast) {
         

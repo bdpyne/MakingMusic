@@ -27,7 +27,9 @@ prog returns [AST ast]
 stmt returns [Stmt ast]
 	:	'create song ' STRING ';'?                      { $ast = new CreateSongStmt($STRING.text); }
         |       'generate' ';'?                                 { $ast = new GenerateStmt(); }
-        |       'fun' VAR '(' ')' s=stmt			{ $ast = new FuncDeclStmt($VAR.text,new Function(new ArgList(),$s.ast));	}
+        |       part VAR                                        { $ast = new PartStmt($part.p,$VAR.text); } 
+        |       'Phrase' phr=VAR 'is' s=stmt 'for' part=VAR     { $ast = new PhraseStmt($phr.text, $s.ast, $part.text); }
+        |       'fun' VAR '(' ')' s=stmt			{ $ast = new FuncDeclStmt($VAR.text,new Function(new ArgList(),$s.ast)); }
 	|	'fun' VAR '(' l=formalParamList ')' s=stmt	{ $ast = new FuncDeclStmt($VAR.text,new Function($l.ast,$s.ast)); }
 	|	'declare' VAR '=' exp ';'?			{ $ast = new VarDeclStmt($VAR.text,$exp.ast); }
 	|	'declare' VAR ';'?				{ $ast = new VarDeclStmt($VAR.text,new NumExpr(0)); }
@@ -88,10 +90,15 @@ atom returns [Expr ast]
         |       STRING                          { $ast = new ValueExpr(new Value($STRING.text)); }
 	;
 
+part returns [Integer p]
+        :       'Drum'                          { $p   = new Integer(Song.DRUM); }
+        |       'Piano'                         { $p   = new Integer(Song.PIANO); }
+        ;
+
 //*************************************************************************
 // lexical analyzer stuff
 // NOTE: putting negative number recognition into the lexer does
-// not work, hides the minus sing from the parser and this leads
+// not work, hides the minus sign from the parser and this leads
 // to syntax error, need to expose the minus sign at the rule level, see above
 VAR  	:	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')* ;
 NUM 	:	'0'..'9'+;

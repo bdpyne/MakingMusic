@@ -1,5 +1,6 @@
 create song "MySong"
-
-fun phrase() {
-put in
-}
+Drum drums
+Phrase p1 is {
+    play 5 quarters
+    rest for 5 quarters
+] for drums

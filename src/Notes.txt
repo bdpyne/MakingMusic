@@ -18,7 +18,6 @@ Initial Idea
   Problem: it tended towards a lot of assignment statements with nothing else
            of interest
 
-
 Areas Explored
 - create basic object-oriented type system: declare a class, instantiate a class, public and private members and methods
     - declare class: add it to the type table with class name/"class" as the key/value pair
@@ -28,6 +27,9 @@ Areas Explored
         - What to do with types? Maybe a type table for each scope like we do with symbol tables?
     - alternative to using the type table is to have a special type table just for classes: fall back in case the other implementation becomes unworkable
     - decided to back away as it seemed to grow in complexity
+
+- build valid "part" values into the grammar
+    - Problem: hard to control message displayed to the user
 
 Areas to Explore
 - add single-inheritance subtyping to the above object-oriented type system
