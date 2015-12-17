@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 
+
+import jm.music.data.Score;
+
 /**
  *
  * @author billpyne
@@ -12,6 +15,7 @@ public class Value {
     
     public static final int INTEGER = 0;
     public static final int STRING  = 1;
+    public static final int SCORE   = 2;
     
     private Object payload;
     private int    type;
@@ -24,6 +28,11 @@ public class Value {
     public Value(String val) {
         this.payload = val;
         this.type    = STRING;
+    }
+    
+    public Value(Score val) {
+        this.payload = val;
+        this.type    = SCORE;
     }
     
     public Value(Value val) {

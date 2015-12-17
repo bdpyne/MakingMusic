@@ -1,7 +1,2 @@
-declare assign(p1) {
-declare v = p1;
-put v;
-}
-
-
-assign(5);
+create song "MySong"
+generate

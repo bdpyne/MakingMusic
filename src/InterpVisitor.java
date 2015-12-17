@@ -1,11 +1,25 @@
 // this visitor class implements the simple3 interpreter.
 
+// Java imports
 import java.util.*;
 import java.io.*;
+
+// JMusic imports
+import jm.JMC;
+import jm.constants.ProgramChanges;
+import jm.constants.Instruments;
+import jm.music.data.*;
+import jm.util.Write;
+import jm.music.tools.Mod;  
+import jm.util.Read;
+
 
 public class InterpVisitor {
 
     // Encapsulates song elements.
+    /**
+     * @todo remove
+     */
     private Song song;
     
     
@@ -92,8 +106,10 @@ public class InterpVisitor {
     
     private Value interp(CreateSongStmt ast) {
 
-        // instantiate the Song class and pass the song name
-        this.song = new Song(ast.getSongName());
+        Value val = new Value(new Score());
+        
+        Interpret.symbolTable.declareVariable(ast.getSongName(), val);
+        
         
         return null;
     }
