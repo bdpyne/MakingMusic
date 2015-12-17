@@ -13,7 +13,8 @@ public class CreateSongStmt extends Stmt {
     private String name;
     
     public CreateSongStmt(String songName) {
-        this.name = songName;
+        String noQuotes = songName.substring(1, songName.length()-1);
+        this.name = noQuotes;
     }
     
     public String getSongName() {

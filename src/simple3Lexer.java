@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g 2015-12-16 19:07:34
+// $ANTLR 3.5.2 /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g 2015-12-16 21:36:09
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -342,10 +342,10 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__24;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:16:7: ( 'get' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:16:9: 'get'
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:16:7: ( 'generate' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:16:9: 'generate'
 			{
-			match("get"); 
+			match("generate"); 
 
 			}
 
@@ -363,10 +363,10 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__25;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:17:7: ( 'if' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:17:9: 'if'
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:17:7: ( 'get' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:17:9: 'get'
 			{
-			match("if"); 
+			match("get"); 
 
 			}
 
@@ -384,10 +384,10 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__26;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:18:7: ( 'play' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:18:9: 'play'
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:18:7: ( 'if' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:18:9: 'if'
 			{
-			match("play"); 
+			match("if"); 
 
 			}
 
@@ -1005,28 +1005,28 @@ public class simple3Lexer extends Lexer {
 	protected DFA6 dfa6 = new DFA6(this);
 	static final String DFA6_eotS =
 		"\7\uffff\1\33\2\uffff\1\35\10\25\13\uffff\4\25\1\53\7\25\1\63\1\uffff"+
-		"\1\25\1\65\4\25\1\72\1\uffff\1\73\1\uffff\4\25\2\uffff\1\25\1\101\2\25"+
-		"\1\104\2\uffff\1\105\2\uffff";
+		"\1\64\4\25\1\71\1\25\2\uffff\4\25\1\uffff\2\25\1\101\3\25\1\105\2\uffff"+
+		"\1\106\1\25\2\uffff\1\110\1\uffff";
 	static final String DFA6_eofS =
-		"\106\uffff";
+		"\111\uffff";
 	static final String DFA6_minS =
-		"\1\11\6\uffff\1\57\2\uffff\1\75\1\162\1\145\1\154\1\145\1\146\1\154\1"+
-		"\145\1\150\13\uffff\1\145\1\143\1\163\1\164\1\60\1\141\2\164\1\151\1\141"+
-		"\1\154\1\145\1\60\1\uffff\1\171\1\60\1\165\1\154\1\164\1\141\1\60\1\uffff"+
-		"\1\60\1\uffff\1\162\2\145\1\162\2\uffff\1\156\1\60\1\40\1\145\1\60\2\uffff"+
-		"\1\60\2\uffff";
+		"\1\11\6\uffff\1\57\2\uffff\1\75\1\162\1\145\1\154\1\145\1\146\1\165\1"+
+		"\145\1\150\13\uffff\1\145\1\143\1\163\1\156\1\60\2\164\1\151\1\141\1\154"+
+		"\2\145\1\60\1\uffff\1\60\1\165\1\154\1\164\1\141\1\60\1\162\2\uffff\1"+
+		"\162\2\145\1\162\1\uffff\1\141\1\156\1\60\1\40\1\145\1\164\1\60\2\uffff"+
+		"\1\60\1\145\2\uffff\1\60\1\uffff";
 	static final String DFA6_maxS =
 		"\1\175\6\uffff\1\57\2\uffff\1\75\1\162\1\145\1\154\1\145\1\146\1\165\1"+
-		"\145\1\150\13\uffff\1\145\1\143\1\163\1\164\1\172\1\141\2\164\1\151\1"+
-		"\141\1\154\1\145\1\172\1\uffff\1\171\1\172\1\165\1\154\1\164\1\141\1\172"+
-		"\1\uffff\1\172\1\uffff\1\162\2\145\1\162\2\uffff\1\156\1\172\1\40\1\145"+
-		"\1\172\2\uffff\1\172\2\uffff";
+		"\145\1\150\13\uffff\1\145\1\143\1\163\1\164\1\172\2\164\1\151\1\141\1"+
+		"\154\2\145\1\172\1\uffff\1\172\1\165\1\154\1\164\1\141\1\172\1\162\2\uffff"+
+		"\1\162\2\145\1\162\1\uffff\1\141\1\156\1\172\1\40\1\145\1\164\1\172\2"+
+		"\uffff\1\172\1\145\2\uffff\1\172\1\uffff";
 	static final String DFA6_acceptS =
 		"\1\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\uffff\1\10\1\11\11\uffff\1\25\1\26"+
-		"\1\27\1\30\1\32\1\33\1\34\1\31\1\7\1\13\1\12\15\uffff\1\20\7\uffff\1\17"+
-		"\1\uffff\1\22\4\uffff\1\16\1\21\5\uffff\1\24\1\14\1\uffff\1\23\1\15";
+		"\1\27\1\30\1\32\1\33\1\34\1\31\1\7\1\13\1\12\15\uffff\1\21\7\uffff\1\20"+
+		"\1\22\4\uffff\1\16\7\uffff\1\24\1\14\2\uffff\1\23\1\15\1\uffff\1\17";
 	static final String DFA6_specialS =
-		"\106\uffff}>";
+		"\111\uffff}>";
 	static final String[] DFA6_transitionS = {
 			"\2\27\2\uffff\1\27\22\uffff\1\27\1\uffff\1\30\5\uffff\1\1\1\2\1\3\1\4"+
 			"\1\5\1\6\1\uffff\1\7\12\26\1\uffff\1\10\1\11\1\12\3\uffff\32\25\1\uffff"+
@@ -1047,24 +1047,24 @@ public class simple3Lexer extends Lexer {
 			"\1\40",
 			"\1\41",
 			"\1\42",
-			"\1\43\10\uffff\1\44",
+			"\1\43",
+			"\1\44",
 			"\1\45",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
 			"\1\46",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
 			"\1\47",
 			"\1\50",
-			"\1\51",
-			"\1\52",
+			"\1\51\5\uffff\1\52",
 			"\12\25\7\uffff\32\25\4\uffff\1\25\1\uffff\32\25",
 			"\1\54",
 			"\1\55",
@@ -1075,31 +1075,34 @@ public class simple3Lexer extends Lexer {
 			"\1\62",
 			"\12\25\7\uffff\32\25\4\uffff\1\25\1\uffff\32\25",
 			"",
-			"\1\64",
 			"\12\25\7\uffff\32\25\4\uffff\1\25\1\uffff\32\25",
+			"\1\65",
 			"\1\66",
 			"\1\67",
 			"\1\70",
-			"\1\71",
 			"\12\25\7\uffff\32\25\4\uffff\1\25\1\uffff\32\25",
+			"\1\72",
 			"",
-			"\12\25\7\uffff\32\25\4\uffff\1\25\1\uffff\32\25",
 			"",
+			"\1\73",
 			"\1\74",
 			"\1\75",
 			"\1\76",
+			"",
 			"\1\77",
-			"",
-			"",
 			"\1\100",
 			"\12\25\7\uffff\32\25\4\uffff\1\25\1\uffff\32\25",
 			"\1\102",
 			"\1\103",
+			"\1\104",
 			"\12\25\7\uffff\32\25\4\uffff\1\25\1\uffff\32\25",
 			"",
 			"",
 			"\12\25\7\uffff\32\25\4\uffff\1\25\1\uffff\32\25",
+			"\1\107",
 			"",
+			"",
+			"\12\25\7\uffff\32\25\4\uffff\1\25\1\uffff\32\25",
 			""
 	};
 

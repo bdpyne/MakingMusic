@@ -8,6 +8,6 @@
  *
  * @author billpyne
  */
-public class PlayStmt extends Stmt {
+public class GenerateStmt extends Stmt {
     
 }

@@ -56,7 +56,7 @@ public class InterpVisitor {
 //	else if (ast.getClass() == ReturnStmt.class) return interp((ReturnStmt)ast);
         else if (ast.getClass() == ValueExpr.class) return interp((ValueExpr)ast);
         else if (ast.getClass() == CreateSongStmt.class) return interp((CreateSongStmt)ast);
-        else if (ast.getClass() == PlayStmt.class) return interp((PlayStmt)ast);
+        else if (ast.getClass() == GenerateStmt.class) return interp((GenerateStmt)ast);
 	else {
 	    System.out.println("Error (InterpVisitor): unknown class type");
 	    System.exit(1);
@@ -66,10 +66,10 @@ public class InterpVisitor {
 
     //****** interpret statement level ASTs
     
-    private Value interp(PlayStmt ast) {
+    private Value interp(GenerateStmt ast) {
         
         // now is when the tire meets the road
-        this.song.play();
+        this.song.generate();
         
         return null;
     }

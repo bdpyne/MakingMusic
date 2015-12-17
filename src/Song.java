@@ -9,6 +9,7 @@ import jm.JMC;
 import jm.music.data.*;
 import jm.util.Write;
 import jm.music.tools.Mod;  
+import jm.util.Read;
 
 
 /**
@@ -26,7 +27,12 @@ public class Song implements JMC {
         return this.name;
     }
     
-    public void play() {
+    public void generate() {
+        
+        Write.midi(this.score,"/Users/billpyne/Documents/" + this.name + ".mid");
+        float[] data = Read.audio("/Users/billpyne/Documents/" + this.name + ".mid");
+        Write.audio(data, "/Users/billpyne/Documents/" + this.name + ".aif");
+        
         System.out.println("Name is " + this.name);
     }
     

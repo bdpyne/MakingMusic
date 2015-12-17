@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g 2015-12-16 19:07:33
+// $ANTLR 3.5.2 /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g 2015-12-16 21:36:08
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -10,8 +10,8 @@ public class simple3Parser extends Parser {
 	public static final String[] tokenNames = new String[] {
 		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "COMMENT", "ESC_SEQ", "NUM", "STRING", 
 		"VAR", "WS", "'('", "')'", "'*'", "'+'", "','", "'-'", "'/'", "';'", "'<='", 
-		"'='", "'=='", "'create song '", "'declare'", "'else'", "'get'", "'if'", 
-		"'play'", "'put'", "'return'", "'while'", "'{'", "'}'"
+		"'='", "'=='", "'create song '", "'declare'", "'else'", "'generate'", 
+		"'get'", "'if'", "'put'", "'return'", "'while'", "'{'", "'}'"
 	};
 	public static final int EOF=-1;
 	public static final int T__10=10;
@@ -132,7 +132,7 @@ public class simple3Parser extends Parser {
 
 
 	// $ANTLR start "stmt"
-	// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:27:1: stmt returns [Stmt ast] : ( 'create song ' STRING ( ';' )? | 'play' ( ';' )? | 'declare' VAR '(' ')' s= stmt | 'declare' VAR '(' l= formalParamList ')' s= stmt | 'declare' VAR '=' exp ( ';' )? | 'declare' VAR ( ';' )? | VAR '=' exp ( ';' )? | 'get' VAR ( ';' )? | 'put' exp ( ';' )? | VAR '(' ')' ( ';' )? | VAR '(' l= actualParamList ')' ( ';' )? | 'return' exp ( ';' )? | 'return' ( ';' )? | 'while' '(' exp ')' s= stmt | 'if' '(' exp ')' s1= stmt ( 'else' s2= stmt )? | '{' (s= stmt )+ '}' );
+	// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:27:1: stmt returns [Stmt ast] : ( 'create song ' STRING ( ';' )? | 'generate' ( ';' )? | 'declare' VAR '(' ')' s= stmt | 'declare' VAR '(' l= formalParamList ')' s= stmt | 'declare' VAR '=' exp ( ';' )? | 'declare' VAR ( ';' )? | VAR '=' exp ( ';' )? | 'get' VAR ( ';' )? | 'put' exp ( ';' )? | VAR '(' ')' ( ';' )? | VAR '(' l= actualParamList ')' ( ';' )? | 'return' exp ( ';' )? | 'return' ( ';' )? | 'while' '(' exp ')' s= stmt | 'if' '(' exp ')' s1= stmt ( 'else' s2= stmt )? | '{' (s= stmt )+ '}' );
 	public final Stmt stmt() throws RecognitionException {
 		Stmt ast = null;
 
@@ -158,7 +158,7 @@ public class simple3Parser extends Parser {
 		Expr exp16 =null;
 
 		try {
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:28:2: ( 'create song ' STRING ( ';' )? | 'play' ( ';' )? | 'declare' VAR '(' ')' s= stmt | 'declare' VAR '(' l= formalParamList ')' s= stmt | 'declare' VAR '=' exp ( ';' )? | 'declare' VAR ( ';' )? | VAR '=' exp ( ';' )? | 'get' VAR ( ';' )? | 'put' exp ( ';' )? | VAR '(' ')' ( ';' )? | VAR '(' l= actualParamList ')' ( ';' )? | 'return' exp ( ';' )? | 'return' ( ';' )? | 'while' '(' exp ')' s= stmt | 'if' '(' exp ')' s1= stmt ( 'else' s2= stmt )? | '{' (s= stmt )+ '}' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:28:2: ( 'create song ' STRING ( ';' )? | 'generate' ( ';' )? | 'declare' VAR '(' ')' s= stmt | 'declare' VAR '(' l= formalParamList ')' s= stmt | 'declare' VAR '=' exp ( ';' )? | 'declare' VAR ( ';' )? | VAR '=' exp ( ';' )? | 'get' VAR ( ';' )? | 'put' exp ( ';' )? | VAR '(' ')' ( ';' )? | VAR '(' l= actualParamList ')' ( ';' )? | 'return' exp ( ';' )? | 'return' ( ';' )? | 'while' '(' exp ')' s= stmt | 'if' '(' exp ')' s1= stmt ( 'else' s2= stmt )? | '{' (s= stmt )+ '}' )
 			int alt15=16;
 			alt15 = dfa15.predict(input);
 			switch (alt15) {
@@ -187,10 +187,10 @@ public class simple3Parser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:29:17: 'play' ( ';' )?
+					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:29:17: 'generate' ( ';' )?
 					{
-					match(input,26,FOLLOW_26_in_stmt104); 
-					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:29:24: ( ';' )?
+					match(input,24,FOLLOW_24_in_stmt104); 
+					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:29:28: ( ';' )?
 					int alt3=2;
 					int LA3_0 = input.LA(1);
 					if ( (LA3_0==17) ) {
@@ -198,7 +198,7 @@ public class simple3Parser extends Parser {
 					}
 					switch (alt3) {
 						case 1 :
-							// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:29:24: ';'
+							// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:29:28: ';'
 							{
 							match(input,17,FOLLOW_17_in_stmt106); 
 							}
@@ -206,17 +206,17 @@ public class simple3Parser extends Parser {
 
 					}
 
-					 ast = new PlayStmt(); 
+					 ast = new GenerateStmt(); 
 					}
 					break;
 				case 3 :
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:30:17: 'declare' VAR '(' ')' s= stmt
 					{
-					match(input,22,FOLLOW_22_in_stmt163); 
-					VAR3=(Token)match(input,VAR,FOLLOW_VAR_in_stmt165); 
-					match(input,10,FOLLOW_10_in_stmt167); 
-					match(input,11,FOLLOW_11_in_stmt169); 
-					pushFollow(FOLLOW_stmt_in_stmt173);
+					match(input,22,FOLLOW_22_in_stmt159); 
+					VAR3=(Token)match(input,VAR,FOLLOW_VAR_in_stmt161); 
+					match(input,10,FOLLOW_10_in_stmt163); 
+					match(input,11,FOLLOW_11_in_stmt165); 
+					pushFollow(FOLLOW_stmt_in_stmt169);
 					s=stmt();
 					state._fsp--;
 
@@ -226,15 +226,15 @@ public class simple3Parser extends Parser {
 				case 4 :
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:31:4: 'declare' VAR '(' l= formalParamList ')' s= stmt
 					{
-					match(input,22,FOLLOW_22_in_stmt182); 
-					VAR4=(Token)match(input,VAR,FOLLOW_VAR_in_stmt184); 
-					match(input,10,FOLLOW_10_in_stmt186); 
-					pushFollow(FOLLOW_formalParamList_in_stmt190);
+					match(input,22,FOLLOW_22_in_stmt178); 
+					VAR4=(Token)match(input,VAR,FOLLOW_VAR_in_stmt180); 
+					match(input,10,FOLLOW_10_in_stmt182); 
+					pushFollow(FOLLOW_formalParamList_in_stmt186);
 					l=formalParamList();
 					state._fsp--;
 
-					match(input,11,FOLLOW_11_in_stmt192); 
-					pushFollow(FOLLOW_stmt_in_stmt196);
+					match(input,11,FOLLOW_11_in_stmt188); 
+					pushFollow(FOLLOW_stmt_in_stmt192);
 					s=stmt();
 					state._fsp--;
 
@@ -244,10 +244,10 @@ public class simple3Parser extends Parser {
 				case 5 :
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:32:4: 'declare' VAR '=' exp ( ';' )?
 					{
-					match(input,22,FOLLOW_22_in_stmt203); 
-					VAR5=(Token)match(input,VAR,FOLLOW_VAR_in_stmt205); 
-					match(input,19,FOLLOW_19_in_stmt207); 
-					pushFollow(FOLLOW_exp_in_stmt209);
+					match(input,22,FOLLOW_22_in_stmt199); 
+					VAR5=(Token)match(input,VAR,FOLLOW_VAR_in_stmt201); 
+					match(input,19,FOLLOW_19_in_stmt203); 
+					pushFollow(FOLLOW_exp_in_stmt205);
 					exp6=exp();
 					state._fsp--;
 
@@ -261,7 +261,7 @@ public class simple3Parser extends Parser {
 						case 1 :
 							// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:32:26: ';'
 							{
-							match(input,17,FOLLOW_17_in_stmt211); 
+							match(input,17,FOLLOW_17_in_stmt207); 
 							}
 							break;
 
@@ -273,8 +273,8 @@ public class simple3Parser extends Parser {
 				case 6 :
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:33:4: 'declare' VAR ( ';' )?
 					{
-					match(input,22,FOLLOW_22_in_stmt221); 
-					VAR7=(Token)match(input,VAR,FOLLOW_VAR_in_stmt223); 
+					match(input,22,FOLLOW_22_in_stmt217); 
+					VAR7=(Token)match(input,VAR,FOLLOW_VAR_in_stmt219); 
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:33:18: ( ';' )?
 					int alt5=2;
 					int LA5_0 = input.LA(1);
@@ -285,7 +285,7 @@ public class simple3Parser extends Parser {
 						case 1 :
 							// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:33:18: ';'
 							{
-							match(input,17,FOLLOW_17_in_stmt225); 
+							match(input,17,FOLLOW_17_in_stmt221); 
 							}
 							break;
 
@@ -297,9 +297,9 @@ public class simple3Parser extends Parser {
 				case 7 :
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:34:4: VAR '=' exp ( ';' )?
 					{
-					VAR8=(Token)match(input,VAR,FOLLOW_VAR_in_stmt236); 
-					match(input,19,FOLLOW_19_in_stmt238); 
-					pushFollow(FOLLOW_exp_in_stmt240);
+					VAR8=(Token)match(input,VAR,FOLLOW_VAR_in_stmt232); 
+					match(input,19,FOLLOW_19_in_stmt234); 
+					pushFollow(FOLLOW_exp_in_stmt236);
 					exp9=exp();
 					state._fsp--;
 
@@ -313,7 +313,7 @@ public class simple3Parser extends Parser {
 						case 1 :
 							// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:34:16: ';'
 							{
-							match(input,17,FOLLOW_17_in_stmt242); 
+							match(input,17,FOLLOW_17_in_stmt238); 
 							}
 							break;
 
@@ -325,8 +325,8 @@ public class simple3Parser extends Parser {
 				case 8 :
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:35:4: 'get' VAR ( ';' )?
 					{
-					match(input,24,FOLLOW_24_in_stmt253); 
-					VAR10=(Token)match(input,VAR,FOLLOW_VAR_in_stmt255); 
+					match(input,25,FOLLOW_25_in_stmt249); 
+					VAR10=(Token)match(input,VAR,FOLLOW_VAR_in_stmt251); 
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:35:14: ( ';' )?
 					int alt7=2;
 					int LA7_0 = input.LA(1);
@@ -337,7 +337,7 @@ public class simple3Parser extends Parser {
 						case 1 :
 							// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:35:14: ';'
 							{
-							match(input,17,FOLLOW_17_in_stmt257); 
+							match(input,17,FOLLOW_17_in_stmt253); 
 							}
 							break;
 
@@ -349,8 +349,8 @@ public class simple3Parser extends Parser {
 				case 9 :
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:36:4: 'put' exp ( ';' )?
 					{
-					match(input,27,FOLLOW_27_in_stmt269); 
-					pushFollow(FOLLOW_exp_in_stmt271);
+					match(input,27,FOLLOW_27_in_stmt265); 
+					pushFollow(FOLLOW_exp_in_stmt267);
 					exp11=exp();
 					state._fsp--;
 
@@ -364,7 +364,7 @@ public class simple3Parser extends Parser {
 						case 1 :
 							// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:36:14: ';'
 							{
-							match(input,17,FOLLOW_17_in_stmt273); 
+							match(input,17,FOLLOW_17_in_stmt269); 
 							}
 							break;
 
@@ -376,9 +376,9 @@ public class simple3Parser extends Parser {
 				case 10 :
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:37:4: VAR '(' ')' ( ';' )?
 					{
-					VAR12=(Token)match(input,VAR,FOLLOW_VAR_in_stmt285); 
-					match(input,10,FOLLOW_10_in_stmt287); 
-					match(input,11,FOLLOW_11_in_stmt289); 
+					VAR12=(Token)match(input,VAR,FOLLOW_VAR_in_stmt281); 
+					match(input,10,FOLLOW_10_in_stmt283); 
+					match(input,11,FOLLOW_11_in_stmt285); 
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:37:16: ( ';' )?
 					int alt9=2;
 					int LA9_0 = input.LA(1);
@@ -389,7 +389,7 @@ public class simple3Parser extends Parser {
 						case 1 :
 							// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:37:16: ';'
 							{
-							match(input,17,FOLLOW_17_in_stmt291); 
+							match(input,17,FOLLOW_17_in_stmt287); 
 							}
 							break;
 
@@ -401,13 +401,13 @@ public class simple3Parser extends Parser {
 				case 11 :
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:38:4: VAR '(' l= actualParamList ')' ( ';' )?
 					{
-					VAR13=(Token)match(input,VAR,FOLLOW_VAR_in_stmt302); 
-					match(input,10,FOLLOW_10_in_stmt304); 
-					pushFollow(FOLLOW_actualParamList_in_stmt308);
+					VAR13=(Token)match(input,VAR,FOLLOW_VAR_in_stmt298); 
+					match(input,10,FOLLOW_10_in_stmt300); 
+					pushFollow(FOLLOW_actualParamList_in_stmt304);
 					l=actualParamList();
 					state._fsp--;
 
-					match(input,11,FOLLOW_11_in_stmt310); 
+					match(input,11,FOLLOW_11_in_stmt306); 
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:38:34: ( ';' )?
 					int alt10=2;
 					int LA10_0 = input.LA(1);
@@ -418,7 +418,7 @@ public class simple3Parser extends Parser {
 						case 1 :
 							// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:38:34: ';'
 							{
-							match(input,17,FOLLOW_17_in_stmt312); 
+							match(input,17,FOLLOW_17_in_stmt308); 
 							}
 							break;
 
@@ -430,8 +430,8 @@ public class simple3Parser extends Parser {
 				case 12 :
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:39:4: 'return' exp ( ';' )?
 					{
-					match(input,28,FOLLOW_28_in_stmt321); 
-					pushFollow(FOLLOW_exp_in_stmt323);
+					match(input,28,FOLLOW_28_in_stmt317); 
+					pushFollow(FOLLOW_exp_in_stmt319);
 					exp14=exp();
 					state._fsp--;
 
@@ -445,7 +445,7 @@ public class simple3Parser extends Parser {
 						case 1 :
 							// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:39:17: ';'
 							{
-							match(input,17,FOLLOW_17_in_stmt325); 
+							match(input,17,FOLLOW_17_in_stmt321); 
 							}
 							break;
 
@@ -457,7 +457,7 @@ public class simple3Parser extends Parser {
 				case 13 :
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:40:4: 'return' ( ';' )?
 					{
-					match(input,28,FOLLOW_28_in_stmt336); 
+					match(input,28,FOLLOW_28_in_stmt332); 
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:40:13: ( ';' )?
 					int alt12=2;
 					int LA12_0 = input.LA(1);
@@ -468,7 +468,7 @@ public class simple3Parser extends Parser {
 						case 1 :
 							// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:40:13: ';'
 							{
-							match(input,17,FOLLOW_17_in_stmt338); 
+							match(input,17,FOLLOW_17_in_stmt334); 
 							}
 							break;
 
@@ -480,14 +480,14 @@ public class simple3Parser extends Parser {
 				case 14 :
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:41:4: 'while' '(' exp ')' s= stmt
 					{
-					match(input,29,FOLLOW_29_in_stmt350); 
-					match(input,10,FOLLOW_10_in_stmt352); 
-					pushFollow(FOLLOW_exp_in_stmt354);
+					match(input,29,FOLLOW_29_in_stmt346); 
+					match(input,10,FOLLOW_10_in_stmt348); 
+					pushFollow(FOLLOW_exp_in_stmt350);
 					exp15=exp();
 					state._fsp--;
 
-					match(input,11,FOLLOW_11_in_stmt356); 
-					pushFollow(FOLLOW_stmt_in_stmt360);
+					match(input,11,FOLLOW_11_in_stmt352); 
+					pushFollow(FOLLOW_stmt_in_stmt356);
 					s=stmt();
 					state._fsp--;
 
@@ -497,14 +497,14 @@ public class simple3Parser extends Parser {
 				case 15 :
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:42:4: 'if' '(' exp ')' s1= stmt ( 'else' s2= stmt )?
 					{
-					match(input,25,FOLLOW_25_in_stmt369); 
-					match(input,10,FOLLOW_10_in_stmt371); 
-					pushFollow(FOLLOW_exp_in_stmt373);
+					match(input,26,FOLLOW_26_in_stmt365); 
+					match(input,10,FOLLOW_10_in_stmt367); 
+					pushFollow(FOLLOW_exp_in_stmt369);
 					exp16=exp();
 					state._fsp--;
 
-					match(input,11,FOLLOW_11_in_stmt375); 
-					pushFollow(FOLLOW_stmt_in_stmt379);
+					match(input,11,FOLLOW_11_in_stmt371); 
+					pushFollow(FOLLOW_stmt_in_stmt375);
 					s1=stmt();
 					state._fsp--;
 
@@ -519,8 +519,8 @@ public class simple3Parser extends Parser {
 						case 1 :
 							// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:42:68: 'else' s2= stmt
 							{
-							match(input,23,FOLLOW_23_in_stmt383); 
-							pushFollow(FOLLOW_stmt_in_stmt387);
+							match(input,23,FOLLOW_23_in_stmt379); 
+							pushFollow(FOLLOW_stmt_in_stmt383);
 							s2=stmt();
 							state._fsp--;
 
@@ -535,7 +535,7 @@ public class simple3Parser extends Parser {
 				case 16 :
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:43:4: '{' (s= stmt )+ '}'
 					{
-					match(input,30,FOLLOW_30_in_stmt398); 
+					match(input,30,FOLLOW_30_in_stmt394); 
 					ast = new BlockStmt();
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:43:34: (s= stmt )+
 					int cnt14=0;
@@ -551,7 +551,7 @@ public class simple3Parser extends Parser {
 						case 1 :
 							// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:43:35: s= stmt
 							{
-							pushFollow(FOLLOW_stmt_in_stmt405);
+							pushFollow(FOLLOW_stmt_in_stmt401);
 							s=stmt();
 							state._fsp--;
 
@@ -567,7 +567,7 @@ public class simple3Parser extends Parser {
 						cnt14++;
 					}
 
-					match(input,31,FOLLOW_31_in_stmt411); 
+					match(input,31,FOLLOW_31_in_stmt407); 
 					}
 					break;
 
@@ -599,7 +599,7 @@ public class simple3Parser extends Parser {
 			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:47:2: (v1= VAR ( ',' v2= VAR )* )
 			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:47:4: v1= VAR ( ',' v2= VAR )*
 			{
-			v1=(Token)match(input,VAR,FOLLOW_VAR_in_formalParamList428); 
+			v1=(Token)match(input,VAR,FOLLOW_VAR_in_formalParamList424); 
 			ast = new ArgList(new VarExpr((v1!=null?v1.getText():null)));
 			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:47:55: ( ',' v2= VAR )*
 			loop16:
@@ -614,8 +614,8 @@ public class simple3Parser extends Parser {
 				case 1 :
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:47:56: ',' v2= VAR
 					{
-					match(input,14,FOLLOW_14_in_formalParamList432); 
-					v2=(Token)match(input,VAR,FOLLOW_VAR_in_formalParamList436); 
+					match(input,14,FOLLOW_14_in_formalParamList428); 
+					v2=(Token)match(input,VAR,FOLLOW_VAR_in_formalParamList432); 
 					ast.addAST(new VarExpr((v2!=null?v2.getText():null)));
 					}
 					break;
@@ -654,7 +654,7 @@ public class simple3Parser extends Parser {
 			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:51:2: (e1= exp ( ',' e2= exp )* )
 			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:51:4: e1= exp ( ',' e2= exp )*
 			{
-			pushFollow(FOLLOW_exp_in_actualParamList460);
+			pushFollow(FOLLOW_exp_in_actualParamList456);
 			e1=exp();
 			state._fsp--;
 
@@ -672,8 +672,8 @@ public class simple3Parser extends Parser {
 				case 1 :
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:51:44: ',' e2= exp
 					{
-					match(input,14,FOLLOW_14_in_actualParamList465); 
-					pushFollow(FOLLOW_exp_in_actualParamList469);
+					match(input,14,FOLLOW_14_in_actualParamList461); 
+					pushFollow(FOLLOW_exp_in_actualParamList465);
 					e2=exp();
 					state._fsp--;
 
@@ -714,7 +714,7 @@ public class simple3Parser extends Parser {
 			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:55:2: ( relexp )
 			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:55:4: relexp
 			{
-			pushFollow(FOLLOW_relexp_in_exp489);
+			pushFollow(FOLLOW_relexp_in_exp485);
 			relexp17=relexp();
 			state._fsp--;
 
@@ -749,7 +749,7 @@ public class simple3Parser extends Parser {
 			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:58:2: (e1= addexp ( ( '==' e2= addexp ) | ( '<=' e3= addexp ) )* )
 			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:58:4: e1= addexp ( ( '==' e2= addexp ) | ( '<=' e3= addexp ) )*
 			{
-			pushFollow(FOLLOW_addexp_in_relexp506);
+			pushFollow(FOLLOW_addexp_in_relexp502);
 			e1=addexp();
 			state._fsp--;
 
@@ -773,8 +773,8 @@ public class simple3Parser extends Parser {
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:60:4: ( '==' e2= addexp )
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:60:5: '==' e2= addexp
 					{
-					match(input,20,FOLLOW_20_in_relexp519); 
-					pushFollow(FOLLOW_addexp_in_relexp523);
+					match(input,20,FOLLOW_20_in_relexp515); 
+					pushFollow(FOLLOW_addexp_in_relexp519);
 					e2=addexp();
 					state._fsp--;
 
@@ -789,8 +789,8 @@ public class simple3Parser extends Parser {
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:61:4: ( '<=' e3= addexp )
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:61:5: '<=' e3= addexp
 					{
-					match(input,18,FOLLOW_18_in_relexp533); 
-					pushFollow(FOLLOW_addexp_in_relexp537);
+					match(input,18,FOLLOW_18_in_relexp529); 
+					pushFollow(FOLLOW_addexp_in_relexp533);
 					e3=addexp();
 					state._fsp--;
 
@@ -835,7 +835,7 @@ public class simple3Parser extends Parser {
 			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:66:2: (e1= mulexp ( ( '+' e2= mulexp ) | ( '-' e3= mulexp ) )* )
 			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:66:4: e1= mulexp ( ( '+' e2= mulexp ) | ( '-' e3= mulexp ) )*
 			{
-			pushFollow(FOLLOW_mulexp_in_addexp562);
+			pushFollow(FOLLOW_mulexp_in_addexp558);
 			e1=mulexp();
 			state._fsp--;
 
@@ -859,8 +859,8 @@ public class simple3Parser extends Parser {
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:68:4: ( '+' e2= mulexp )
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:68:5: '+' e2= mulexp
 					{
-					match(input,13,FOLLOW_13_in_addexp574); 
-					pushFollow(FOLLOW_mulexp_in_addexp578);
+					match(input,13,FOLLOW_13_in_addexp570); 
+					pushFollow(FOLLOW_mulexp_in_addexp574);
 					e2=mulexp();
 					state._fsp--;
 
@@ -875,8 +875,8 @@ public class simple3Parser extends Parser {
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:69:4: ( '-' e3= mulexp )
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:69:5: '-' e3= mulexp
 					{
-					match(input,15,FOLLOW_15_in_addexp588); 
-					pushFollow(FOLLOW_mulexp_in_addexp592);
+					match(input,15,FOLLOW_15_in_addexp584); 
+					pushFollow(FOLLOW_mulexp_in_addexp588);
 					e3=mulexp();
 					state._fsp--;
 
@@ -921,7 +921,7 @@ public class simple3Parser extends Parser {
 			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:74:2: (e1= atom ( ( '*' e2= atom ) | ( '/' e3= atom ) )* )
 			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:74:4: e1= atom ( ( '*' e2= atom ) | ( '/' e3= atom ) )*
 			{
-			pushFollow(FOLLOW_atom_in_mulexp618);
+			pushFollow(FOLLOW_atom_in_mulexp614);
 			e1=atom();
 			state._fsp--;
 
@@ -945,8 +945,8 @@ public class simple3Parser extends Parser {
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:76:4: ( '*' e2= atom )
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:76:5: '*' e2= atom
 					{
-					match(input,12,FOLLOW_12_in_mulexp630); 
-					pushFollow(FOLLOW_atom_in_mulexp634);
+					match(input,12,FOLLOW_12_in_mulexp626); 
+					pushFollow(FOLLOW_atom_in_mulexp630);
 					e2=atom();
 					state._fsp--;
 
@@ -961,8 +961,8 @@ public class simple3Parser extends Parser {
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:77:4: ( '/' e3= atom )
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:77:5: '/' e3= atom
 					{
-					match(input,16,FOLLOW_16_in_mulexp644); 
-					pushFollow(FOLLOW_atom_in_mulexp648);
+					match(input,16,FOLLOW_16_in_mulexp640); 
+					pushFollow(FOLLOW_atom_in_mulexp644);
 					e3=atom();
 					state._fsp--;
 
@@ -1086,63 +1086,63 @@ public class simple3Parser extends Parser {
 				case 1 :
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:82:4: '(' exp ')'
 					{
-					match(input,10,FOLLOW_10_in_atom672); 
-					pushFollow(FOLLOW_exp_in_atom674);
+					match(input,10,FOLLOW_10_in_atom668); 
+					pushFollow(FOLLOW_exp_in_atom670);
 					exp18=exp();
 					state._fsp--;
 
-					match(input,11,FOLLOW_11_in_atom676); 
+					match(input,11,FOLLOW_11_in_atom672); 
 					 ast = new ParenExpr(exp18); 
 					}
 					break;
 				case 2 :
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:83:4: VAR
 					{
-					VAR19=(Token)match(input,VAR,FOLLOW_VAR_in_atom688); 
+					VAR19=(Token)match(input,VAR,FOLLOW_VAR_in_atom684); 
 					 ast = new VarExpr((VAR19!=null?VAR19.getText():null)); 
 					}
 					break;
 				case 3 :
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:84:4: NUM
 					{
-					NUM20=(Token)match(input,NUM,FOLLOW_NUM_in_atom698); 
+					NUM20=(Token)match(input,NUM,FOLLOW_NUM_in_atom694); 
 					 ast = new NumExpr((NUM20!=null?NUM20.getText():null)); 
 					}
 					break;
 				case 4 :
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:85:4: '-' NUM
 					{
-					match(input,15,FOLLOW_15_in_atom708); 
-					NUM21=(Token)match(input,NUM,FOLLOW_NUM_in_atom710); 
+					match(input,15,FOLLOW_15_in_atom704); 
+					NUM21=(Token)match(input,NUM,FOLLOW_NUM_in_atom706); 
 					 ast = new NumExpr('-' + (NUM21!=null?NUM21.getText():null)); 
 					}
 					break;
 				case 5 :
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:86:4: VAR '(' ')'
 					{
-					VAR22=(Token)match(input,VAR,FOLLOW_VAR_in_atom720); 
-					match(input,10,FOLLOW_10_in_atom722); 
-					match(input,11,FOLLOW_11_in_atom724); 
+					VAR22=(Token)match(input,VAR,FOLLOW_VAR_in_atom716); 
+					match(input,10,FOLLOW_10_in_atom718); 
+					match(input,11,FOLLOW_11_in_atom720); 
 					 ast = new CallExpr((VAR22!=null?VAR22.getText():null));
 					}
 					break;
 				case 6 :
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:87:4: VAR '(' l= actualParamList ')'
 					{
-					VAR23=(Token)match(input,VAR,FOLLOW_VAR_in_atom733); 
-					match(input,10,FOLLOW_10_in_atom735); 
-					pushFollow(FOLLOW_actualParamList_in_atom739);
+					VAR23=(Token)match(input,VAR,FOLLOW_VAR_in_atom729); 
+					match(input,10,FOLLOW_10_in_atom731); 
+					pushFollow(FOLLOW_actualParamList_in_atom735);
 					l=actualParamList();
 					state._fsp--;
 
-					match(input,11,FOLLOW_11_in_atom741); 
+					match(input,11,FOLLOW_11_in_atom737); 
 					 ast = new CallExpr((VAR23!=null?VAR23.getText():null),l); 
 					}
 					break;
 				case 7 :
 					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:88:17: STRING
 					{
-					STRING24=(Token)match(input,STRING,FOLLOW_STRING_in_atom762); 
+					STRING24=(Token)match(input,STRING,FOLLOW_STRING_in_atom758); 
 					 ast = new ValueExpr(new Value((STRING24!=null?STRING24.getText():null))); 
 					}
 					break;
@@ -1181,7 +1181,7 @@ public class simple3Parser extends Parser {
 	static final String DFA15_specialS =
 		"\124\uffff}>";
 	static final String[] DFA15_transitionS = {
-			"\1\4\14\uffff\1\1\1\3\1\uffff\1\5\1\11\1\2\1\6\1\7\1\10\1\12",
+			"\1\4\14\uffff\1\1\1\3\1\uffff\1\2\1\5\1\11\1\6\1\7\1\10\1\12",
 			"",
 			"",
 			"\1\13",
@@ -1298,7 +1298,7 @@ public class simple3Parser extends Parser {
 		}
 		@Override
 		public String getDescription() {
-			return "27:1: stmt returns [Stmt ast] : ( 'create song ' STRING ( ';' )? | 'play' ( ';' )? | 'declare' VAR '(' ')' s= stmt | 'declare' VAR '(' l= formalParamList ')' s= stmt | 'declare' VAR '=' exp ( ';' )? | 'declare' VAR ( ';' )? | VAR '=' exp ( ';' )? | 'get' VAR ( ';' )? | 'put' exp ( ';' )? | VAR '(' ')' ( ';' )? | VAR '(' l= actualParamList ')' ( ';' )? | 'return' exp ( ';' )? | 'return' ( ';' )? | 'while' '(' exp ')' s= stmt | 'if' '(' exp ')' s1= stmt ( 'else' s2= stmt )? | '{' (s= stmt )+ '}' );";
+			return "27:1: stmt returns [Stmt ast] : ( 'create song ' STRING ( ';' )? | 'generate' ( ';' )? | 'declare' VAR '(' ')' s= stmt | 'declare' VAR '(' l= formalParamList ')' s= stmt | 'declare' VAR '=' exp ( ';' )? | 'declare' VAR ( ';' )? | VAR '=' exp ( ';' )? | 'get' VAR ( ';' )? | 'put' exp ( ';' )? | VAR '(' ')' ( ';' )? | VAR '(' l= actualParamList ')' ( ';' )? | 'return' exp ( ';' )? | 'return' ( ';' )? | 'while' '(' exp ')' s= stmt | 'if' '(' exp ')' s1= stmt ( 'else' s2= stmt )? | '{' (s= stmt )+ '}' );";
 		}
 	}
 
@@ -1306,101 +1306,101 @@ public class simple3Parser extends Parser {
 	public static final BitSet FOLLOW_21_in_stmt58 = new BitSet(new long[]{0x0000000000000080L});
 	public static final BitSet FOLLOW_STRING_in_stmt60 = new BitSet(new long[]{0x0000000000020002L});
 	public static final BitSet FOLLOW_17_in_stmt62 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_26_in_stmt104 = new BitSet(new long[]{0x0000000000020002L});
+	public static final BitSet FOLLOW_24_in_stmt104 = new BitSet(new long[]{0x0000000000020002L});
 	public static final BitSet FOLLOW_17_in_stmt106 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_22_in_stmt163 = new BitSet(new long[]{0x0000000000000100L});
-	public static final BitSet FOLLOW_VAR_in_stmt165 = new BitSet(new long[]{0x0000000000000400L});
-	public static final BitSet FOLLOW_10_in_stmt167 = new BitSet(new long[]{0x0000000000000800L});
-	public static final BitSet FOLLOW_11_in_stmt169 = new BitSet(new long[]{0x000000007F600100L});
-	public static final BitSet FOLLOW_stmt_in_stmt173 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_22_in_stmt182 = new BitSet(new long[]{0x0000000000000100L});
-	public static final BitSet FOLLOW_VAR_in_stmt184 = new BitSet(new long[]{0x0000000000000400L});
-	public static final BitSet FOLLOW_10_in_stmt186 = new BitSet(new long[]{0x0000000000000100L});
-	public static final BitSet FOLLOW_formalParamList_in_stmt190 = new BitSet(new long[]{0x0000000000000800L});
-	public static final BitSet FOLLOW_11_in_stmt192 = new BitSet(new long[]{0x000000007F600100L});
-	public static final BitSet FOLLOW_stmt_in_stmt196 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_22_in_stmt203 = new BitSet(new long[]{0x0000000000000100L});
-	public static final BitSet FOLLOW_VAR_in_stmt205 = new BitSet(new long[]{0x0000000000080000L});
-	public static final BitSet FOLLOW_19_in_stmt207 = new BitSet(new long[]{0x00000000000085C0L});
-	public static final BitSet FOLLOW_exp_in_stmt209 = new BitSet(new long[]{0x0000000000020002L});
-	public static final BitSet FOLLOW_17_in_stmt211 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_22_in_stmt221 = new BitSet(new long[]{0x0000000000000100L});
-	public static final BitSet FOLLOW_VAR_in_stmt223 = new BitSet(new long[]{0x0000000000020002L});
-	public static final BitSet FOLLOW_17_in_stmt225 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_VAR_in_stmt236 = new BitSet(new long[]{0x0000000000080000L});
-	public static final BitSet FOLLOW_19_in_stmt238 = new BitSet(new long[]{0x00000000000085C0L});
-	public static final BitSet FOLLOW_exp_in_stmt240 = new BitSet(new long[]{0x0000000000020002L});
-	public static final BitSet FOLLOW_17_in_stmt242 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_24_in_stmt253 = new BitSet(new long[]{0x0000000000000100L});
-	public static final BitSet FOLLOW_VAR_in_stmt255 = new BitSet(new long[]{0x0000000000020002L});
-	public static final BitSet FOLLOW_17_in_stmt257 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_27_in_stmt269 = new BitSet(new long[]{0x00000000000085C0L});
-	public static final BitSet FOLLOW_exp_in_stmt271 = new BitSet(new long[]{0x0000000000020002L});
-	public static final BitSet FOLLOW_17_in_stmt273 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_VAR_in_stmt285 = new BitSet(new long[]{0x0000000000000400L});
-	public static final BitSet FOLLOW_10_in_stmt287 = new BitSet(new long[]{0x0000000000000800L});
-	public static final BitSet FOLLOW_11_in_stmt289 = new BitSet(new long[]{0x0000000000020002L});
-	public static final BitSet FOLLOW_17_in_stmt291 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_VAR_in_stmt302 = new BitSet(new long[]{0x0000000000000400L});
-	public static final BitSet FOLLOW_10_in_stmt304 = new BitSet(new long[]{0x00000000000085C0L});
-	public static final BitSet FOLLOW_actualParamList_in_stmt308 = new BitSet(new long[]{0x0000000000000800L});
-	public static final BitSet FOLLOW_11_in_stmt310 = new BitSet(new long[]{0x0000000000020002L});
-	public static final BitSet FOLLOW_17_in_stmt312 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_28_in_stmt321 = new BitSet(new long[]{0x00000000000085C0L});
-	public static final BitSet FOLLOW_exp_in_stmt323 = new BitSet(new long[]{0x0000000000020002L});
-	public static final BitSet FOLLOW_17_in_stmt325 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_28_in_stmt336 = new BitSet(new long[]{0x0000000000020002L});
-	public static final BitSet FOLLOW_17_in_stmt338 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_29_in_stmt350 = new BitSet(new long[]{0x0000000000000400L});
-	public static final BitSet FOLLOW_10_in_stmt352 = new BitSet(new long[]{0x00000000000085C0L});
-	public static final BitSet FOLLOW_exp_in_stmt354 = new BitSet(new long[]{0x0000000000000800L});
-	public static final BitSet FOLLOW_11_in_stmt356 = new BitSet(new long[]{0x000000007F600100L});
-	public static final BitSet FOLLOW_stmt_in_stmt360 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_25_in_stmt369 = new BitSet(new long[]{0x0000000000000400L});
-	public static final BitSet FOLLOW_10_in_stmt371 = new BitSet(new long[]{0x00000000000085C0L});
-	public static final BitSet FOLLOW_exp_in_stmt373 = new BitSet(new long[]{0x0000000000000800L});
-	public static final BitSet FOLLOW_11_in_stmt375 = new BitSet(new long[]{0x000000007F600100L});
-	public static final BitSet FOLLOW_stmt_in_stmt379 = new BitSet(new long[]{0x0000000000800002L});
-	public static final BitSet FOLLOW_23_in_stmt383 = new BitSet(new long[]{0x000000007F600100L});
-	public static final BitSet FOLLOW_stmt_in_stmt387 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_30_in_stmt398 = new BitSet(new long[]{0x000000007F600100L});
-	public static final BitSet FOLLOW_stmt_in_stmt405 = new BitSet(new long[]{0x00000000FF600100L});
-	public static final BitSet FOLLOW_31_in_stmt411 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_VAR_in_formalParamList428 = new BitSet(new long[]{0x0000000000004002L});
-	public static final BitSet FOLLOW_14_in_formalParamList432 = new BitSet(new long[]{0x0000000000000100L});
-	public static final BitSet FOLLOW_VAR_in_formalParamList436 = new BitSet(new long[]{0x0000000000004002L});
-	public static final BitSet FOLLOW_exp_in_actualParamList460 = new BitSet(new long[]{0x0000000000004002L});
-	public static final BitSet FOLLOW_14_in_actualParamList465 = new BitSet(new long[]{0x00000000000085C0L});
-	public static final BitSet FOLLOW_exp_in_actualParamList469 = new BitSet(new long[]{0x0000000000004002L});
-	public static final BitSet FOLLOW_relexp_in_exp489 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_addexp_in_relexp506 = new BitSet(new long[]{0x0000000000140002L});
-	public static final BitSet FOLLOW_20_in_relexp519 = new BitSet(new long[]{0x00000000000085C0L});
-	public static final BitSet FOLLOW_addexp_in_relexp523 = new BitSet(new long[]{0x0000000000140002L});
-	public static final BitSet FOLLOW_18_in_relexp533 = new BitSet(new long[]{0x00000000000085C0L});
-	public static final BitSet FOLLOW_addexp_in_relexp537 = new BitSet(new long[]{0x0000000000140002L});
-	public static final BitSet FOLLOW_mulexp_in_addexp562 = new BitSet(new long[]{0x000000000000A002L});
-	public static final BitSet FOLLOW_13_in_addexp574 = new BitSet(new long[]{0x00000000000085C0L});
-	public static final BitSet FOLLOW_mulexp_in_addexp578 = new BitSet(new long[]{0x000000000000A002L});
-	public static final BitSet FOLLOW_15_in_addexp588 = new BitSet(new long[]{0x00000000000085C0L});
-	public static final BitSet FOLLOW_mulexp_in_addexp592 = new BitSet(new long[]{0x000000000000A002L});
-	public static final BitSet FOLLOW_atom_in_mulexp618 = new BitSet(new long[]{0x0000000000011002L});
-	public static final BitSet FOLLOW_12_in_mulexp630 = new BitSet(new long[]{0x00000000000085C0L});
-	public static final BitSet FOLLOW_atom_in_mulexp634 = new BitSet(new long[]{0x0000000000011002L});
-	public static final BitSet FOLLOW_16_in_mulexp644 = new BitSet(new long[]{0x00000000000085C0L});
-	public static final BitSet FOLLOW_atom_in_mulexp648 = new BitSet(new long[]{0x0000000000011002L});
-	public static final BitSet FOLLOW_10_in_atom672 = new BitSet(new long[]{0x00000000000085C0L});
-	public static final BitSet FOLLOW_exp_in_atom674 = new BitSet(new long[]{0x0000000000000800L});
-	public static final BitSet FOLLOW_11_in_atom676 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_VAR_in_atom688 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NUM_in_atom698 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_15_in_atom708 = new BitSet(new long[]{0x0000000000000040L});
-	public static final BitSet FOLLOW_NUM_in_atom710 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_VAR_in_atom720 = new BitSet(new long[]{0x0000000000000400L});
-	public static final BitSet FOLLOW_10_in_atom722 = new BitSet(new long[]{0x0000000000000800L});
-	public static final BitSet FOLLOW_11_in_atom724 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_VAR_in_atom733 = new BitSet(new long[]{0x0000000000000400L});
-	public static final BitSet FOLLOW_10_in_atom735 = new BitSet(new long[]{0x00000000000085C0L});
-	public static final BitSet FOLLOW_actualParamList_in_atom739 = new BitSet(new long[]{0x0000000000000800L});
-	public static final BitSet FOLLOW_11_in_atom741 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_STRING_in_atom762 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_22_in_stmt159 = new BitSet(new long[]{0x0000000000000100L});
+	public static final BitSet FOLLOW_VAR_in_stmt161 = new BitSet(new long[]{0x0000000000000400L});
+	public static final BitSet FOLLOW_10_in_stmt163 = new BitSet(new long[]{0x0000000000000800L});
+	public static final BitSet FOLLOW_11_in_stmt165 = new BitSet(new long[]{0x000000007F600100L});
+	public static final BitSet FOLLOW_stmt_in_stmt169 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_22_in_stmt178 = new BitSet(new long[]{0x0000000000000100L});
+	public static final BitSet FOLLOW_VAR_in_stmt180 = new BitSet(new long[]{0x0000000000000400L});
+	public static final BitSet FOLLOW_10_in_stmt182 = new BitSet(new long[]{0x0000000000000100L});
+	public static final BitSet FOLLOW_formalParamList_in_stmt186 = new BitSet(new long[]{0x0000000000000800L});
+	public static final BitSet FOLLOW_11_in_stmt188 = new BitSet(new long[]{0x000000007F600100L});
+	public static final BitSet FOLLOW_stmt_in_stmt192 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_22_in_stmt199 = new BitSet(new long[]{0x0000000000000100L});
+	public static final BitSet FOLLOW_VAR_in_stmt201 = new BitSet(new long[]{0x0000000000080000L});
+	public static final BitSet FOLLOW_19_in_stmt203 = new BitSet(new long[]{0x00000000000085C0L});
+	public static final BitSet FOLLOW_exp_in_stmt205 = new BitSet(new long[]{0x0000000000020002L});
+	public static final BitSet FOLLOW_17_in_stmt207 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_22_in_stmt217 = new BitSet(new long[]{0x0000000000000100L});
+	public static final BitSet FOLLOW_VAR_in_stmt219 = new BitSet(new long[]{0x0000000000020002L});
+	public static final BitSet FOLLOW_17_in_stmt221 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_VAR_in_stmt232 = new BitSet(new long[]{0x0000000000080000L});
+	public static final BitSet FOLLOW_19_in_stmt234 = new BitSet(new long[]{0x00000000000085C0L});
+	public static final BitSet FOLLOW_exp_in_stmt236 = new BitSet(new long[]{0x0000000000020002L});
+	public static final BitSet FOLLOW_17_in_stmt238 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_25_in_stmt249 = new BitSet(new long[]{0x0000000000000100L});
+	public static final BitSet FOLLOW_VAR_in_stmt251 = new BitSet(new long[]{0x0000000000020002L});
+	public static final BitSet FOLLOW_17_in_stmt253 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_27_in_stmt265 = new BitSet(new long[]{0x00000000000085C0L});
+	public static final BitSet FOLLOW_exp_in_stmt267 = new BitSet(new long[]{0x0000000000020002L});
+	public static final BitSet FOLLOW_17_in_stmt269 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_VAR_in_stmt281 = new BitSet(new long[]{0x0000000000000400L});
+	public static final BitSet FOLLOW_10_in_stmt283 = new BitSet(new long[]{0x0000000000000800L});
+	public static final BitSet FOLLOW_11_in_stmt285 = new BitSet(new long[]{0x0000000000020002L});
+	public static final BitSet FOLLOW_17_in_stmt287 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_VAR_in_stmt298 = new BitSet(new long[]{0x0000000000000400L});
+	public static final BitSet FOLLOW_10_in_stmt300 = new BitSet(new long[]{0x00000000000085C0L});
+	public static final BitSet FOLLOW_actualParamList_in_stmt304 = new BitSet(new long[]{0x0000000000000800L});
+	public static final BitSet FOLLOW_11_in_stmt306 = new BitSet(new long[]{0x0000000000020002L});
+	public static final BitSet FOLLOW_17_in_stmt308 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_28_in_stmt317 = new BitSet(new long[]{0x00000000000085C0L});
+	public static final BitSet FOLLOW_exp_in_stmt319 = new BitSet(new long[]{0x0000000000020002L});
+	public static final BitSet FOLLOW_17_in_stmt321 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_28_in_stmt332 = new BitSet(new long[]{0x0000000000020002L});
+	public static final BitSet FOLLOW_17_in_stmt334 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_29_in_stmt346 = new BitSet(new long[]{0x0000000000000400L});
+	public static final BitSet FOLLOW_10_in_stmt348 = new BitSet(new long[]{0x00000000000085C0L});
+	public static final BitSet FOLLOW_exp_in_stmt350 = new BitSet(new long[]{0x0000000000000800L});
+	public static final BitSet FOLLOW_11_in_stmt352 = new BitSet(new long[]{0x000000007F600100L});
+	public static final BitSet FOLLOW_stmt_in_stmt356 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_26_in_stmt365 = new BitSet(new long[]{0x0000000000000400L});
+	public static final BitSet FOLLOW_10_in_stmt367 = new BitSet(new long[]{0x00000000000085C0L});
+	public static final BitSet FOLLOW_exp_in_stmt369 = new BitSet(new long[]{0x0000000000000800L});
+	public static final BitSet FOLLOW_11_in_stmt371 = new BitSet(new long[]{0x000000007F600100L});
+	public static final BitSet FOLLOW_stmt_in_stmt375 = new BitSet(new long[]{0x0000000000800002L});
+	public static final BitSet FOLLOW_23_in_stmt379 = new BitSet(new long[]{0x000000007F600100L});
+	public static final BitSet FOLLOW_stmt_in_stmt383 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_30_in_stmt394 = new BitSet(new long[]{0x000000007F600100L});
+	public static final BitSet FOLLOW_stmt_in_stmt401 = new BitSet(new long[]{0x00000000FF600100L});
+	public static final BitSet FOLLOW_31_in_stmt407 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_VAR_in_formalParamList424 = new BitSet(new long[]{0x0000000000004002L});
+	public static final BitSet FOLLOW_14_in_formalParamList428 = new BitSet(new long[]{0x0000000000000100L});
+	public static final BitSet FOLLOW_VAR_in_formalParamList432 = new BitSet(new long[]{0x0000000000004002L});
+	public static final BitSet FOLLOW_exp_in_actualParamList456 = new BitSet(new long[]{0x0000000000004002L});
+	public static final BitSet FOLLOW_14_in_actualParamList461 = new BitSet(new long[]{0x00000000000085C0L});
+	public static final BitSet FOLLOW_exp_in_actualParamList465 = new BitSet(new long[]{0x0000000000004002L});
+	public static final BitSet FOLLOW_relexp_in_exp485 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_addexp_in_relexp502 = new BitSet(new long[]{0x0000000000140002L});
+	public static final BitSet FOLLOW_20_in_relexp515 = new BitSet(new long[]{0x00000000000085C0L});
+	public static final BitSet FOLLOW_addexp_in_relexp519 = new BitSet(new long[]{0x0000000000140002L});
+	public static final BitSet FOLLOW_18_in_relexp529 = new BitSet(new long[]{0x00000000000085C0L});
+	public static final BitSet FOLLOW_addexp_in_relexp533 = new BitSet(new long[]{0x0000000000140002L});
+	public static final BitSet FOLLOW_mulexp_in_addexp558 = new BitSet(new long[]{0x000000000000A002L});
+	public static final BitSet FOLLOW_13_in_addexp570 = new BitSet(new long[]{0x00000000000085C0L});
+	public static final BitSet FOLLOW_mulexp_in_addexp574 = new BitSet(new long[]{0x000000000000A002L});
+	public static final BitSet FOLLOW_15_in_addexp584 = new BitSet(new long[]{0x00000000000085C0L});
+	public static final BitSet FOLLOW_mulexp_in_addexp588 = new BitSet(new long[]{0x000000000000A002L});
+	public static final BitSet FOLLOW_atom_in_mulexp614 = new BitSet(new long[]{0x0000000000011002L});
+	public static final BitSet FOLLOW_12_in_mulexp626 = new BitSet(new long[]{0x00000000000085C0L});
+	public static final BitSet FOLLOW_atom_in_mulexp630 = new BitSet(new long[]{0x0000000000011002L});
+	public static final BitSet FOLLOW_16_in_mulexp640 = new BitSet(new long[]{0x00000000000085C0L});
+	public static final BitSet FOLLOW_atom_in_mulexp644 = new BitSet(new long[]{0x0000000000011002L});
+	public static final BitSet FOLLOW_10_in_atom668 = new BitSet(new long[]{0x00000000000085C0L});
+	public static final BitSet FOLLOW_exp_in_atom670 = new BitSet(new long[]{0x0000000000000800L});
+	public static final BitSet FOLLOW_11_in_atom672 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_VAR_in_atom684 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NUM_in_atom694 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_15_in_atom704 = new BitSet(new long[]{0x0000000000000040L});
+	public static final BitSet FOLLOW_NUM_in_atom706 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_VAR_in_atom716 = new BitSet(new long[]{0x0000000000000400L});
+	public static final BitSet FOLLOW_10_in_atom718 = new BitSet(new long[]{0x0000000000000800L});
+	public static final BitSet FOLLOW_11_in_atom720 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_VAR_in_atom729 = new BitSet(new long[]{0x0000000000000400L});
+	public static final BitSet FOLLOW_10_in_atom731 = new BitSet(new long[]{0x00000000000085C0L});
+	public static final BitSet FOLLOW_actualParamList_in_atom735 = new BitSet(new long[]{0x0000000000000800L});
+	public static final BitSet FOLLOW_11_in_atom737 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_STRING_in_atom758 = new BitSet(new long[]{0x0000000000000002L});
 }
