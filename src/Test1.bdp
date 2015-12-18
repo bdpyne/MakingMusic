@@ -1,2 +1,10 @@
 create song "MySong"
-generate
+declare inst = "drums"
+Part inst
+
+fun makePhrase(instrument) {
+    play 5 quarter on instrument
+}
+
+makePhrase(inst)
+

@@ -27,8 +27,8 @@ prog returns [AST ast]
 stmt returns [Stmt ast]
 	:	'create song ' STRING ';'?                      { $ast = new CreateSongStmt($STRING.text); }
         |       'generate' ';'?                                 { $ast = new GenerateStmt(); }
-        |       part VAR                                        { $ast = new PartStmt($part.p,$VAR.text); } 
-        |       'Phrase' phr=VAR 'is' s=stmt 'for' part=VAR     { $ast = new PhraseStmt($phr.text, $s.ast, $part.text); }
+        |       'Part' exp ';'?                                 { $ast = new PartStmt($exp.ast); } 
+        |       'play' num=exp ntype=VAR 'on' instr=exp ';'?    { $ast = new PhraseStmt($num.ast, $ntype.text, $instr.ast); }
         |       'fun' VAR '(' ')' s=stmt			{ $ast = new FuncDeclStmt($VAR.text,new Function(new ArgList(),$s.ast)); }
 	|	'fun' VAR '(' l=formalParamList ')' s=stmt	{ $ast = new FuncDeclStmt($VAR.text,new Function($l.ast,$s.ast)); }
 	|	'declare' VAR '=' exp ';'?			{ $ast = new VarDeclStmt($VAR.text,$exp.ast); }
@@ -87,13 +87,12 @@ atom returns [Expr ast]
 	|	'-' NUM				{ $ast = new NumExpr('-' + $NUM.text); }
 	|	VAR '(' ')'			{ $ast = new CallExpr($VAR.text);}
 	|	VAR '(' l=actualParamList ')' 	{ $ast = new CallExpr($VAR.text,$l.ast); }
-        |       STRING                          { $ast = new ValueExpr(new Value($STRING.text)); }
+        |       STRING                          { 
+                    String s = $STRING.text;
+                    String t = s.substring(1, s.length()-1);
+                    $ast = new ValueExpr(new Value(t)); 
+                }
 	;
-
-part returns [Integer p]
-        :       'Drum'                          { $p   = new Integer(Song.DRUM); }
-        |       'Piano'                         { $p   = new Integer(Song.PIANO); }
-        ;
 
 //*************************************************************************
 // lexical analyzer stuff

@@ -1,6 +1,6 @@
 create song "MySong"
-Drum drums
-Phrase p1 is {
+Part drums
+Phrase is {
     play 5 quarters
     rest for 5 quarters
-] for drums
+} for drums

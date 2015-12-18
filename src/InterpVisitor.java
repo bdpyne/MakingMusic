@@ -6,23 +6,23 @@ import java.io.*;
 
 // JMusic imports
 import jm.JMC;
+import static jm.constants.Durations.C;
 import jm.constants.ProgramChanges;
 import jm.constants.Instruments;
+import static jm.constants.Pitches.REST;
 import jm.music.data.*;
 import jm.util.Write;
 import jm.music.tools.Mod;  
 import jm.util.Read;
 
 
-public class InterpVisitor {
+public class InterpVisitor implements JMC {
 
-    // Encapsulates song elements.
-    /**
-     * @todo remove
-     */
-    private Song song;
+    public InterpVisitor(String directory) {
+        this.generateDir = directory;
+    }
     
-    
+        
     // reading the console input
     private InputStreamReader converter = new InputStreamReader(System.in);
     private BufferedReader consoleInput = new BufferedReader(converter);
@@ -60,7 +60,7 @@ public class InterpVisitor {
 //	else if (ast.getClass() == WhileStmt.class) return interp((WhileStmt)ast);
         else if (ast.getClass() == StmtList.class) return interp((StmtList)ast);
 //	else if (ast.getClass() == BinopExpr.class) return interp((BinopExpr)ast);
-//	else if (ast.getClass() == NumExpr.class) return interp((NumExpr)ast);
+	else if (ast.getClass() == NumExpr.class) return interp((NumExpr)ast);
 //	else if (ast.getClass() == ParenExpr.class) return interp((ParenExpr)ast);
         else if (ast.getClass() == VarExpr.class) return interp((VarExpr)ast);
 	else if (ast.getClass() == FuncDeclStmt.class) return interp((FuncDeclStmt)ast);
@@ -84,31 +84,99 @@ public class InterpVisitor {
     
     private Value interp(PhraseStmt ast) {
         
-        song.addPhrase("drums");
+        Double typeOfNote;
+
+        try {
+            Value v = this.dispatch(ast.getAST(0));
+            Integer numToPlay = (Integer) v.getValue();
+       
+            String  duration  = ast.getNote();
+            
+            if (duration.equals("quarter")) {
+                typeOfNote = 1.0;
+            }
+            else if (duration.equals("eighth")) {
+                typeOfNote = 0.5;
+            }
+            else if (duration.equals("sixteenth")) {
+                typeOfNote = 0.25;
+            }
+            else {
+                typeOfNote = 0.0;
+            }
+
+            v = (Value) this.dispatch(ast.getAST(1));
+            String partName = (String) v.getValue();
+        
+            System.out.println(partName);
+
+            // Lookup the part that plays this phrase
+            v = (Value) Interpret.symbolTable.lookupVariable(partName);
+            Part p  = (Part) v.getValue();
+
+            Phrase phrase = new Phrase(0.0);
+            
+            for(int i=0;i<numToPlay;i++){
+                Note note = new Note();
+                note.setDuration(typeOfNote);
+                phrase.addNote(note);
+            }        
+//          p.add(phrase);
+        }
+        catch(ReturnValueException e) {
+            
+        }
+        
         
         return null;
     }
     
     private Value interp(PartStmt ast) {
         
-        song.createPart(ast.getVarName(), ast.getInstrument());
+        try {
+            Value  v    = this.dispatch(ast.getAST(0));
+            String name = (String) v.getValue();
+            Part   p    = new Part(name);
+            Interpret.symbolTable.declareVariable(name, new Value(p));
+        }
+        catch (ReturnValueException e) {
+            //
+        }
         
         return null;
     }
     
     private Value interp(GenerateStmt ast) {
+
+        Value  v    = (Value) Interpret.symbolTable.lookupVariable("score");
+        String name = (String) v.getValue();
         
-        // now is when the tire meets the road
-        this.song.generate();
+               v    = (Value) Interpret.symbolTable.lookupVariable(name);
+        Score  score = (Score) v.getValue();
+        
+                
+        String mid = this.generateDir + name + ".mid";
+        String aif = this.generateDir + name + ".aif";
+        
+        Write.midi(score, mid );
+        float[] data = Read.audio(mid);
+        Write.audio(data, aif);
+        
         
         return null;
     }
     
     private Value interp(CreateSongStmt ast) {
 
+        Score score = new Score();
+        
         Value val = new Value(new Score());
         
+        // Store the score with the song name as the key.
+        // Then add another entry to lookup the song name via the internally
+        // defined key "score".
         Interpret.symbolTable.declareVariable(ast.getSongName(), val);
+        Interpret.symbolTable.declareVariable("score", new Value(ast.getSongName()));
         
         
         return null;
@@ -189,7 +257,8 @@ public class InterpVisitor {
     private Value interp(PutStmt ast) throws ReturnValueException {
 	// interpret the expression
        	Value value = this.dispatch(ast.getAST(0));
-	System.out.println("Output Value: " + value.toString());
+        String s    = (String) value.getValue();
+	System.out.println("Output Value: " + s);
 
 	// statements do not have return values -- null
 	return null;
@@ -339,9 +408,9 @@ public class InterpVisitor {
 //    }
 
     // number expressions
-//    private Value interp(NumExpr ast) {
-//	return new Integer(ast.getValue());
-//    }
+    private Value interp(NumExpr ast) {
+	return new Value(ast.getValue());
+    }
 
     // parenthesized expressions
 //    private  Integer interp(ParenExpr ast) throws ReturnValueException {
@@ -407,4 +476,6 @@ public class InterpVisitor {
 	return returnValue;
     }
 
+    
+    private final String generateDir;
 }

@@ -41,16 +41,16 @@ WS=9
 '<='=18
 '='=19
 '=='=20
-'Drum'=21
-'Phrase'=22
-'Piano'=23
-'create song '=24
-'declare'=25
-'else'=26
-'fun'=27
-'generate'=28
-'get'=29
-'if'=30
+'Part'=21
+'create song '=22
+'declare'=23
+'else'=24
+'fun'=25
+'generate'=26
+'get'=27
+'if'=28
+'on'=29
+'play'=30
 'put'=31
 'return'=32
 'while'=33

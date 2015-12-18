@@ -20,6 +20,8 @@ public class Interpret {
 	    System.out.println("Interpreting: " + args[0]);
 	}
 
+        // Set the directory into the symbol table 
+        
 	// set up and initialize our lexer and parser objects
 	// open up the input file
         ANTLRFileStream input = new ANTLRFileStream(args[0]);
@@ -38,7 +40,7 @@ public class Interpret {
 	ast.dumpAST();
 
 	// interpret our AST
-	InterpVisitor interpVisitor = new InterpVisitor();
+	InterpVisitor interpVisitor = new InterpVisitor(args[1]);
 	interpVisitor.dispatch(ast);
     }
 }

@@ -5,7 +5,8 @@
  */
 
 
-import jm.music.data.Score;
+import jm.music.data.*;
+
 
 /**
  *
@@ -16,6 +17,8 @@ public class Value {
     public static final int INTEGER = 0;
     public static final int STRING  = 1;
     public static final int SCORE   = 2;
+    public static final int PART    = 3;
+    public static final int PHRASE  = 4;
     
     private Object payload;
     private int    type;
@@ -40,6 +43,16 @@ public class Value {
         this.type    = val.getType();
     }
  
+    public Value(Part val) {
+        this.payload = val;
+        this.type    = PART;
+    }
+    
+    public Value(Phrase val) {
+        this.payload = val;
+        this.type    = PHRASE;
+    }
+        
     
     public  Object getValue() {
         return this.payload;

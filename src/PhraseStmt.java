@@ -10,13 +10,15 @@
  */
 public class PhraseStmt extends Stmt {
     
-    public PhraseStmt(String name) {
-        this.varname = name;
+    public PhraseStmt(Expr duration, String note, Expr part) {
+        this.addAST(duration);
+        this.note = note;
+        this.addAST(part);
     }
     
-    public String getVarName() {
-        return this.varname;
+    public String getNote() {
+        return this.note;
     }
     
-    private String varname;
+    private final String note;
 }
