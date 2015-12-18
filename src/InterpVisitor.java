@@ -38,6 +38,8 @@ public class InterpVisitor implements JMC {
 	    System.exit(1);
 	}
 
+        // Contains parameter names in the order in which the actual parameters
+        // were filled.
         List<String> keywords = actualParameters.getKeywords();
         
         // > 0 indicates keyword correspondence
@@ -342,7 +344,7 @@ public class InterpVisitor implements JMC {
         
 	// declare the variable with its init value
 	Interpret.symbolTable.declareVariable(ast.Var(),value);
-
+        
 	// statements do not have return values -- null
 	return null;
     }

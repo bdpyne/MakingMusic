@@ -1,6 +1,10 @@
 create song "MySong"
-Part drums
-Phrase is {
-    play 5 quarters
-    rest for 5 quarters
-} for drums
+declare inst = "drums"
+Part inst
+
+fun makePhrase(instrument) {
+    play 5 quarter on instrument
+}
+
+makePhrase(instrument->inst)
+

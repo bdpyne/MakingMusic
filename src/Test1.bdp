@@ -1,5 +1,5 @@
 create song "MySong"
-declare inst = "drums"
+String inst = "drums"
 Part inst
 
 fun makePhrase(instrument) {
