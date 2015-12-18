@@ -29,10 +29,10 @@ stmt returns [Stmt ast]
         |       'generate' ';'?                                 { $ast = new GenerateStmt(); }
         |       'Part' exp ';'?                                 { $ast = new PartStmt($exp.ast); } 
         |       'play' num=exp ntype=VAR 'on' instr=exp ';'?    { $ast = new PhraseStmt($num.ast, $ntype.text, $instr.ast); }
-        |       'fun' VAR '(' ')' s=stmt			{ $ast = new FuncDeclStmt($VAR.text,new Function(new ArgList(),$s.ast)); }
-	|	'fun' VAR '(' l=formalParamList ')' s=stmt	{ $ast = new FuncDeclStmt($VAR.text,new Function($l.ast,$s.ast)); }
-	|	'declare' VAR '=' exp ';'?			{ $ast = new VarDeclStmt($VAR.text,$exp.ast); }
-	|	'declare' VAR ';'?				{ $ast = new VarDeclStmt($VAR.text,new NumExpr(0)); }
+        |       dataType VAR '(' ')' s=stmt			{ $ast = new FuncDeclStmt($VAR.text,new Function(new ArgList(),$s.ast)); }
+	|	dataType VAR '(' l=formalParamList ')' s=stmt	{ $ast = new FuncDeclStmt($VAR.text,new Function($l.ast,$s.ast)); }
+	|	dataType VAR '=' exp ';'?			{ $ast = new VarDeclStmt($VAR.text,$exp.ast); }
+	|	dataType VAR ';'?				{ $ast = new VarDeclStmt($VAR.text,new NumExpr(0)); }
 	|	VAR '=' exp ';'?				{ $ast = new AssignStmt($VAR.text,$exp.ast); }
 	|	'get' VAR ';'?					{ $ast = new GetStmt($VAR.text); }
 	|	'put' exp ';'?					{ $ast = new PutStmt($exp.ast); }
@@ -45,8 +45,13 @@ stmt returns [Stmt ast]
 	|	'{' {$ast = new BlockStmt();} (s=stmt {$ast.addAST($s.ast);})+ '}'
 	;
 
+dataType 
+        :       'String'
+        |       'Part'
+        |       'Phrase';
+
 formalParamList returns [ArgList ast]
-	:	v1=VAR {$ast = new ArgList(new VarExpr($v1.text));}(',' v2=VAR {$ast.addAST(new VarExpr($v2.text));} )*
+	:	dataType v1=VAR {$ast = new ArgList(new VarExpr($v1.text));}(',' dataType v2=VAR {$ast.addAST(new VarExpr($v2.text));} )*
 	;
 	
 actualParamList returns [ArgList ast]
@@ -101,6 +106,8 @@ atom returns [Expr ast]
                     String t = s.substring(1, s.length()-1);
                     $ast = new ValueExpr(new Value(t)); 
                 }
+        |       PART                            
+        |       PHRASE
 	;
 
 //*************************************************************************
