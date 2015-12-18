@@ -50,7 +50,16 @@ formalParamList returns [ArgList ast]
 	;
 	
 actualParamList returns [ArgList ast]
-	:	e1= exp {$ast = new ArgList($e1.ast);} (',' e2=exp {$ast.addAST($e2.ast);} )*
+	:	e1=exp {
+                    $ast      = new ArgList($e1.ast);
+                } (',' e2=exp {$ast.addAST($e2.ast);} )*
+        |       v1=VAR '->' e1=exp {
+                    $ast       = new ArgList($e1.ast);
+                    $ast.addKeyword($v1.text);
+                } (',' v2=VAR '->' e2=exp {
+                    $ast.addAST($e2.ast);
+                    $ast.addKeyword($v2.text);
+                } )*
 	;
 
 exp returns [Expr ast]

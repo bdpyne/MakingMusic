@@ -38,16 +38,38 @@ public class InterpVisitor implements JMC {
 	    System.exit(1);
 	}
 
-	// now simply step through the lists and declare the formal parameters as local variables
-	for (int i = 0; i < formalParameters.size(); i++) {
-	    // evaluate the actual expression
-	    Value value = this.dispatch(actualParameters.getAST(i));
-	    // get the formal parameter name
-	    VarExpr var = (VarExpr) formalParameters.getAST(i);
-	    String name = var.getVarName();
-	    // declare the variable with its init value
-	    Interpret.symbolTable.declareVariable(name,value);
-	}
+        List<String> keywords = actualParameters.getKeywords();
+        
+        // > 0 indicates keyword correspondence
+        if (keywords.size() > 0) {
+            // now simply step through the lists and declare the formal parameters as local variables
+            for (int i = 0; i < keywords.size(); i++) {
+                
+                // evaluate the actual expression
+                Value value = new Value(this.dispatch(actualParameters.getAST(i)));
+                
+                // get the formal parameter name from the keyword list
+                String name = keywords.get(i);
+            
+                // declare the variable with its init value
+                Interpret.symbolTable.declareVariable(name,value);
+            }           
+        }
+        else {
+            // now simply step through the lists and declare the formal parameters as local variables
+            for (int i = 0; i < formalParameters.size(); i++) {
+                
+                // evaluate the actual expression
+                Value value = new Value(this.dispatch(actualParameters.getAST(i)));
+                
+                // get the formal parameter name
+                VarExpr var = (VarExpr) formalParameters.getAST(i);
+                String name = var.getVarName();
+                
+                // declare the variable with its init value
+                Interpret.symbolTable.declareVariable(name,value);            
+            }
+        }
     }
 
     // the dispatcher for the interpreter visitor
@@ -334,13 +356,17 @@ public class InterpVisitor implements JMC {
 	// implement static scoping
 	// save the current top of stack
 	SymbolTableScope topOfStack = Interpret.symbolTable.getCurrentScope();
+        
 	// push function local scope onto the stack
 	Interpret.symbolTable.pushScope();
+        
+        
 	// Initialize formal parameters with actual parameters in the current scope
 	initParameters(fValue.getFormalParameters(),ast.getActualParameters());
+        
+        
 	// set the parent of the current scope to be the parent scope of the function
 	Interpret.symbolTable.getCurrentScope().setParentScope(fValue.getParentScope());
-
 
 	// execute the body of the function
 	try {
