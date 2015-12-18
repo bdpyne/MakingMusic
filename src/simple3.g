@@ -25,14 +25,34 @@ prog returns [AST ast]
 	;
 
 stmt returns [Stmt ast]
-	:	'create song ' STRING ';'?                      { $ast = new CreateSongStmt($STRING.text); }
+	:	'void' VAR '('')' s=stmt                        
+                { 
+                    $ast = new FuncDeclStmt($VAR.text,new Function(Value.NOTYPE,new ArgList(),$s.ast));
+                }
+        |       dt=dataType VAR '(' ')' s=stmt			
+                { 
+                    $ast = new FuncDeclStmt($VAR.text,new Function($dt.type,new ArgList(),$s.ast));
+                }
+        |       'void' VAR '(' l=formalParamList ')' s=stmt
+                { 
+                    $ast = new FuncDeclStmt($VAR.text,new Function(Value.NOTYPE,$l.ast,$s.ast)); 
+                }
+        |       dt=dataType VAR '(' l=formalParamList ')' s=stmt
+                { 
+                    $ast = new FuncDeclStmt($VAR.text,new Function($dt.type,$l.ast,$s.ast)); 
+                } 
+        |       dt=dataType VAR '=' exp ';'
+                { 
+                    $ast = new VarDeclStmt($dt.type,$VAR.text,$exp.ast); 
+                }
+        |       dt=dataType VAR ';'
+                { 
+                    $ast = new VarDeclStmt($dt.type,$VAR.text,new ConstExpr(new IntConst("0"))); 
+                } 
+        |       'create song ' STRING ';'?                      { $ast = new CreateSongStmt($STRING.text); }
         |       'generate' ';'?                                 { $ast = new GenerateStmt(); }
         |       'Part' exp ';'?                                 { $ast = new PartStmt($exp.ast); } 
         |       'play' num=exp ntype=VAR 'on' instr=exp ';'?    { $ast = new PhraseStmt($num.ast, $ntype.text, $instr.ast); }
-        |       dataType VAR '(' ')' s=stmt			{ $ast = new FuncDeclStmt($VAR.text,new Function(new ArgList(),$s.ast)); }
-	|	dataType VAR '(' l=formalParamList ')' s=stmt	{ $ast = new FuncDeclStmt($VAR.text,new Function($l.ast,$s.ast)); }
-	|	dataType VAR '=' exp ';'?			{ $ast = new VarDeclStmt($VAR.text,$exp.ast); }
-	|	dataType VAR ';'?				{ $ast = new VarDeclStmt($VAR.text,new NumExpr(0)); }
 	|	VAR '=' exp ';'?				{ $ast = new AssignStmt($VAR.text,$exp.ast); }
 	|	'get' VAR ';'?					{ $ast = new GetStmt($VAR.text); }
 	|	'put' exp ';'?					{ $ast = new PutStmt($exp.ast); }
@@ -45,10 +65,14 @@ stmt returns [Stmt ast]
 	|	'{' {$ast = new BlockStmt();} (s=stmt {$ast.addAST($s.ast);})+ '}'
 	;
 
-dataType 
-        :       'String'
-        |       'Part'
-        |       'Phrase';
+dataType returns [int type]
+        :       'String'                { $type = Value.STRING; }
+        |       'Integer'               { $type = Value.INTEGER; }
+        |       'Score'                 { $type = Value.SCORE; }
+        |       'Part'                  { $type = Value.PART; }
+        |       'Phrase'                { $type = Value.PHRASE; }
+        |       'Function'              { $type = Value.FUNCTION; }
+        ;
 
 formalParamList returns [ArgList ast]
 	:	dataType v1=VAR {$ast = new ArgList(new VarExpr($v1.text));}(',' dataType v2=VAR {$ast.addAST(new VarExpr($v2.text));} )*
@@ -68,7 +92,8 @@ actualParamList returns [ArgList ast]
 	;
 
 exp returns [Expr ast]
-	:	relexp {$ast = $relexp.ast; };
+	:	relexp {$ast = $relexp.ast; }
+        ;
 
 relexp returns [Expr ast]
 	:	e1=addexp { $ast = $e1.ast; } 
@@ -101,13 +126,30 @@ atom returns [Expr ast]
 	|	'-' NUM				{ $ast = new NumExpr('-' + $NUM.text); }
 	|	VAR '(' ')'			{ $ast = new CallExpr($VAR.text);}
 	|	VAR '(' l=actualParamList ')' 	{ $ast = new CallExpr($VAR.text,$l.ast); }
-        |       STRING                          { 
+        |       STRING
+                { 
                     String s = $STRING.text;
                     String t = s.substring(1, s.length()-1);
-                    $ast = new ValueExpr(new Value(t)); 
+                    $ast = new ConstExpr(new StringConst(t)); 
                 }
-        |       PART                            
+        |       String                          
+                { 
+                    String s = $String.text;
+                    String t = s.substring(1, s.length()-1);
+                    $ast = new ConstExpr(new StringConst(t)); 
+                }
+        |       SCORE
+                {
+                    $ast = new ConstExpr(new ScoreConst($SCORE.text));
+                }
+        |       PART
+                {
+                    $ast = new ConstExpr(new PartConst($PART.text));
+                }
         |       PHRASE
+                {
+                    $ast = new ConstExpr(new PhraseConst($PHRASE.text));
+                }
 	;
 
 //*************************************************************************
@@ -121,3 +163,8 @@ COMMENT	:   	'//' ~('\n'|'\r')* '\r'? '\n' {$channel=HIDDEN;};
 WS  	:   	( ' ' | '\t' | '\r' | '\n' ) {$channel=HIDDEN;};
 STRING	:  	'"' ( ESC_SEQ | ~('\\'|'"') )* '"';
 ESC_SEQ	:   	'\\' ('b'|'t'|'n'|'f'|'r'|'\"'|'\''|'\\');
+String  :       'S' 't' 'r' 'i' 'n' 'g';
+SCORE   :       'S' 'c' 'o' 'r' 'e';
+PART    :       'P' 'a' 'r' 't';
+PHRASE  :       'P' 'h' 'r' 'a' 's' 'e';
+FUNCTION :      'F' 'u' 'n' 'c' 't' 'i' 'o' 'n';

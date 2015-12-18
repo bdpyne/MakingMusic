@@ -12,7 +12,7 @@ public class SymbolTableScope {
     // their initialization value depends on their kind:
     //    variable - an Integer object
     //    function - a Function object
-    private HashMap<String,Object> value = new HashMap<String,Object>();
+    private HashMap<String,Value> value = new HashMap<String,Value>();
     private HashMap<String,Integer> kind = new HashMap<String,Integer>();
 
     public SymbolTableScope(SymbolTableScope parentScope) {
@@ -33,7 +33,7 @@ public class SymbolTableScope {
     }
 
     public void enterFunction(String name, Function value) {
-	this.value.put(name,value);
+//	this.value.put(name,value);
 	this.kind.put(name,FUNCTION);
     }
 
