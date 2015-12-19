@@ -98,12 +98,12 @@ exp returns [Expr ast]
 
 atom returns [Expr ast]
 	:	'(' exp ')'   			{ $ast = new ParenExpr($exp.ast); }
+	|	VAR '(' ')'			{ $ast = new CallExpr($VAR.text);}
+	|	VAR '(' l=actualParamList ')' 	{ $ast = new CallExpr($VAR.text,$l.ast); }
 	|	VAR				{ $ast = new VarExpr($VAR.text); }
 	|	NUM				{ $ast = new NumExpr($NUM.text); }
 	|	'-' NUM				{ $ast = new NumExpr('-' + $NUM.text); }
 	|	DOUBLE				{ $ast = new DoubleExpr($DOUBLE.text); }
-	|	VAR '(' ')'			{ $ast = new CallExpr($VAR.text);}
-	|	VAR '(' l=actualParamList ')' 	{ $ast = new CallExpr($VAR.text,$l.ast); }
         |       STRING
                 { 
                     String s = $STRING.text;

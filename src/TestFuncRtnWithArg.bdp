@@ -1,0 +1,6 @@
+String getmessage(String message) {
+    return message
+}
+
+String msg = getmessage("World")
+put msg

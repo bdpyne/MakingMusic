@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g 2015-12-19 07:40:38
+// $ANTLR 3.5.2 /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g 2015-12-19 12:46:23
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -1003,23 +1003,23 @@ public class simple3Parser extends Parser {
 
 
 	// $ANTLR start "atom"
-	// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:99:1: atom returns [Expr ast] : ( '(' exp ')' | VAR | NUM | '-' NUM | DOUBLE | VAR '(' ')' | VAR '(' l= actualParamList ')' | STRING );
+	// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:99:1: atom returns [Expr ast] : ( '(' exp ')' | VAR '(' ')' | VAR '(' l= actualParamList ')' | VAR | NUM | '-' NUM | DOUBLE | STRING );
 	public final Expr atom() throws RecognitionException {
 		Expr ast = null;
 
 
 		Token VAR19=null;
-		Token NUM20=null;
-		Token NUM21=null;
-		Token DOUBLE22=null;
-		Token VAR23=null;
-		Token VAR24=null;
+		Token VAR20=null;
+		Token VAR21=null;
+		Token NUM22=null;
+		Token NUM23=null;
+		Token DOUBLE24=null;
 		Token STRING25=null;
 		ArgList l =null;
 		Expr exp18 =null;
 
 		try {
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:100:2: ( '(' exp ')' | VAR | NUM | '-' NUM | DOUBLE | VAR '(' ')' | VAR '(' l= actualParamList ')' | STRING )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:100:2: ( '(' exp ')' | VAR '(' ')' | VAR '(' l= actualParamList ')' | VAR | NUM | '-' NUM | DOUBLE | STRING )
 			int alt20=8;
 			switch ( input.LA(1) ) {
 			case 11:
@@ -1034,7 +1034,7 @@ public class simple3Parser extends Parser {
 					switch ( input.LA(3) ) {
 					case 12:
 						{
-						alt20=6;
+						alt20=2;
 						}
 						break;
 					case 11:
@@ -1042,32 +1042,32 @@ public class simple3Parser extends Parser {
 						switch ( input.LA(4) ) {
 						case 11:
 							{
-							alt20=2;
+							alt20=3;
 							}
 							break;
 						case VAR:
 							{
-							alt20=2;
+							alt20=3;
 							}
 							break;
 						case NUM:
 							{
-							alt20=2;
+							alt20=3;
 							}
 							break;
 						case 14:
 							{
-							alt20=2;
+							alt20=3;
 							}
 							break;
 						case DOUBLE:
 							{
-							alt20=2;
+							alt20=3;
 							}
 							break;
 						case STRING:
 							{
-							alt20=2;
+							alt20=3;
 							}
 							break;
 						default:
@@ -1090,18 +1090,18 @@ public class simple3Parser extends Parser {
 						switch ( input.LA(4) ) {
 						case 11:
 							{
-							alt20=2;
+							alt20=3;
 							}
 							break;
 						case 13:
 						case 15:
 							{
-							alt20=7;
+							alt20=3;
 							}
 							break;
 						case 12:
 							{
-							alt20=2;
+							alt20=3;
 							}
 							break;
 						default:
@@ -1123,10 +1123,10 @@ public class simple3Parser extends Parser {
 						{
 						int LA20_38 = input.LA(4);
 						if ( (LA20_38==13) ) {
-							alt20=7;
+							alt20=3;
 						}
 						else if ( (LA20_38==12) ) {
-							alt20=2;
+							alt20=3;
 						}
 
 						else {
@@ -1149,7 +1149,7 @@ public class simple3Parser extends Parser {
 						{
 						int LA20_39 = input.LA(4);
 						if ( (LA20_39==NUM) ) {
-							alt20=2;
+							alt20=3;
 						}
 
 						else {
@@ -1172,10 +1172,10 @@ public class simple3Parser extends Parser {
 						{
 						int LA20_40 = input.LA(4);
 						if ( (LA20_40==13) ) {
-							alt20=7;
+							alt20=3;
 						}
 						else if ( (LA20_40==12) ) {
-							alt20=2;
+							alt20=3;
 						}
 
 						else {
@@ -1198,10 +1198,10 @@ public class simple3Parser extends Parser {
 						{
 						int LA20_41 = input.LA(4);
 						if ( (LA20_41==13) ) {
-							alt20=7;
+							alt20=3;
 						}
 						else if ( (LA20_41==12) ) {
-							alt20=2;
+							alt20=3;
 						}
 
 						else {
@@ -1235,7 +1235,7 @@ public class simple3Parser extends Parser {
 					}
 				}
 				else if ( (LA20_2==EOF||LA20_2==DOUBLE||(LA20_2 >= NUM && LA20_2 <= VAR)||(LA20_2 >= 12 && LA20_2 <= 14)||LA20_2==16||(LA20_2 >= 18 && LA20_2 <= 35)) ) {
-					alt20=2;
+					alt20=4;
 				}
 
 				else {
@@ -1254,17 +1254,17 @@ public class simple3Parser extends Parser {
 				break;
 			case NUM:
 				{
-				alt20=3;
+				alt20=5;
 				}
 				break;
 			case 14:
 				{
-				alt20=4;
+				alt20=6;
 				}
 				break;
 			case DOUBLE:
 				{
-				alt20=5;
+				alt20=7;
 				}
 				break;
 			case STRING:
@@ -1291,54 +1291,54 @@ public class simple3Parser extends Parser {
 					}
 					break;
 				case 2 :
-					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:101:4: VAR
+					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:101:4: VAR '(' ')'
 					{
 					VAR19=(Token)match(input,VAR,FOLLOW_VAR_in_atom1018); 
-					 ast = new VarExpr((VAR19!=null?VAR19.getText():null)); 
+					match(input,11,FOLLOW_11_in_atom1020); 
+					match(input,12,FOLLOW_12_in_atom1022); 
+					 ast = new CallExpr((VAR19!=null?VAR19.getText():null));
 					}
 					break;
 				case 3 :
-					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:102:4: NUM
+					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:102:4: VAR '(' l= actualParamList ')'
 					{
-					NUM20=(Token)match(input,NUM,FOLLOW_NUM_in_atom1028); 
-					 ast = new NumExpr((NUM20!=null?NUM20.getText():null)); 
-					}
-					break;
-				case 4 :
-					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:103:4: '-' NUM
-					{
-					match(input,14,FOLLOW_14_in_atom1038); 
-					NUM21=(Token)match(input,NUM,FOLLOW_NUM_in_atom1040); 
-					 ast = new NumExpr('-' + (NUM21!=null?NUM21.getText():null)); 
-					}
-					break;
-				case 5 :
-					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:104:4: DOUBLE
-					{
-					DOUBLE22=(Token)match(input,DOUBLE,FOLLOW_DOUBLE_in_atom1050); 
-					 ast = new DoubleExpr((DOUBLE22!=null?DOUBLE22.getText():null)); 
-					}
-					break;
-				case 6 :
-					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:105:4: VAR '(' ')'
-					{
-					VAR23=(Token)match(input,VAR,FOLLOW_VAR_in_atom1060); 
-					match(input,11,FOLLOW_11_in_atom1062); 
-					match(input,12,FOLLOW_12_in_atom1064); 
-					 ast = new CallExpr((VAR23!=null?VAR23.getText():null));
-					}
-					break;
-				case 7 :
-					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:106:4: VAR '(' l= actualParamList ')'
-					{
-					VAR24=(Token)match(input,VAR,FOLLOW_VAR_in_atom1073); 
-					match(input,11,FOLLOW_11_in_atom1075); 
-					pushFollow(FOLLOW_actualParamList_in_atom1079);
+					VAR20=(Token)match(input,VAR,FOLLOW_VAR_in_atom1031); 
+					match(input,11,FOLLOW_11_in_atom1033); 
+					pushFollow(FOLLOW_actualParamList_in_atom1037);
 					l=actualParamList();
 					state._fsp--;
 
-					match(input,12,FOLLOW_12_in_atom1081); 
-					 ast = new CallExpr((VAR24!=null?VAR24.getText():null),l); 
+					match(input,12,FOLLOW_12_in_atom1039); 
+					 ast = new CallExpr((VAR20!=null?VAR20.getText():null),l); 
+					}
+					break;
+				case 4 :
+					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:103:4: VAR
+					{
+					VAR21=(Token)match(input,VAR,FOLLOW_VAR_in_atom1047); 
+					 ast = new VarExpr((VAR21!=null?VAR21.getText():null)); 
+					}
+					break;
+				case 5 :
+					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:104:4: NUM
+					{
+					NUM22=(Token)match(input,NUM,FOLLOW_NUM_in_atom1057); 
+					 ast = new NumExpr((NUM22!=null?NUM22.getText():null)); 
+					}
+					break;
+				case 6 :
+					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:105:4: '-' NUM
+					{
+					match(input,14,FOLLOW_14_in_atom1067); 
+					NUM23=(Token)match(input,NUM,FOLLOW_NUM_in_atom1069); 
+					 ast = new NumExpr('-' + (NUM23!=null?NUM23.getText():null)); 
+					}
+					break;
+				case 7 :
+					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:106:4: DOUBLE
+					{
+					DOUBLE24=(Token)match(input,DOUBLE,FOLLOW_DOUBLE_in_atom1079); 
+					 ast = new DoubleExpr((DOUBLE24!=null?DOUBLE24.getText():null)); 
 					}
 					break;
 				case 8 :
@@ -1860,17 +1860,17 @@ public class simple3Parser extends Parser {
 	public static final BitSet FOLLOW_11_in_atom1002 = new BitSet(new long[]{0x0000000000004BA0L});
 	public static final BitSet FOLLOW_exp_in_atom1004 = new BitSet(new long[]{0x0000000000001000L});
 	public static final BitSet FOLLOW_12_in_atom1006 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_VAR_in_atom1018 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NUM_in_atom1028 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_14_in_atom1038 = new BitSet(new long[]{0x0000000000000080L});
-	public static final BitSet FOLLOW_NUM_in_atom1040 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_DOUBLE_in_atom1050 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_VAR_in_atom1060 = new BitSet(new long[]{0x0000000000000800L});
-	public static final BitSet FOLLOW_11_in_atom1062 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_12_in_atom1064 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_VAR_in_atom1073 = new BitSet(new long[]{0x0000000000000800L});
-	public static final BitSet FOLLOW_11_in_atom1075 = new BitSet(new long[]{0x0000000000004BA0L});
-	public static final BitSet FOLLOW_actualParamList_in_atom1079 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_12_in_atom1081 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_VAR_in_atom1018 = new BitSet(new long[]{0x0000000000000800L});
+	public static final BitSet FOLLOW_11_in_atom1020 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_12_in_atom1022 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_VAR_in_atom1031 = new BitSet(new long[]{0x0000000000000800L});
+	public static final BitSet FOLLOW_11_in_atom1033 = new BitSet(new long[]{0x0000000000004BA0L});
+	public static final BitSet FOLLOW_actualParamList_in_atom1037 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_12_in_atom1039 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_VAR_in_atom1047 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NUM_in_atom1057 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_14_in_atom1067 = new BitSet(new long[]{0x0000000000000080L});
+	public static final BitSet FOLLOW_NUM_in_atom1069 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_DOUBLE_in_atom1079 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_STRING_in_atom1102 = new BitSet(new long[]{0x0000000000000002L});
 }

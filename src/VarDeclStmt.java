@@ -8,13 +8,20 @@ public class VarDeclStmt extends Stmt {
     public VarDeclStmt(int t, String v, Expr e) {
 	var  = v;
         type = t;
+        
+        System.out.println("Using the wrong constructor");
+        
 	this.addAST(e);
     }
 
     public VarDeclStmt(int t, String v, Function e) {
 	var  = v;
         type = t;
-	this.addAST(e);
+        
+        System.out.println("Using the right constructor");
+
+        
+        this.addAST(e);
     }
     
     public String Var() {
