@@ -53,21 +53,16 @@ stmt returns [Stmt ast]
                 {
                     $ast = new NoteStmt($instr.ast, $rhy.ast, $phr.text);
                 }
-
-//        |       'create song ' STRING ';'?                      { $ast = new CreateSongStmt($STRING.text); }
-        |       'generate' ';'?                                 { $ast = new GenerateStmt(); }
-//        |       'Part' exp ';'?                                 { $ast = new PartStmt($exp.ast); } 
-//        |       'play' num=exp ntype=VAR 'on' instr=exp ';'?    { $ast = new PhraseStmt($num.ast, $ntype.text, $instr.ast); }
-//	|	VAR '=' exp ';'?				{ $ast = new AssignStmt($VAR.text,$exp.ast); }
+	|	VAR '=' exp ';'?				{ $ast = new AssignStmt($VAR.text,$exp.ast); }
 	|	'get' VAR ';'?					{ $ast = new GetStmt($VAR.text); }
 	|	'put' exp ';'?					{ $ast = new PutStmt($exp.ast); }
 	|	VAR '(' ')' ';'?				{ $ast = new CallStmt($VAR.text);}
 	|	VAR '(' l=actualParamList ')' ';'?		{ $ast = new CallStmt($VAR.text,$l.ast);}
 	|	'return' exp ';'?				{ $ast = new ReturnStmt($exp.ast); }
 	|	'return' ';'?					{ $ast = new ReturnStmt(); }
-//	|	'while' '(' exp ')' s=stmt			{ $ast = new WhileStmt($exp.ast,$s.ast); }
-//	|	'if' '(' exp ')' s1=stmt {$ast = new IfStmt($exp.ast,$s1.ast);}('else' s2=stmt {$ast.addAST($s2.ast);})?  
-//	|	'{' {$ast = new BlockStmt();} (s=stmt {$ast.addAST($s.ast);})+ '}'
+	|	'while' '(' exp ')' s=stmt			{ $ast = new WhileStmt($exp.ast,$s.ast); }
+	|	'if' '(' exp ')' s1=stmt {$ast = new IfStmt($exp.ast,$s1.ast);}('else' s2=stmt {$ast.addAST($s2.ast);})?  
+	|	'{' {$ast = new BlockStmt();} (s=stmt {$ast.addAST($s.ast);})+ '}'
 	;
 
 dataType returns [int type]
@@ -98,32 +93,8 @@ actualParamList returns [ArgList ast]
 	;
 
 exp returns [Expr ast]
-	:	relexp {$ast = $relexp.ast; }
-        ;
-
-relexp returns [Expr ast]
-	:	e1=addexp { $ast = $e1.ast; } 
-		(
-			('==' e2=addexp { $ast = new BinopExpr(BinopExpr.EQ,$ast,$e2.ast); })|
-			('<=' e3=addexp { $ast = new BinopExpr(BinopExpr.LESSEQ,$ast,$e3.ast); })
-		)*
-	;
-
-addexp returns [Expr ast]
-	:	e1=mulexp { $ast = $e1.ast; }
-		(
-			('+' e2=mulexp { $ast = new BinopExpr(BinopExpr.ADD,$ast,$e2.ast); })|
-			('-' e3=mulexp { $ast = new BinopExpr(BinopExpr.MINUS,$ast,$e3.ast); })
-		)* 
-	;
-
-mulexp returns [Expr ast]
 	:	e1=atom { $ast = $e1.ast; }
-		(
-			('*' e2=atom { $ast = new BinopExpr(BinopExpr.MULT,$ast,$e2.ast); })|
-			('/' e3=atom { $ast = new BinopExpr(BinopExpr.DIV,$ast,$e3.ast); })
-		)* 
-	;
+        ;
 
 atom returns [Expr ast]
 	:	'(' exp ')'   			{ $ast = new ParenExpr($exp.ast); }
@@ -175,9 +146,3 @@ WS  	:   	( ' ' | '\t' | '\r' | '\n' ) {$channel=HIDDEN;};
 DOUBLE  :       '0'..'9'+'.''0'..'9'+ ;
 STRING	:  	'"' ( ESC_SEQ | ~('\\'|'"') )* '"';
 ESC_SEQ	:   	'\\' ('b'|'t'|'n'|'f'|'r'|'\"'|'\''|'\\');
-//String  :       'S' 't' 'r' 'i' 'n' 'g';
-//SCORE   :       'S' 'c' 'o' 'r' 'e';
-//PART    :       'P' 'a' 'r' 't';
-//PHRASE  :       'P' 'h' 'r' 'a' 's' 'e';
-//FUNCTION :      'F' 'u' 'n' 'c' 't' 'i' 'o' 'n';
-//DOUBLE :        'D' 'o' 'u' 'b' 'l' 'e';

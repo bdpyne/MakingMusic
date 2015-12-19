@@ -21,6 +21,16 @@ public class CallExpr extends Expr {
     }
 
     public ArgList getActualParameters() {
-	return (ArgList) getAST(0);
+
+        ArgList list;
+
+        if (this.size() > 0) {
+            list = (ArgList) getAST(0);
+        }
+        else {
+            list = new ArgList();            
+        }
+        
+	return list;
     }
 }

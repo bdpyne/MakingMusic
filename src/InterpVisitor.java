@@ -27,13 +27,13 @@ public class InterpVisitor implements JMC {
     
     
     // Stack for passing values around
-    private Stack<Value> values;
+    private Stack<Value> returns;
 
     
     // Need this constructor to get the directory from the program arguments
     public InterpVisitor(String directory) {
         this.generateDir = directory;
-        values = new Stack();
+        returns = new Stack<>();
     }
     
         
@@ -61,14 +61,17 @@ public class InterpVisitor implements JMC {
                 // evaluate the actual expression
 /**
  * @todo uncomment the following and the final line of the block
- */                
-//                Value value = new Value(this.dispatch(actualParameters.getAST(i)));
+ *              
+ */             
+                int rtn = this.dispatch(actualParameters.getAST(i));
+                
+                Value value = returns.pop();
                 
                 // get the formal parameter name from the keyword list
                 String name = keywords.get(i);
             
                 // declare the variable with its init value
-//                Interpret.symbolTable.declareVariable(name,value);
+                Interpret.symbolTable.declareVariable(name,value);
             }           
         }
         else {
@@ -76,23 +79,24 @@ public class InterpVisitor implements JMC {
             for (int i = 0; i < formalParameters.size(); i++) {
                 
                 // evaluate the actual expression
-//                Value value = new Value(this.dispatch(actualParameters.getAST(i)));
-                this.dispatch(actualParameters.getAST(i));
+                int rtn = this.dispatch(actualParameters.getAST(i));
+                
+                Value value = returns.pop();
                 
                 // get the formal parameter name
                 VarExpr var = (VarExpr) formalParameters.getAST(i);
                 String name = var.getVarName();
                 
                 // declare the variable with its init value
-//                Interpret.symbolTable.declareVariable(name,value);            
+                Interpret.symbolTable.declareVariable(name,value);            
             }
         }
     }
 
     // the dispatcher for the interpreter visitor
     public int dispatch(AST ast) throws ReturnValueException {
-//	if (ast.getClass() == BlockStmt.class) return interp((BlockStmt)ast);
         if (ast.getClass() == StmtList.class) return interp((StmtList)ast);
+        else if (ast.getClass() == BlockStmt.class) return interp((BlockStmt)ast);
 	else if (ast.getClass() == NumExpr.class) return interp((NumExpr)ast);
 	else if (ast.getClass() == DoubleExpr.class) return interp((DoubleExpr)ast);
         else if (ast.getClass() == VarExpr.class) return interp((VarExpr)ast);
@@ -100,19 +104,13 @@ public class InterpVisitor implements JMC {
 	else if (ast.getClass() == VarDeclStmt.class) return interp((VarDeclStmt)ast);
 	else if (ast.getClass() == CallStmt.class) return interp((CallStmt)ast);
 	else if (ast.getClass() == CallExpr.class) return interp((CallExpr)ast);
-//        else if (ast.getClass() == ValueExpr.class) return interp((ValueExpr)ast);
-//        else if (ast.getClass() == CreateSongStmt.class) return interp((CreateSongStmt)ast);
-//        else if (ast.getClass() == GenerateStmt.class) return interp((GenerateStmt)ast);
-//        else if (ast.getClass() == PartStmt.class) return interp((PartStmt)ast);
-//        else if (ast.getClass() == PhraseStmt.class) return interp((PhraseStmt)ast);
         else if (ast.getClass() == ConstExpr.class) return interp((ConstExpr)ast);
         else if (ast.getClass() == AssignStmt.class) return interp((AssignStmt)ast);
 	else if (ast.getClass() == PutStmt.class) return interp((PutStmt)ast);
 	else if (ast.getClass() == GetStmt.class) return interp((GetStmt)ast);
-//	else if (ast.getClass() == IfStmt.class) return interp((IfStmt)ast);
-//	else if (ast.getClass() == WhileStmt.class) return interp((WhileStmt)ast);
-//	else if (ast.getClass() == BinopExpr.class) return interp((BinopExpr)ast);
-//	else if (ast.getClass() == ParenExpr.class) return interp((ParenExpr)ast);
+	else if (ast.getClass() == IfStmt.class) return interp((IfStmt)ast);
+	else if (ast.getClass() == WhileStmt.class) return interp((WhileStmt)ast);
+	else if (ast.getClass() == ParenExpr.class) return interp((ParenExpr)ast);
 	else if (ast.getClass() == ReturnStmt.class) return interp((ReturnStmt)ast);
 	else if (ast.getClass() == NoteStmt.class) return interp((NoteStmt)ast);
 	else {          
@@ -123,13 +121,6 @@ public class InterpVisitor implements JMC {
     }
     
     
-    private int interp(ConstExpr ast) {
-        
-        values.push(ast.getValue());
-        
-        return Value.NOTYPE;
-    }
-
     //****** interpret statement level ASTs
     
     private int interp(NoteStmt ast) {
@@ -143,10 +134,10 @@ public class InterpVisitor implements JMC {
         
         try {
             ret = this.dispatch(ast.getAST(0));            
-            Integer instrument  = ((IntConst) values.pop()).getValue();
+            Integer instrument  = ((IntConst) returns.pop()).getValue();
             
             ret = this.dispatch(ast.getAST(1));            
-            Double rhythm  = ((DoubleConst) values.pop()).getValue();
+            Double rhythm  = ((DoubleConst) returns.pop()).getValue();
             phr.addNote(new Note(instrument, rhythm));
             
             Interpret.symbolTable.updateVariable(phraseName, new PhraseConst(phr));
@@ -161,111 +152,10 @@ public class InterpVisitor implements JMC {
     
     private int interp(DoubleExpr ast) {
         
-        values.push(new DoubleConst(ast.getValue()));
+        returns.push(new DoubleConst(ast.getValue()));
         
         return Value.NOTYPE;
     }
-    
-//    private Value interp(PhraseStmt ast) {
-//        
-//        Double typeOfNote;
-//
-//        try {
-//            Value v = this.dispatch(ast.getAST(0));
-//            Integer numToPlay = (Integer) v.getValue();
-//       
-//            String  duration  = ast.getNote();
-//            
-//            if (duration.equals("quarter")) {
-//                typeOfNote = 1.0;
-//            }
-//            else if (duration.equals("eighth")) {
-//                typeOfNote = 0.5;
-//            }
-//            else if (duration.equals("sixteenth")) {
-//                typeOfNote = 0.25;
-//            }
-//            else {
-//                typeOfNote = 0.0;
-//            }
-//
-//            v = (Value) this.dispatch(ast.getAST(1));
-//            String partName = (String) v.getValue();
-//        
-//            System.out.println(partName);
-//
-//            // Lookup the part that plays this phrase
-//            v = (Value) Interpret.symbolTable.lookupVariable(partName);
-//            Part p  = (Part) v.getValue();
-//
-//            Phrase phrase = new Phrase(0.0);
-//            
-//            for(int i=0;i<numToPlay;i++){
-//                Note note = new Note();
-//                note.setDuration(typeOfNote);
-//                phrase.addNote(note);
-//            }        
-////          p.add(phrase);
-//        }
-//        catch(ReturnValueException e) {
-//            
-//        }
-//        
-//        
-//        return null;
-//    }
-    
-//    private Value interp(PartStmt ast) {
-//        
-//        try {
-//            Value  v    = this.dispatch(ast.getAST(0));
-//            String name = (String) v.getValue();
-//            Part   p    = new Part(name);
-//            Interpret.symbolTable.declareVariable(name, new Value(p));
-//        }
-//        catch (ReturnValueException e) {
-//            //
-//        }
-//        
-//        return null;
-//    }
-    
-//    private Value interp(GenerateStmt ast) {
-//
-//        Value  v    = (Value) Interpret.symbolTable.lookupVariable("score");
-//        String name = (String) v.getValue();
-//        
-//               v    = (Value) Interpret.symbolTable.lookupVariable(name);
-//        Score  score = (Score) v.getValue();
-//        
-//                
-//        String mid = this.generateDir + name + ".mid";
-//        String aif = this.generateDir + name + ".aif";
-//        
-//        Write.midi(score, mid );
-//        float[] data = Read.audio(mid);
-//        Write.audio(data, aif);
-//        
-//        
-//        return null;
-//    }
-    
-//    private Value interp(CreateSongStmt ast) {
-//
-//        Score score = new Score();
-//        
-//        Value val = new Value(new Score());
-//        
-//        // Store the score with the song name as the key.
-//        // Then add another entry to lookup the song name via the internally
-//        // defined key "score".
-//        Interpret.symbolTable.declareVariable(ast.getSongName(), val);
-//        Interpret.symbolTable.declareVariable("score", new Value(ast.getSongName()));
-//        
-//        
-//        return null;
-//    }
-    
     
     
     // assignment statements
@@ -299,21 +189,21 @@ public class InterpVisitor implements JMC {
     }
 
     // block statements
-//    private Value interp(BlockStmt ast) throws ReturnValueException {
-//	// set up the scope for this block
-//	Interpret.symbolTable.pushScope();
-//
-//	// interpret each of the statements in the block
-//	for (int i = 0; i < ast.size(); i++) {
-//	    this.dispatch(ast.getAST(i));
-//	}
-//
-//	// leaving this scope -- set current scope to parent scope
-//	Interpret.symbolTable.popScope();
-//
-//	// statements do not have return values -- null
-//	return null;
-//    }
+    private int interp(BlockStmt ast) throws ReturnValueException {
+	// set up the scope for this block
+	Interpret.symbolTable.pushScope();
+
+	// interpret each of the statements in the block
+	for (int i = 0; i < ast.size(); i++) {
+	    this.dispatch(ast.getAST(i));
+	}
+
+	// leaving this scope -- set current scope to parent scope
+	Interpret.symbolTable.popScope();
+
+	// statements do not have return values -- null
+	return Value.NOTYPE;
+    }
 
     // get statements
     private int interp(GetStmt ast) {
@@ -338,22 +228,22 @@ public class InterpVisitor implements JMC {
     }
 
     // if statements
-//    private Value interp(IfStmt ast) throws ReturnValueException {
-//	// interpret the expression
-//	Integer value = this.dispatch(ast.getAST(0));
-//
-//	if (value.intValue() != 0) {
-//	    // interpret the then clause
-//	    this.dispatch(ast.getAST(1));
-//	}
-//	else if (ast.size() == 3) {
-//	    // interpret the else clause if we have one
-//	    this.dispatch(ast.getAST(2));
-//	}
-//
-//	// statements do not have return values -- null
-//	return null;
-//    }
+    private int interp(IfStmt ast) throws ReturnValueException {
+	// interpret the expression
+	Integer value = this.dispatch(ast.getAST(0));
+
+	if (value.intValue() != 0) {
+	    // interpret the then clause
+	    this.dispatch(ast.getAST(1));
+	}
+	else if (ast.size() == 3) {
+	    // interpret the else clause if we have one
+	    this.dispatch(ast.getAST(2));
+	}
+
+	// statements do not have return values -- null
+	return Value.NOTYPE;
+    }
 
     // put statements
     private int interp(PutStmt ast) throws ReturnValueException {
@@ -361,7 +251,7 @@ public class InterpVisitor implements JMC {
 	// interpret the expression
         int type = this.dispatch(ast.getAST(0));
 
-        Value v = values.pop();
+        Value v = returns.pop();
         
 	System.out.println("Output Value: " + v.toString());
 
@@ -370,23 +260,23 @@ public class InterpVisitor implements JMC {
     }
 
     // while statements
-//    private Value interp(WhileStmt ast) throws ReturnValueException {
-//	Integer value;
-//
-//	// interpet the expression
-//	value = this.dispatch(ast.getAST(0));
-//
-//	// interpret the loop while the expression value != 0
-//	while (value.intValue() != 0) {
-//	    // interpret the while body
-//	    this.dispatch(ast.getAST(1));
-//	    // reevaluate the loop expression
-//	    value = this.dispatch(ast.getAST(0));
-//	}
-//
-//	// statements do not have return values -- null
-//	return null;
-//    }
+    private int interp(WhileStmt ast) throws ReturnValueException {
+	Integer value;
+
+	// interpet the expression
+	value = this.dispatch(ast.getAST(0));
+
+	// interpret the loop while the expression value != 0
+	while (value.intValue() != 0) {
+	    // interpret the while body
+	    this.dispatch(ast.getAST(1));
+	    // reevaluate the loop expression
+	    value = this.dispatch(ast.getAST(0));
+	}
+
+	// statements do not have return values -- null
+	return Value.NOTYPE;
+    }
 
     // statement lists
     private int interp(StmtList ast) throws ReturnValueException {
@@ -423,7 +313,7 @@ public class InterpVisitor implements JMC {
 	// evaluate the init expression
 	int type = this.dispatch(ast.getAST(0));
         
-        Value value = values.pop();
+        Value value = returns.pop();
                 
 	// declare the variable with its init value
 	Interpret.symbolTable.declareVariable(ast.Var(), value);
@@ -481,74 +371,47 @@ public class InterpVisitor implements JMC {
 	    throw new ReturnValueException(null);
 	}
 	else {
+            
 	    // evaluate the return expression
-//	    String returnValue = this.dispatch(ast.getExpr());
-
-	    // now throw the return value object
-	    throw new ReturnValueException(new StringConst("5"));
+	    int rtn = this.dispatch(ast.getExpr());
 	}
         
-//        return Value.NOTYPE;
+        return Value.NOTYPE;
     }
 
     //****** interpret expression level ASTs
-    // binop expressions
-//    private Value interp(BinopExpr ast) throws ReturnValueException {
-//
-//	// interpret left child
-//	Integer left = this.dispatch(ast.getAST(0));
-//	// interpret right child
-//	Integer right = this.dispatch(ast.getAST(1));
-//
-//	// compute the return value based on the OP
-//	switch(ast.getOp()) {
-//	case BinopExpr.ADD:
-//	    return new Integer(left.intValue() + right.intValue());
-//	case BinopExpr.MINUS:
-//	    return new Integer(left.intValue() - right.intValue());
-//	case BinopExpr.MULT:
-//	    return new Integer(left.intValue() * right.intValue());
-//	case BinopExpr.DIV:
-//	    return new Integer(left.intValue() / right.intValue());
-//	case BinopExpr.EQ:
-//	    return new Integer((left.intValue() == right.intValue())?1:0);
-//	case BinopExpr.LESSEQ:
-//	    return new Integer((left.intValue() <= right.intValue())?1:0);
-//	default:
-//	    System.out.println("Error (InterpVisitor): unknown binary operator expression.");
-//	    System.exit(1);
-//	    return null;
-//	}
-//    }
-
+    
+    
     // number expressions
+    private int interp(ConstExpr ast) {
+        
+        returns.push(ast.getValue());
+        
+        return Value.NOTYPE;
+    }
+    
+    
     private int interp(NumExpr ast) {
         
-        values.push(new IntConst(ast.getValue()));
+        returns.push(new IntConst(ast.getValue()));
         
 	return Value.INTEGER;
     }
 
     // parenthesized expressions
-//    private  Integer interp(ParenExpr ast) throws ReturnValueException {
-//	return this.dispatch(ast.getAST(0));
-//    }
+    private  Integer interp(ParenExpr ast) throws ReturnValueException {
+	return this.dispatch(ast.getAST(0));
+    }
 
     // rhs variable expressions
     private int interp(VarExpr ast) {
         
 	// fetch the variable value from symbol table
 	Value v =  Interpret.symbolTable.lookupVariable(ast.getVarName());
-        values.push(v);
+        returns.push(v);
         
         return Value.NOTYPE;
     }
-
-//    private Value interp(ValueExpr ast) {
-//        
-//	// fetch the variable value from symbol table
-//	return new Value(ast.getValue());
-//    }
 
     // call expressions - call to functions within expressions -- have
     // deal with the return value.
@@ -564,19 +427,25 @@ public class InterpVisitor implements JMC {
 	// push function local scope onto the stack
 	Interpret.symbolTable.pushScope();
         
+        System.out.println("start initParameters");
+        
 	// Initialize formal parameters with actual parameters in the current scope
 	initParameters(fValue.getFormalParameters(),ast.getActualParameters());
+
+        System.out.println("end initParameters");
         
 	// the the parent of the current scope to be the parent scope of the function
 	Interpret.symbolTable.getCurrentScope().setParentScope(fValue.getParentScope());
 
+        System.out.println("setParentScope");
+        
 	// execute the body of the function and retrieve the return value
 	this.dispatch(fValue.getFunctionBody());
-
-        Value value = values.pop();
         
+        System.out.println("dispatched function body");
         
-
+        // Value is on the stack at this point
+        
 	// pop the function scope off the stack
 	Interpret.symbolTable.popScope();
         
