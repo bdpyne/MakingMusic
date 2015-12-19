@@ -15,6 +15,10 @@ public class PartConst extends Value {
     
     private Part value;
     
+    public PartConst() {
+        
+    }
+    
     public PartConst(Part value) {
         this.value = value;
     }

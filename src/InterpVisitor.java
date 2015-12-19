@@ -18,14 +18,25 @@ import jm.util.Read;
 
 public class InterpVisitor implements JMC {
 
-    public InterpVisitor(String directory) {
-        this.generateDir = directory;
-    }
-    
-        
     // reading the console input
     private InputStreamReader converter = new InputStreamReader(System.in);
     private BufferedReader consoleInput = new BufferedReader(converter);
+    
+    // Directory to generate the audio file to
+    private final String generateDir;
+    
+    
+    // Stack for passing values around
+    private Stack<Value> values;
+
+
+    // Need this constructor to get the directory from the program arguments
+    public InterpVisitor(String directory) {
+        this.generateDir = directory;
+        values = new Stack();
+    }
+    
+        
     
     // initializing function parameters in the current scope
     // this function implements positional parameter correspondence.
@@ -48,13 +59,16 @@ public class InterpVisitor implements JMC {
             for (int i = 0; i < keywords.size(); i++) {
                 
                 // evaluate the actual expression
-                Value value = new Value(this.dispatch(actualParameters.getAST(i)));
+/**
+ * @todo uncomment the following and the final line of the block
+ */                
+//                Value value = new Value(this.dispatch(actualParameters.getAST(i)));
                 
                 // get the formal parameter name from the keyword list
                 String name = keywords.get(i);
             
                 // declare the variable with its init value
-                Interpret.symbolTable.declareVariable(name,value);
+//                Interpret.symbolTable.declareVariable(name,value);
             }           
         }
         else {
@@ -62,202 +76,230 @@ public class InterpVisitor implements JMC {
             for (int i = 0; i < formalParameters.size(); i++) {
                 
                 // evaluate the actual expression
-                Value value = new Value(this.dispatch(actualParameters.getAST(i)));
+//                Value value = new Value(this.dispatch(actualParameters.getAST(i)));
+                this.dispatch(actualParameters.getAST(i));
                 
                 // get the formal parameter name
                 VarExpr var = (VarExpr) formalParameters.getAST(i);
                 String name = var.getVarName();
                 
                 // declare the variable with its init value
-                Interpret.symbolTable.declareVariable(name,value);            
+//                Interpret.symbolTable.declareVariable(name,value);            
             }
         }
     }
 
     // the dispatcher for the interpreter visitor
-    public Value dispatch(AST ast) throws ReturnValueException {
-//	if      (ast.getClass() == AssignStmt.class) return interp((AssignStmt)ast);
-	if (ast.getClass() == BlockStmt.class) return interp((BlockStmt)ast);
-//	else if (ast.getClass() == GetStmt.class) return interp((GetStmt)ast);
-//	else if (ast.getClass() == IfStmt.class) return interp((IfStmt)ast);
-	else if (ast.getClass() == PutStmt.class) return interp((PutStmt)ast);
-//	else if (ast.getClass() == WhileStmt.class) return interp((WhileStmt)ast);
-        else if (ast.getClass() == StmtList.class) return interp((StmtList)ast);
-//	else if (ast.getClass() == BinopExpr.class) return interp((BinopExpr)ast);
+    public int dispatch(AST ast) throws ReturnValueException {
+//	if (ast.getClass() == BlockStmt.class) return interp((BlockStmt)ast);
+        if (ast.getClass() == StmtList.class) return interp((StmtList)ast);
 	else if (ast.getClass() == NumExpr.class) return interp((NumExpr)ast);
-//	else if (ast.getClass() == ParenExpr.class) return interp((ParenExpr)ast);
         else if (ast.getClass() == VarExpr.class) return interp((VarExpr)ast);
 	else if (ast.getClass() == FuncDeclStmt.class) return interp((FuncDeclStmt)ast);
 	else if (ast.getClass() == VarDeclStmt.class) return interp((VarDeclStmt)ast);
 	else if (ast.getClass() == CallStmt.class) return interp((CallStmt)ast);
 	else if (ast.getClass() == CallExpr.class) return interp((CallExpr)ast);
-//	else if (ast.getClass() == ReturnStmt.class) return interp((ReturnStmt)ast);
-        else if (ast.getClass() == ValueExpr.class) return interp((ValueExpr)ast);
-        else if (ast.getClass() == CreateSongStmt.class) return interp((CreateSongStmt)ast);
-        else if (ast.getClass() == GenerateStmt.class) return interp((GenerateStmt)ast);
-        else if (ast.getClass() == PartStmt.class) return interp((PartStmt)ast);
-        else if (ast.getClass() == PhraseStmt.class) return interp((PhraseStmt)ast);
+//        else if (ast.getClass() == ValueExpr.class) return interp((ValueExpr)ast);
+//        else if (ast.getClass() == CreateSongStmt.class) return interp((CreateSongStmt)ast);
+//        else if (ast.getClass() == GenerateStmt.class) return interp((GenerateStmt)ast);
+//        else if (ast.getClass() == PartStmt.class) return interp((PartStmt)ast);
+//        else if (ast.getClass() == PhraseStmt.class) return interp((PhraseStmt)ast);
+        else if (ast.getClass() == ConstExpr.class) return interp((ConstExpr)ast);
+        else if (ast.getClass() == AssignStmt.class) return interp((AssignStmt)ast);
+	else if (ast.getClass() == PutStmt.class) return interp((PutStmt)ast);
+	else if (ast.getClass() == GetStmt.class) return interp((GetStmt)ast);
+//	else if (ast.getClass() == IfStmt.class) return interp((IfStmt)ast);
+//	else if (ast.getClass() == WhileStmt.class) return interp((WhileStmt)ast);
+//	else if (ast.getClass() == BinopExpr.class) return interp((BinopExpr)ast);
+//	else if (ast.getClass() == ParenExpr.class) return interp((ParenExpr)ast);
+	else if (ast.getClass() == ReturnStmt.class) return interp((ReturnStmt)ast);
 	else {          
 	    System.out.println("Error (InterpVisitor): unknown class type " + ast.getClass().getName());
 	    System.exit(1);
-	    return null;
+	    return Value.NOTYPE;
 	}
+    }
+    
+    
+    private int interp(ConstExpr ast) {
+        
+        values.push(ast.getValue());
+        
+        return Value.NOTYPE;
     }
 
     //****** interpret statement level ASTs
     
-    private Value interp(PhraseStmt ast) {
-        
-        Double typeOfNote;
-
-        try {
-            Value v = this.dispatch(ast.getAST(0));
-            Integer numToPlay = (Integer) v.getValue();
-       
-            String  duration  = ast.getNote();
-            
-            if (duration.equals("quarter")) {
-                typeOfNote = 1.0;
-            }
-            else if (duration.equals("eighth")) {
-                typeOfNote = 0.5;
-            }
-            else if (duration.equals("sixteenth")) {
-                typeOfNote = 0.25;
-            }
-            else {
-                typeOfNote = 0.0;
-            }
-
-            v = (Value) this.dispatch(ast.getAST(1));
-            String partName = (String) v.getValue();
-        
-            System.out.println(partName);
-
-            // Lookup the part that plays this phrase
-            v = (Value) Interpret.symbolTable.lookupVariable(partName);
-            Part p  = (Part) v.getValue();
-
-            Phrase phrase = new Phrase(0.0);
-            
-            for(int i=0;i<numToPlay;i++){
-                Note note = new Note();
-                note.setDuration(typeOfNote);
-                phrase.addNote(note);
-            }        
-//          p.add(phrase);
-        }
-        catch(ReturnValueException e) {
-            
-        }
-        
-        
-        return null;
-    }
+//    private Value interp(PhraseStmt ast) {
+//        
+//        Double typeOfNote;
+//
+//        try {
+//            Value v = this.dispatch(ast.getAST(0));
+//            Integer numToPlay = (Integer) v.getValue();
+//       
+//            String  duration  = ast.getNote();
+//            
+//            if (duration.equals("quarter")) {
+//                typeOfNote = 1.0;
+//            }
+//            else if (duration.equals("eighth")) {
+//                typeOfNote = 0.5;
+//            }
+//            else if (duration.equals("sixteenth")) {
+//                typeOfNote = 0.25;
+//            }
+//            else {
+//                typeOfNote = 0.0;
+//            }
+//
+//            v = (Value) this.dispatch(ast.getAST(1));
+//            String partName = (String) v.getValue();
+//        
+//            System.out.println(partName);
+//
+//            // Lookup the part that plays this phrase
+//            v = (Value) Interpret.symbolTable.lookupVariable(partName);
+//            Part p  = (Part) v.getValue();
+//
+//            Phrase phrase = new Phrase(0.0);
+//            
+//            for(int i=0;i<numToPlay;i++){
+//                Note note = new Note();
+//                note.setDuration(typeOfNote);
+//                phrase.addNote(note);
+//            }        
+////          p.add(phrase);
+//        }
+//        catch(ReturnValueException e) {
+//            
+//        }
+//        
+//        
+//        return null;
+//    }
     
-    private Value interp(PartStmt ast) {
-        
-        try {
-            Value  v    = this.dispatch(ast.getAST(0));
-            String name = (String) v.getValue();
-            Part   p    = new Part(name);
-            Interpret.symbolTable.declareVariable(name, new Value(p));
-        }
-        catch (ReturnValueException e) {
-            //
-        }
-        
-        return null;
-    }
+//    private Value interp(PartStmt ast) {
+//        
+//        try {
+//            Value  v    = this.dispatch(ast.getAST(0));
+//            String name = (String) v.getValue();
+//            Part   p    = new Part(name);
+//            Interpret.symbolTable.declareVariable(name, new Value(p));
+//        }
+//        catch (ReturnValueException e) {
+//            //
+//        }
+//        
+//        return null;
+//    }
     
-    private Value interp(GenerateStmt ast) {
-
-        Value  v    = (Value) Interpret.symbolTable.lookupVariable("score");
-        String name = (String) v.getValue();
-        
-               v    = (Value) Interpret.symbolTable.lookupVariable(name);
-        Score  score = (Score) v.getValue();
-        
-                
-        String mid = this.generateDir + name + ".mid";
-        String aif = this.generateDir + name + ".aif";
-        
-        Write.midi(score, mid );
-        float[] data = Read.audio(mid);
-        Write.audio(data, aif);
-        
-        
-        return null;
-    }
+//    private Value interp(GenerateStmt ast) {
+//
+//        Value  v    = (Value) Interpret.symbolTable.lookupVariable("score");
+//        String name = (String) v.getValue();
+//        
+//               v    = (Value) Interpret.symbolTable.lookupVariable(name);
+//        Score  score = (Score) v.getValue();
+//        
+//                
+//        String mid = this.generateDir + name + ".mid";
+//        String aif = this.generateDir + name + ".aif";
+//        
+//        Write.midi(score, mid );
+//        float[] data = Read.audio(mid);
+//        Write.audio(data, aif);
+//        
+//        
+//        return null;
+//    }
     
-    private Value interp(CreateSongStmt ast) {
-
-        Score score = new Score();
-        
-        Value val = new Value(new Score());
-        
-        // Store the score with the song name as the key.
-        // Then add another entry to lookup the song name via the internally
-        // defined key "score".
-        Interpret.symbolTable.declareVariable(ast.getSongName(), val);
-        Interpret.symbolTable.declareVariable("score", new Value(ast.getSongName()));
-        
-        
-        return null;
-    }
+//    private Value interp(CreateSongStmt ast) {
+//
+//        Score score = new Score();
+//        
+//        Value val = new Value(new Score());
+//        
+//        // Store the score with the song name as the key.
+//        // Then add another entry to lookup the song name via the internally
+//        // defined key "score".
+//        Interpret.symbolTable.declareVariable(ast.getSongName(), val);
+//        Interpret.symbolTable.declareVariable("score", new Value(ast.getSongName()));
+//        
+//        
+//        return null;
+//    }
     
     
     
     // assignment statements
-//    private Value interp(AssignStmt ast) throws ReturnValueException {
+    private int interp(AssignStmt ast) throws ReturnValueException {
+
+        // typecheck the expression
+        int exprType = this.dispatch(ast.getAST(0));
+ 
+        // get the type of the variable
+        int varType = Interpret.symbolTable.lookupVariable(ast.lhsVar()).getType();
+ 
+        // types compatible?
+        int resultType = Value.getResultType(varType,exprType);
+        
+        // check for type errors
+        if (resultType == Value.NOTYPE ||
+            resultType != varType) { // second condition means: assigning supertype to subtype
+            System.err.println("Error (assignmentstmt): expression type "+resultType+" cannot be assigned to variable of type "+varType);
+            System.exit(1);
+            return Value.NOTYPE;
+        }
+        
+        // check if we have to insert a type promotion
+        if (resultType != exprType) {
+            AST newAst = new CastExpr(exprType,resultType,(Expr)ast.getAST(0));
+            ast.putAST(0,newAst);
+        }
+        
+        // statements do not have types
+        return Value.NOTYPE;         
+    }
+
+    // block statements
+//    private Value interp(BlockStmt ast) throws ReturnValueException {
+//	// set up the scope for this block
+//	Interpret.symbolTable.pushScope();
 //
-//	// evaluate the expression
-//	Integer value = this.dispatch(ast.getAST(0));
-//	// assign the value to the lhs var
-//	Interpret.symbolTable.updateVariable(ast.lhsVar(),value);
+//	// interpret each of the statements in the block
+//	for (int i = 0; i < ast.size(); i++) {
+//	    this.dispatch(ast.getAST(i));
+//	}
+//
+//	// leaving this scope -- set current scope to parent scope
+//	Interpret.symbolTable.popScope();
 //
 //	// statements do not have return values -- null
 //	return null;
 //    }
 
-    // block statements
-    private Value interp(BlockStmt ast) throws ReturnValueException {
-	// set up the scope for this block
-	Interpret.symbolTable.pushScope();
-
-	// interpret each of the statements in the block
-	for (int i = 0; i < ast.size(); i++) {
-	    this.dispatch(ast.getAST(i));
-	}
-
-	// leaving this scope -- set current scope to parent scope
-	Interpret.symbolTable.popScope();
-
-	// statements do not have return values -- null
-	return null;
-    }
-
     // get statements
-//    private Value interp(GetStmt ast) {
-//
-//	try {
-//	    // get the value string from the user
-//	    System.out.print("Enter a value: ");
-//	    String inputString = consoleInput.readLine();
-//	    Integer value = new Integer(inputString);
-//
-//	    // assign the value to the lhs var
-//	    Interpret.symbolTable.updateVariable(ast.lhsVar(),value);
-//
-//	    // statements do not have return values -- null
-//	    return null;
-//	}
-//	catch(IOException e) {
-//	    System.out.println("Interpreter Visitor: exception " + e);
-//	    System.exit(1);
-//	    return null;
-//	}
-//    }
+    private int interp(GetStmt ast) {
+
+	try {
+	    // get the value string from the user
+	    System.out.print("Enter a value: ");
+	    String inputString = consoleInput.readLine();
+            Value   value = new IntConst(inputString);
+
+	    // assign the value to the lhs var
+	    Interpret.symbolTable.updateVariable(ast.lhsVar(),value);
+
+	    // statements do not have return values -- null
+	    return Value.NOTYPE;
+	}
+	catch(IOException e) {
+	    System.out.println("Interpreter Visitor: exception " + e);
+	    System.exit(1);
+	    return Value.NOTYPE;
+	}
+    }
 
     // if statements
 //    private Value interp(IfStmt ast) throws ReturnValueException {
@@ -278,14 +320,17 @@ public class InterpVisitor implements JMC {
 //    }
 
     // put statements
-    private Value interp(PutStmt ast) throws ReturnValueException {
+    private int interp(PutStmt ast) throws ReturnValueException {
+        
 	// interpret the expression
-       	Value value = this.dispatch(ast.getAST(0));
-        String s    = (String) value.getValue();
-	System.out.println("Output Value: " + s);
+        int type = this.dispatch(ast.getAST(0));
+
+        Value v = values.pop();
+        
+	System.out.println("Output Value: " + v.toString());
 
 	// statements do not have return values -- null
-	return null;
+	return Value.NOTYPE;
     }
 
     // while statements
@@ -308,7 +353,7 @@ public class InterpVisitor implements JMC {
 //    }
 
     // statement lists
-    private Value interp(StmtList ast) throws ReturnValueException {
+    private int interp(StmtList ast) throws ReturnValueException {
 
 	// interpret each of the statements
 	for (int i = 0; i < ast.size(); i++) {
@@ -316,12 +361,12 @@ public class InterpVisitor implements JMC {
 	}
 
 	// statements do not have return values -- null
-	return null;
+	return Value.NOTYPE;
     }
 
 
     // function declaration statements
-    private Value interp(FuncDeclStmt ast) {
+    private int interp(FuncDeclStmt ast) {
 
 	// we are implementing static scoping, so we
 	// have to insert the current scope as the parent
@@ -333,24 +378,26 @@ public class InterpVisitor implements JMC {
 	Interpret.symbolTable.declareFunction(ast.Name(),fValue);
 
 	// statements do not have return values -- null
-	return null;
+	return Value.NOTYPE;
     }
 
     // variable declaration statements
-    private Value interp(VarDeclStmt ast) throws ReturnValueException {
-
-	// evaluate the init expression
-	Value value = this.dispatch(ast.getAST(0));
+    private int interp(VarDeclStmt ast) throws ReturnValueException {
         
+	// evaluate the init expression
+	int type = this.dispatch(ast.getAST(0));
+        
+        Value value = values.pop();
+                
 	// declare the variable with its init value
-	Interpret.symbolTable.declareVariable(ast.Var(),value);
+	Interpret.symbolTable.declareVariable(ast.Var(), value);
         
 	// statements do not have return values -- null
-	return null;
+	return Value.NOTYPE;
     }
 
     // call statements -- function calls as statements -- ignore the return value
-    private Value interp(CallStmt ast) throws ReturnValueException {
+    private int interp(CallStmt ast) throws ReturnValueException {
 
 	// lookup the function value of the function name
 	Function fValue = Interpret.symbolTable.lookupFunction(ast.getFunctionName());
@@ -380,30 +427,33 @@ public class InterpVisitor implements JMC {
 
 	// pop the function scope off the stack
 	Interpret.symbolTable.popScope();
+        
 	// we are now in the parent scope of the function --
 	// we have to restore the original scope on the top of the stack
 	Interpret.symbolTable.setCurrentScope(topOfStack);
 
 	// statements do not have return values -- null
-	return null;
+	return Value.NOTYPE;
     }
 
     // return statements
-//    private Value interp(ReturnStmt ast) throws ReturnValueException {
-//
-//	if (ast.size() == 0) {
-//	    // no return value express, throw a null
-//	    // return value object.
-//	    throw new ReturnValueException(null);
-//	}
-//	else {
-//	    // evaluate the return expression
-//	    Integer returnValue = this.dispatch(ast.getExpr());
-//
-//	    // now throw the return value object
-//	    throw new ReturnValueException(returnValue);
-//	}
-//    }
+    private int interp(ReturnStmt ast) throws ReturnValueException {
+
+	if (ast.size() == 0) {
+	    // no return value express, throw a null
+	    // return value object.
+	    throw new ReturnValueException(null);
+	}
+	else {
+	    // evaluate the return expression
+//	    String returnValue = this.dispatch(ast.getExpr());
+
+	    // now throw the return value object
+	    throw new ReturnValueException(new StringConst("5"));
+	}
+        
+//        return Value.NOTYPE;
+    }
 
     //****** interpret expression level ASTs
     // binop expressions
@@ -436,8 +486,11 @@ public class InterpVisitor implements JMC {
 //    }
 
     // number expressions
-    private Value interp(NumExpr ast) {
-	return new Value(ast.getValue());
+    private int interp(NumExpr ast) {
+        
+        values.push(new IntConst(ast.getValue()));
+        
+	return Value.INTEGER;
     }
 
     // parenthesized expressions
@@ -446,21 +499,24 @@ public class InterpVisitor implements JMC {
 //    }
 
     // rhs variable expressions
-    private Value interp(VarExpr ast) {
+    private int interp(VarExpr ast) {
         
 	// fetch the variable value from symbol table
-	return Interpret.symbolTable.lookupVariable(ast.getVarName());
+	Value v =  Interpret.symbolTable.lookupVariable(ast.getVarName());
+        values.push(v);
+        
+        return Value.NOTYPE;
     }
 
-    private Value interp(ValueExpr ast) {
-        
-	// fetch the variable value from symbol table
-	return new Value(ast.getValue());
-    }
+//    private Value interp(ValueExpr ast) {
+//        
+//	// fetch the variable value from symbol table
+//	return new Value(ast.getValue());
+//    }
 
     // call expressions - call to functions within expressions -- have
     // deal with the return value.
-    private Value interp(CallExpr ast) throws ReturnValueException {
+    private int interp(CallExpr ast) throws ReturnValueException {
 
 	// lookup the function value of the function name
 	Function fValue = Interpret.symbolTable.lookupFunction(ast.getFunctionName());
@@ -468,42 +524,36 @@ public class InterpVisitor implements JMC {
 	// implement static scoping
 	// save the current top of stack
 	SymbolTableScope topOfStack = Interpret.symbolTable.getCurrentScope();
+        
 	// push function local scope onto the stack
 	Interpret.symbolTable.pushScope();
+        
 	// Initialize formal parameters with actual parameters in the current scope
 	initParameters(fValue.getFormalParameters(),ast.getActualParameters());
+        
 	// the the parent of the current scope to be the parent scope of the function
 	Interpret.symbolTable.getCurrentScope().setParentScope(fValue.getParentScope());
 
 	// execute the body of the function and retrieve the return value
-	Value returnValue = null;
-	try {
-	    this.dispatch(fValue.getFunctionBody());
-	    // if we got here then we did not receive a return value exception -- error!
-	    System.err.println("Error: expected return value from function '"+ast.getFunctionName()+"'.");
-	    System.exit(1);
-	}
-	catch (ReturnValueException e) {
-	    returnValue = e.getReturnValue();
+	this.dispatch(fValue.getFunctionBody());
 
-	    // if this is null then we saw a return without a value
-	    if (returnValue == null) {
-		System.err.println("Error: expected return value from function '"+ast.getFunctionName()+"'.");
-		System.exit(1);
-	    }
-	}
+        Value value = values.pop();
+        
+        
 
 	// pop the function scope off the stack
 	Interpret.symbolTable.popScope();
+        
 	// we are now in the parent scope of the function --
 	// we have to restore the original scope on the top of the stack
 	Interpret.symbolTable.setCurrentScope(topOfStack);
 
 	// the return value of a function call is the value of the 
 	// called function
-	return returnValue;
+        
+        /**
+         * @todo get the type from the value left by the function body execution
+         */
+	return Value.NOTYPE;
     }
-
-    
-    private final String generateDir;
 }

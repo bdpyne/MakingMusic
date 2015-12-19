@@ -6,8 +6,12 @@ public class Function extends AST {
     // we declare a function during interpretation we
     // need to keep track of the scope were it was declared.
     private SymbolTableScope parentScope = null;
+    
+    // Return type
+    private int type;
 
-    public Function(ArgList formalParameters, Stmt body) {
+    public Function(int type, ArgList formalParameters, Stmt body) {
+        this.type = type;
 	this.addAST(formalParameters);
 	this.addAST(body);
     }
@@ -32,5 +36,9 @@ public class Function extends AST {
 
     public SymbolTableScope getParentScope () {
 	return this.parentScope;
+    }
+    
+    public int getType() {
+        return this.type;
     }
 }

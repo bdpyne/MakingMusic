@@ -14,6 +14,10 @@ public class PhraseConst extends Value {
     
     private Phrase value;
     
+    public PhraseConst() {
+        
+    }
+    
     public PhraseConst(Phrase value) {
         this.value = value;
     }

@@ -1,10 +1,18 @@
-create song "MySong"
-String inst = "drums"
-Part inst
+String p
+String s = "hello"
 
-fun makePhrase(instrument) {
-    play 5 quarter on instrument
+void myfunc() {
+    put s
 }
 
-makePhrase(instrument->inst)
+myfunc() 
 
+Integer i = 5
+put i
+
+String getmessage(param) {    
+    return param
+}
+
+String msg = getmessage("world")
+put msg

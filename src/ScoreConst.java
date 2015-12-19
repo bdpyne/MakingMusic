@@ -15,6 +15,10 @@ public class ScoreConst extends Value {
     
     private Score value;
     
+    public ScoreConst() {
+        
+    }
+    
     public ScoreConst(Score value) {
         this.value = value;
     }

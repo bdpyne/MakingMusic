@@ -37,8 +37,9 @@ public class SymbolTable {
     public void declareFunction(String symbol, Function value) {
 	// check that the current symbol was not already declared in the
 	// current scope, if so then we have an error
+        
 	if (currentScope.lookupSymbol(symbol) != null) {
-	    System.err.println("Error: redclaring function "+symbol+".");
+	    System.err.println("Error: redeclaring function "+symbol+".");
 	    System.exit(1);
 	}
 	// all clear...enter the symbol into the scope
@@ -78,8 +79,11 @@ public class SymbolTable {
     public Function lookupFunction(String symbol) {
 	// lookup the symbol in the current scope
 	SymbolTableScope lookupScope = currentScope;
-	Object value = lookupScope.lookupSymbol(symbol);
+        
+	FunctionConst v     = (FunctionConst) lookupScope.lookupSymbol(symbol);
+        Function      value = v.getValue();
 
+        
 	// if not in current scope search up the stack
 	while (value == null) {
 	    lookupScope = lookupScope.getParentScope();
@@ -90,7 +94,8 @@ public class SymbolTable {
 		System.exit(1);
 		return null;
 	    }
-	    value = lookupScope.lookupSymbol(symbol);
+            v     = (FunctionConst) lookupScope.lookupSymbol(symbol);
+	    value = v.getValue();
 	}
 	// all done, return the value, guaranteed to be here
 	// by the nature of our search procedure -- now check 
@@ -105,7 +110,7 @@ public class SymbolTable {
 	}
     }
 
-    public void updateVariable(String symbol, Integer initValue) {
+    public void updateVariable(String symbol, Value initValue) {
 	// find the scope where the symbol was declared
 	SymbolTableScope lookupScope = currentScope;
 	Object value = lookupScope.lookupSymbol(symbol);
@@ -124,7 +129,7 @@ public class SymbolTable {
 	// we found a scope where symbol is defined, update it
 	// make sure that it is a variable
 	if (lookupScope.lookupKind(symbol).equals(SymbolTableScope.VARIABLE)) {
-	    lookupScope.enterVariable(symbol,new Value(initValue));
+	    lookupScope.enterVariable(symbol, initValue);
 	}
 	else {
 		System.err.println("Error (update): symbol '"+symbol+"' is not a variable.");

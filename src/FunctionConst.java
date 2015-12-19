@@ -22,7 +22,7 @@ public class FunctionConst extends Value {
     }
     
     public int getType() {
-        return Value.STRING;
+        return Value.FUNCTION;
     }
     
     public String toString() {

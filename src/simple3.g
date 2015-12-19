@@ -31,7 +31,7 @@ stmt returns [Stmt ast]
                 }
         |       dt=dataType VAR '(' ')' s=stmt			
                 { 
-                    $ast = new FuncDeclStmt($VAR.text,new Function($dt.type,new ArgList(),$s.ast));
+                   $ast = new FuncDeclStmt($VAR.text,new Function($dt.type,new ArgList(),$s.ast));
                 }
         |       'void' VAR '(' l=formalParamList ')' s=stmt
                 { 
@@ -41,28 +41,28 @@ stmt returns [Stmt ast]
                 { 
                     $ast = new FuncDeclStmt($VAR.text,new Function($dt.type,$l.ast,$s.ast)); 
                 } 
-        |       dt=dataType VAR '=' exp ';'
+        |       dt=dataType VAR '=' exp ';'?
                 { 
                     $ast = new VarDeclStmt($dt.type,$VAR.text,$exp.ast); 
                 }
-        |       dt=dataType VAR ';'
+        |       dt=dataType VAR ';'?
                 { 
                     $ast = new VarDeclStmt($dt.type,$VAR.text,new ConstExpr(new IntConst("0"))); 
                 } 
-        |       'create song ' STRING ';'?                      { $ast = new CreateSongStmt($STRING.text); }
-        |       'generate' ';'?                                 { $ast = new GenerateStmt(); }
-        |       'Part' exp ';'?                                 { $ast = new PartStmt($exp.ast); } 
-        |       'play' num=exp ntype=VAR 'on' instr=exp ';'?    { $ast = new PhraseStmt($num.ast, $ntype.text, $instr.ast); }
-	|	VAR '=' exp ';'?				{ $ast = new AssignStmt($VAR.text,$exp.ast); }
+//        |       'create song ' STRING ';'?                      { $ast = new CreateSongStmt($STRING.text); }
+//        |       'generate' ';'?                                 { $ast = new GenerateStmt(); }
+//        |       'Part' exp ';'?                                 { $ast = new PartStmt($exp.ast); } 
+//        |       'play' num=exp ntype=VAR 'on' instr=exp ';'?    { $ast = new PhraseStmt($num.ast, $ntype.text, $instr.ast); }
+//	|	VAR '=' exp ';'?				{ $ast = new AssignStmt($VAR.text,$exp.ast); }
 	|	'get' VAR ';'?					{ $ast = new GetStmt($VAR.text); }
 	|	'put' exp ';'?					{ $ast = new PutStmt($exp.ast); }
 	|	VAR '(' ')' ';'?				{ $ast = new CallStmt($VAR.text);}
 	|	VAR '(' l=actualParamList ')' ';'?		{ $ast = new CallStmt($VAR.text,$l.ast);}
 	|	'return' exp ';'?				{ $ast = new ReturnStmt($exp.ast); }
 	|	'return' ';'?					{ $ast = new ReturnStmt(); }
-	|	'while' '(' exp ')' s=stmt			{ $ast = new WhileStmt($exp.ast,$s.ast); }
-	|	'if' '(' exp ')' s1=stmt {$ast = new IfStmt($exp.ast,$s1.ast);}('else' s2=stmt {$ast.addAST($s2.ast);})?  
-	|	'{' {$ast = new BlockStmt();} (s=stmt {$ast.addAST($s.ast);})+ '}'
+//	|	'while' '(' exp ')' s=stmt			{ $ast = new WhileStmt($exp.ast,$s.ast); }
+//	|	'if' '(' exp ')' s1=stmt {$ast = new IfStmt($exp.ast,$s1.ast);}('else' s2=stmt {$ast.addAST($s2.ast);})?  
+//	|	'{' {$ast = new BlockStmt();} (s=stmt {$ast.addAST($s.ast);})+ '}'
 	;
 
 dataType returns [int type]
@@ -129,27 +129,49 @@ atom returns [Expr ast]
         |       STRING
                 { 
                     String s = $STRING.text;
-                    String t = s.substring(1, s.length()-1);
-                    $ast = new ConstExpr(new StringConst(t)); 
+
+                    if (s.equals("String")) {
+                        $ast = new ConstExpr(new StringConst(s));
+                    }
+                    else if (s.equals("Score")) {
+                        $ast = new ConstExpr(new ScoreConst());
+                    }
+                    else if (s.equals("Part")) {
+                        $ast = new ConstExpr(new PartConst());
+                    }
+                    else if (s.equals("Phrase")) {
+                        $ast = new ConstExpr(new PhraseConst());
+                    }
+                    else {
+                        String t;
+
+                        if ((s != null) && (s.length() > 0)) {
+                            t = s.substring(1, s.length()-1);
+                        }
+                        else {
+                            t = new String(s);
+                        }
+                        $ast = new ConstExpr(new StringConst(t)); 
+                    }
                 }
-        |       String                          
-                { 
-                    String s = $String.text;
-                    String t = s.substring(1, s.length()-1);
-                    $ast = new ConstExpr(new StringConst(t)); 
-                }
-        |       SCORE
-                {
-                    $ast = new ConstExpr(new ScoreConst($SCORE.text));
-                }
-        |       PART
-                {
-                    $ast = new ConstExpr(new PartConst($PART.text));
-                }
-        |       PHRASE
-                {
-                    $ast = new ConstExpr(new PhraseConst($PHRASE.text));
-                }
+//        |       String                          
+//                { 
+//                    String s = $String.text;
+//                    String t = s.substring(1, s.length()-1);
+//                    $ast = new ConstExpr(new StringConst(t)); 
+//                }
+//        |       SCORE
+//                {
+//                    $ast = new ConstExpr(new ScoreConst());
+//                }
+//        |       PART
+//                {
+//                    $ast = new ConstExpr(new PartConst());
+//                }
+//        |       PHRASE
+//                {
+//                    $ast = new ConstExpr(new PhraseConst());
+//                }
 	;
 
 //*************************************************************************
@@ -163,8 +185,8 @@ COMMENT	:   	'//' ~('\n'|'\r')* '\r'? '\n' {$channel=HIDDEN;};
 WS  	:   	( ' ' | '\t' | '\r' | '\n' ) {$channel=HIDDEN;};
 STRING	:  	'"' ( ESC_SEQ | ~('\\'|'"') )* '"';
 ESC_SEQ	:   	'\\' ('b'|'t'|'n'|'f'|'r'|'\"'|'\''|'\\');
-String  :       'S' 't' 'r' 'i' 'n' 'g';
-SCORE   :       'S' 'c' 'o' 'r' 'e';
-PART    :       'P' 'a' 'r' 't';
-PHRASE  :       'P' 'h' 'r' 'a' 's' 'e';
-FUNCTION :      'F' 'u' 'n' 'c' 't' 'i' 'o' 'n';
+//String  :       'S' 't' 'r' 'i' 'n' 'g';
+//SCORE   :       'S' 'c' 'o' 'r' 'e';
+//PART    :       'P' 'a' 'r' 't';
+//PHRASE  :       'P' 'h' 'r' 'a' 's' 'e';
+//FUNCTION :      'F' 'u' 'n' 'c' 't' 'i' 'o' 'n';

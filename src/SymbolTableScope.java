@@ -33,7 +33,8 @@ public class SymbolTableScope {
     }
 
     public void enterFunction(String name, Function value) {
-//	this.value.put(name,value);
+        Value v = new FunctionConst(value);
+	this.value.put(name,v);
 	this.kind.put(name,FUNCTION);
     }
 

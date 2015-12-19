@@ -3,19 +3,26 @@
 public class VarDeclStmt extends Stmt {
 
     private String var;
+    private int    type;
 
-    public VarDeclStmt(String v, Expr e) {
-	var = v;
+    public VarDeclStmt(int t, String v, Expr e) {
+	var  = v;
+        type = t;
 	this.addAST(e);
     }
 
-    public VarDeclStmt(String v, Function e) {
-	var = v;
+    public VarDeclStmt(int t, String v, Function e) {
+	var  = v;
+        type = t;
 	this.addAST(e);
     }
-
+    
     public String Var() {
 	return var;
+    }
+    
+    public int getType() {
+        return this.type;
     }
 
     public Expr Value() {
