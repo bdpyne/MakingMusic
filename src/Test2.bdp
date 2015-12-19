@@ -1,10 +1,13 @@
-create song "MySong"
-declare inst = "drums"
-Part inst
-
-fun makePhrase(instrument) {
-    play 5 quarter on instrument
+Phrase swingTime() {
+    Phrase phr
+    Integer ride = 51
+    add note ride 1.0   to phr
+    add note ride 0.67  to phr
+    add note ride 0.33  to phr
+    add note ride 1.0   to phr
+    add note ride 1     to phr
+    return phr
 }
 
-makePhrase(instrument->inst)
-
+Phrase cymbal = swingTime()
+ 

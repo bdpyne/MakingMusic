@@ -29,7 +29,7 @@ public class InterpVisitor implements JMC {
     // Stack for passing values around
     private Stack<Value> values;
 
-
+    
     // Need this constructor to get the directory from the program arguments
     public InterpVisitor(String directory) {
         this.generateDir = directory;
@@ -94,6 +94,7 @@ public class InterpVisitor implements JMC {
 //	if (ast.getClass() == BlockStmt.class) return interp((BlockStmt)ast);
         if (ast.getClass() == StmtList.class) return interp((StmtList)ast);
 	else if (ast.getClass() == NumExpr.class) return interp((NumExpr)ast);
+	else if (ast.getClass() == DoubleExpr.class) return interp((DoubleExpr)ast);
         else if (ast.getClass() == VarExpr.class) return interp((VarExpr)ast);
 	else if (ast.getClass() == FuncDeclStmt.class) return interp((FuncDeclStmt)ast);
 	else if (ast.getClass() == VarDeclStmt.class) return interp((VarDeclStmt)ast);
@@ -113,6 +114,7 @@ public class InterpVisitor implements JMC {
 //	else if (ast.getClass() == BinopExpr.class) return interp((BinopExpr)ast);
 //	else if (ast.getClass() == ParenExpr.class) return interp((ParenExpr)ast);
 	else if (ast.getClass() == ReturnStmt.class) return interp((ReturnStmt)ast);
+	else if (ast.getClass() == NoteStmt.class) return interp((NoteStmt)ast);
 	else {          
 	    System.out.println("Error (InterpVisitor): unknown class type " + ast.getClass().getName());
 	    System.exit(1);
@@ -129,6 +131,40 @@ public class InterpVisitor implements JMC {
     }
 
     //****** interpret statement level ASTs
+    
+    private int interp(NoteStmt ast) {
+        
+        String phraseName   = ast.getPhrase();
+        int    ret          = 0;
+        
+        PhraseConst pc  = (PhraseConst) Interpret.symbolTable.lookupVariable(phraseName);
+        Phrase      phr = pc.getValue();
+        
+        
+        try {
+            ret = this.dispatch(ast.getAST(0));            
+            Integer instrument  = ((IntConst) values.pop()).getValue();
+            
+            ret = this.dispatch(ast.getAST(1));            
+            Double rhythm  = ((DoubleConst) values.pop()).getValue();
+            phr.addNote(new Note(instrument, rhythm));
+            
+            Interpret.symbolTable.updateVariable(phraseName, new PhraseConst(phr));
+        }
+        catch (ReturnValueException e) {            
+        }
+        
+        
+        
+        return Value.NOTYPE;
+    }
+    
+    private int interp(DoubleExpr ast) {
+        
+        values.push(new DoubleConst(ast.getValue()));
+        
+        return Value.NOTYPE;
+    }
     
 //    private Value interp(PhraseStmt ast) {
 //        

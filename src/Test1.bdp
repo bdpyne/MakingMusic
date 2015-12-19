@@ -9,10 +9,3 @@ myfunc()
 
 Integer i = 5
 put i
-
-String getmessage(param) {    
-    return param
-}
-
-String msg = getmessage("world")
-put msg

@@ -21,6 +21,7 @@ public abstract class Value {
     public static final int PART     = 3;
     public static final int PHRASE   = 4;
     public static final int FUNCTION = 5;
+    public static final int DOUBLE   = 6;
 
     
     // Type Promotion Table
@@ -29,14 +30,15 @@ public abstract class Value {
     // Note: functions are not allowed to appear
     // in the context of any operations.
     private static int[][] typeArray = {
-      //  INTEGER  STRING  SCORE   PART    PHRASE  FUNCTION
+      //  INTEGER  DOUBLE  STRING  SCORE   PART    PHRASE  FUNCTION
       //  --------------------------------------------------
-        { INTEGER, STRING, SCORE,  PART,   PHRASE, NOTYPE },     // INTEGER
-        { STRING,  STRING, STRING, STRING, STRING, NOTYPE },     // STRING
-        { STRING,  STRING, SCORE,  SCORE,  SCORE,  NOTYPE },     // SCORE
-        { STRING,  STRING, SCORE,  PART,   PART,   NOTYPE},      // PART
-        { STRING,  STRING, SCORE,  PART,   PHRASE, NOTYPE},      // PHRASE
-        { NOTYPE,  NOTYPE, NOTYPE, NOTYPE, NOTYPE, NOTYPE }      // FUNCTION
+        { INTEGER, DOUBLE, STRING, NOTYPE,  NOTYPE, NOTYPE, NOTYPE },     // INTEGER
+        { DOUBLE , DOUBLE, STRING, NOTYPE,  NOTYPE, NOTYPE, NOTYPE },     // DOUBLE
+        { STRING,  STRING, STRING, STRING, STRING,  STRING, NOTYPE },     // STRING
+        { NOTYPE,  NOTYPE, STRING, SCORE,  NOTYPE,  NOTYPE, NOTYPE },     // SCORE
+        { NOTYPE,  NOTYPE, STRING, NOTYPE,  PART,   NOTYPE, NOTYPE},      // PART
+        { NOTYPE,  NOTYPE, STRING, NOTYPE,  NOTYPE, PHRASE, NOTYPE},      // PHRASE
+        { NOTYPE,  NOTYPE, NOTYPE, NOTYPE, NOTYPE,  NOTYPE, NOTYPE }      // FUNCTION
     };
     
     public static int getResultType(int lt,int rt) {

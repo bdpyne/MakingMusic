@@ -49,8 +49,13 @@ stmt returns [Stmt ast]
                 { 
                     $ast = new VarDeclStmt($dt.type,$VAR.text,new ConstExpr(new IntConst("0"))); 
                 } 
+        |       'add note' instr=exp rhy=exp 'to' phr=VAR ';'?
+                {
+                    $ast = new NoteStmt($instr.ast, $rhy.ast, $phr.text);
+                }
+
 //        |       'create song ' STRING ';'?                      { $ast = new CreateSongStmt($STRING.text); }
-//        |       'generate' ';'?                                 { $ast = new GenerateStmt(); }
+        |       'generate' ';'?                                 { $ast = new GenerateStmt(); }
 //        |       'Part' exp ';'?                                 { $ast = new PartStmt($exp.ast); } 
 //        |       'play' num=exp ntype=VAR 'on' instr=exp ';'?    { $ast = new PhraseStmt($num.ast, $ntype.text, $instr.ast); }
 //	|	VAR '=' exp ';'?				{ $ast = new AssignStmt($VAR.text,$exp.ast); }
@@ -72,6 +77,7 @@ dataType returns [int type]
         |       'Part'                  { $type = Value.PART; }
         |       'Phrase'                { $type = Value.PHRASE; }
         |       'Function'              { $type = Value.FUNCTION; }
+        |       'Double'                { $type = Value.DOUBLE; }
         ;
 
 formalParamList returns [ArgList ast]
@@ -124,6 +130,7 @@ atom returns [Expr ast]
 	|	VAR				{ $ast = new VarExpr($VAR.text); }
 	|	NUM				{ $ast = new NumExpr($NUM.text); }
 	|	'-' NUM				{ $ast = new NumExpr('-' + $NUM.text); }
+	|	DOUBLE				{ $ast = new DoubleExpr($DOUBLE.text); }
 	|	VAR '(' ')'			{ $ast = new CallExpr($VAR.text);}
 	|	VAR '(' l=actualParamList ')' 	{ $ast = new CallExpr($VAR.text,$l.ast); }
         |       STRING
@@ -154,24 +161,6 @@ atom returns [Expr ast]
                         $ast = new ConstExpr(new StringConst(t)); 
                     }
                 }
-//        |       String                          
-//                { 
-//                    String s = $String.text;
-//                    String t = s.substring(1, s.length()-1);
-//                    $ast = new ConstExpr(new StringConst(t)); 
-//                }
-//        |       SCORE
-//                {
-//                    $ast = new ConstExpr(new ScoreConst());
-//                }
-//        |       PART
-//                {
-//                    $ast = new ConstExpr(new PartConst());
-//                }
-//        |       PHRASE
-//                {
-//                    $ast = new ConstExpr(new PhraseConst());
-//                }
 	;
 
 //*************************************************************************
@@ -183,6 +172,7 @@ VAR  	:	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')* ;
 NUM 	:	'0'..'9'+;
 COMMENT	:   	'//' ~('\n'|'\r')* '\r'? '\n' {$channel=HIDDEN;};
 WS  	:   	( ' ' | '\t' | '\r' | '\n' ) {$channel=HIDDEN;};
+DOUBLE  :       '0'..'9'+'.''0'..'9'+ ;
 STRING	:  	'"' ( ESC_SEQ | ~('\\'|'"') )* '"';
 ESC_SEQ	:   	'\\' ('b'|'t'|'n'|'f'|'r'|'\"'|'\''|'\\');
 //String  :       'S' 't' 'r' 'i' 'n' 'g';
@@ -190,3 +180,4 @@ ESC_SEQ	:   	'\\' ('b'|'t'|'n'|'f'|'r'|'\"'|'\''|'\\');
 //PART    :       'P' 'a' 'r' 't';
 //PHRASE  :       'P' 'h' 'r' 'a' 's' 'e';
 //FUNCTION :      'F' 'u' 'n' 'c' 't' 'i' 'o' 'n';
+//DOUBLE :        'D' 'o' 'u' 'b' 'l' 'e';

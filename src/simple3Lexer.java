@@ -1,4 +1,4 @@
-// $ANTLR 3.5.2 /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g 2015-12-18 20:39:34
+// $ANTLR 3.5.2 /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g 2015-12-18 22:50:02
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -8,7 +8,6 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class simple3Lexer extends Lexer {
 	public static final int EOF=-1;
-	public static final int T__10=10;
 	public static final int T__11=11;
 	public static final int T__12=12;
 	public static final int T__13=13;
@@ -30,12 +29,18 @@ public class simple3Lexer extends Lexer {
 	public static final int T__29=29;
 	public static final int T__30=30;
 	public static final int T__31=31;
+	public static final int T__32=32;
+	public static final int T__33=33;
+	public static final int T__34=34;
+	public static final int T__35=35;
+	public static final int T__36=36;
 	public static final int COMMENT=4;
-	public static final int ESC_SEQ=5;
-	public static final int NUM=6;
-	public static final int STRING=7;
-	public static final int VAR=8;
-	public static final int WS=9;
+	public static final int DOUBLE=5;
+	public static final int ESC_SEQ=6;
+	public static final int NUM=7;
+	public static final int STRING=8;
+	public static final int VAR=9;
+	public static final int WS=10;
 
 	// delegates
 	// delegators
@@ -52,35 +57,15 @@ public class simple3Lexer extends Lexer {
 	}
 	@Override public String getGrammarFileName() { return "/Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g"; }
 
-	// $ANTLR start "T__10"
-	public final void mT__10() throws RecognitionException {
-		try {
-			int _type = T__10;
-			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:2:7: ( '(' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:2:9: '('
-			{
-			match('('); 
-			}
-
-			state.type = _type;
-			state.channel = _channel;
-		}
-		finally {
-			// do for sure before leaving
-		}
-	}
-	// $ANTLR end "T__10"
-
 	// $ANTLR start "T__11"
 	public final void mT__11() throws RecognitionException {
 		try {
 			int _type = T__11;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:3:7: ( ')' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:3:9: ')'
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:2:7: ( '(' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:2:9: '('
 			{
-			match(')'); 
+			match('('); 
 			}
 
 			state.type = _type;
@@ -97,10 +82,10 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__12;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:4:7: ( '*' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:4:9: '*'
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:3:7: ( ')' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:3:9: ')'
 			{
-			match('*'); 
+			match(')'); 
 			}
 
 			state.type = _type;
@@ -117,10 +102,10 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__13;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:5:7: ( '+' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:5:9: '+'
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:4:7: ( '*' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:4:9: '*'
 			{
-			match('+'); 
+			match('*'); 
 			}
 
 			state.type = _type;
@@ -137,10 +122,10 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__14;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:6:7: ( ',' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:6:9: ','
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:5:7: ( '+' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:5:9: '+'
 			{
-			match(','); 
+			match('+'); 
 			}
 
 			state.type = _type;
@@ -157,10 +142,10 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__15;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:7:7: ( '-' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:7:9: '-'
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:6:7: ( ',' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:6:9: ','
 			{
-			match('-'); 
+			match(','); 
 			}
 
 			state.type = _type;
@@ -177,11 +162,10 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__16;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:8:7: ( '->' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:8:9: '->'
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:7:7: ( '-' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:7:9: '-'
 			{
-			match("->"); 
-
+			match('-'); 
 			}
 
 			state.type = _type;
@@ -198,10 +182,11 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__17;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:9:7: ( '/' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:9:9: '/'
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:8:7: ( '->' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:8:9: '->'
 			{
-			match('/'); 
+			match("->"); 
+
 			}
 
 			state.type = _type;
@@ -218,10 +203,10 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__18;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:10:7: ( ';' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:10:9: ';'
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:9:7: ( '/' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:9:9: '/'
 			{
-			match(';'); 
+			match('/'); 
 			}
 
 			state.type = _type;
@@ -238,11 +223,10 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__19;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:11:7: ( '<=' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:11:9: '<='
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:10:7: ( ';' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:10:9: ';'
 			{
-			match("<="); 
-
+			match(';'); 
 			}
 
 			state.type = _type;
@@ -259,10 +243,11 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__20;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:12:7: ( '=' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:12:9: '='
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:11:7: ( '<=' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:11:9: '<='
 			{
-			match('='); 
+			match("<="); 
+
 			}
 
 			state.type = _type;
@@ -279,11 +264,10 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__21;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:13:7: ( '==' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:13:9: '=='
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:12:7: ( '=' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:12:9: '='
 			{
-			match("=="); 
-
+			match('='); 
 			}
 
 			state.type = _type;
@@ -300,10 +284,10 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__22;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:14:7: ( 'Function' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:14:9: 'Function'
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:13:7: ( '==' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:13:9: '=='
 			{
-			match("Function"); 
+			match("=="); 
 
 			}
 
@@ -321,10 +305,10 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__23;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:15:7: ( 'Integer' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:15:9: 'Integer'
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:14:7: ( 'Double' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:14:9: 'Double'
 			{
-			match("Integer"); 
+			match("Double"); 
 
 			}
 
@@ -342,10 +326,10 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__24;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:16:7: ( 'Part' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:16:9: 'Part'
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:15:7: ( 'Function' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:15:9: 'Function'
 			{
-			match("Part"); 
+			match("Function"); 
 
 			}
 
@@ -363,10 +347,10 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__25;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:17:7: ( 'Phrase' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:17:9: 'Phrase'
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:16:7: ( 'Integer' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:16:9: 'Integer'
 			{
-			match("Phrase"); 
+			match("Integer"); 
 
 			}
 
@@ -384,10 +368,10 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__26;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:18:7: ( 'Score' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:18:9: 'Score'
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:17:7: ( 'Part' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:17:9: 'Part'
 			{
-			match("Score"); 
+			match("Part"); 
 
 			}
 
@@ -405,10 +389,10 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__27;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:19:7: ( 'String' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:19:9: 'String'
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:18:7: ( 'Phrase' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:18:9: 'Phrase'
 			{
-			match("String"); 
+			match("Phrase"); 
 
 			}
 
@@ -426,10 +410,10 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__28;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:20:7: ( 'get' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:20:9: 'get'
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:19:7: ( 'Score' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:19:9: 'Score'
 			{
-			match("get"); 
+			match("Score"); 
 
 			}
 
@@ -447,10 +431,10 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__29;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:21:7: ( 'put' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:21:9: 'put'
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:20:7: ( 'String' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:20:9: 'String'
 			{
-			match("put"); 
+			match("String"); 
 
 			}
 
@@ -468,10 +452,10 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__30;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:22:7: ( 'return' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:22:9: 'return'
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:21:7: ( 'add note' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:21:9: 'add note'
 			{
-			match("return"); 
+			match("add note"); 
 
 			}
 
@@ -489,10 +473,10 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = T__31;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:23:7: ( 'void' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:23:9: 'void'
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:22:7: ( 'generate' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:22:9: 'generate'
 			{
-			match("void"); 
+			match("generate"); 
 
 			}
 
@@ -505,13 +489,118 @@ public class simple3Lexer extends Lexer {
 	}
 	// $ANTLR end "T__31"
 
+	// $ANTLR start "T__32"
+	public final void mT__32() throws RecognitionException {
+		try {
+			int _type = T__32;
+			int _channel = DEFAULT_TOKEN_CHANNEL;
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:23:7: ( 'get' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:23:9: 'get'
+			{
+			match("get"); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "T__32"
+
+	// $ANTLR start "T__33"
+	public final void mT__33() throws RecognitionException {
+		try {
+			int _type = T__33;
+			int _channel = DEFAULT_TOKEN_CHANNEL;
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:24:7: ( 'put' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:24:9: 'put'
+			{
+			match("put"); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "T__33"
+
+	// $ANTLR start "T__34"
+	public final void mT__34() throws RecognitionException {
+		try {
+			int _type = T__34;
+			int _channel = DEFAULT_TOKEN_CHANNEL;
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:25:7: ( 'return' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:25:9: 'return'
+			{
+			match("return"); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "T__34"
+
+	// $ANTLR start "T__35"
+	public final void mT__35() throws RecognitionException {
+		try {
+			int _type = T__35;
+			int _channel = DEFAULT_TOKEN_CHANNEL;
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:26:7: ( 'to' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:26:9: 'to'
+			{
+			match("to"); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "T__35"
+
+	// $ANTLR start "T__36"
+	public final void mT__36() throws RecognitionException {
+		try {
+			int _type = T__36;
+			int _channel = DEFAULT_TOKEN_CHANNEL;
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:27:7: ( 'void' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:27:9: 'void'
+			{
+			match("void"); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "T__36"
+
 	// $ANTLR start "VAR"
 	public final void mVAR() throws RecognitionException {
 		try {
 			int _type = VAR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:182:7: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:182:9: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:171:7: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:171:9: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
 			{
 			if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
 				input.consume();
@@ -521,7 +610,7 @@ public class simple3Lexer extends Lexer {
 				recover(mse);
 				throw mse;
 			}
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:182:33: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:171:33: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
 			loop1:
 			while (true) {
 				int alt1=2;
@@ -566,10 +655,10 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = NUM;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:183:6: ( ( '0' .. '9' )+ )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:183:8: ( '0' .. '9' )+
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:172:6: ( ( '0' .. '9' )+ )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:172:8: ( '0' .. '9' )+
 			{
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:183:8: ( '0' .. '9' )+
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:172:8: ( '0' .. '9' )+
 			int cnt2=0;
 			loop2:
 			while (true) {
@@ -618,12 +707,12 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = COMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:184:9: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:184:14: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:173:9: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:173:14: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
 			{
 			match("//"); 
 
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:184:19: (~ ( '\\n' | '\\r' ) )*
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:173:19: (~ ( '\\n' | '\\r' ) )*
 			loop3:
 			while (true) {
 				int alt3=2;
@@ -652,7 +741,7 @@ public class simple3Lexer extends Lexer {
 				}
 			}
 
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:184:33: ( '\\r' )?
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:173:33: ( '\\r' )?
 			int alt4=2;
 			int LA4_0 = input.LA(1);
 			if ( (LA4_0=='\r') ) {
@@ -660,7 +749,7 @@ public class simple3Lexer extends Lexer {
 			}
 			switch (alt4) {
 				case 1 :
-					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:184:33: '\\r'
+					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:173:33: '\\r'
 					{
 					match('\r'); 
 					}
@@ -686,8 +775,8 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = WS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:185:6: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:185:11: ( ' ' | '\\t' | '\\r' | '\\n' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:174:6: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:174:11: ( ' ' | '\\t' | '\\r' | '\\n' )
 			{
 			if ( (input.LA(1) >= '\t' && input.LA(1) <= '\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
 				input.consume();
@@ -709,37 +798,123 @@ public class simple3Lexer extends Lexer {
 	}
 	// $ANTLR end "WS"
 
+	// $ANTLR start "DOUBLE"
+	public final void mDOUBLE() throws RecognitionException {
+		try {
+			int _type = DOUBLE;
+			int _channel = DEFAULT_TOKEN_CHANNEL;
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:175:9: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )+ )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:175:17: ( '0' .. '9' )+ '.' ( '0' .. '9' )+
+			{
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:175:17: ( '0' .. '9' )+
+			int cnt5=0;
+			loop5:
+			while (true) {
+				int alt5=2;
+				int LA5_0 = input.LA(1);
+				if ( ((LA5_0 >= '0' && LA5_0 <= '9')) ) {
+					alt5=1;
+				}
+
+				switch (alt5) {
+				case 1 :
+					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:
+					{
+					if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
+						input.consume();
+					}
+					else {
+						MismatchedSetException mse = new MismatchedSetException(null,input);
+						recover(mse);
+						throw mse;
+					}
+					}
+					break;
+
+				default :
+					if ( cnt5 >= 1 ) break loop5;
+					EarlyExitException eee = new EarlyExitException(5, input);
+					throw eee;
+				}
+				cnt5++;
+			}
+
+			match('.'); 
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:175:29: ( '0' .. '9' )+
+			int cnt6=0;
+			loop6:
+			while (true) {
+				int alt6=2;
+				int LA6_0 = input.LA(1);
+				if ( ((LA6_0 >= '0' && LA6_0 <= '9')) ) {
+					alt6=1;
+				}
+
+				switch (alt6) {
+				case 1 :
+					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:
+					{
+					if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
+						input.consume();
+					}
+					else {
+						MismatchedSetException mse = new MismatchedSetException(null,input);
+						recover(mse);
+						throw mse;
+					}
+					}
+					break;
+
+				default :
+					if ( cnt6 >= 1 ) break loop6;
+					EarlyExitException eee = new EarlyExitException(6, input);
+					throw eee;
+				}
+				cnt6++;
+			}
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "DOUBLE"
+
 	// $ANTLR start "STRING"
 	public final void mSTRING() throws RecognitionException {
 		try {
 			int _type = STRING;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:186:8: ( '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"' )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:186:12: '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"'
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:176:8: ( '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:176:12: '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"'
 			{
 			match('\"'); 
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:186:16: ( ESC_SEQ |~ ( '\\\\' | '\"' ) )*
-			loop5:
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:176:16: ( ESC_SEQ |~ ( '\\\\' | '\"' ) )*
+			loop7:
 			while (true) {
-				int alt5=3;
-				int LA5_0 = input.LA(1);
-				if ( (LA5_0=='\\') ) {
-					alt5=1;
+				int alt7=3;
+				int LA7_0 = input.LA(1);
+				if ( (LA7_0=='\\') ) {
+					alt7=1;
 				}
-				else if ( ((LA5_0 >= '\u0000' && LA5_0 <= '!')||(LA5_0 >= '#' && LA5_0 <= '[')||(LA5_0 >= ']' && LA5_0 <= '\uFFFF')) ) {
-					alt5=2;
+				else if ( ((LA7_0 >= '\u0000' && LA7_0 <= '!')||(LA7_0 >= '#' && LA7_0 <= '[')||(LA7_0 >= ']' && LA7_0 <= '\uFFFF')) ) {
+					alt7=2;
 				}
 
-				switch (alt5) {
+				switch (alt7) {
 				case 1 :
-					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:186:18: ESC_SEQ
+					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:176:18: ESC_SEQ
 					{
 					mESC_SEQ(); 
 
 					}
 					break;
 				case 2 :
-					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:186:28: ~ ( '\\\\' | '\"' )
+					// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:176:28: ~ ( '\\\\' | '\"' )
 					{
 					if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '!')||(input.LA(1) >= '#' && input.LA(1) <= '[')||(input.LA(1) >= ']' && input.LA(1) <= '\uFFFF') ) {
 						input.consume();
@@ -753,7 +928,7 @@ public class simple3Lexer extends Lexer {
 					break;
 
 				default :
-					break loop5;
+					break loop7;
 				}
 			}
 
@@ -774,8 +949,8 @@ public class simple3Lexer extends Lexer {
 		try {
 			int _type = ESC_SEQ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:187:9: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) )
-			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:187:14: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:177:9: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) )
+			// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:177:14: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
 			{
 			match('\\'); 
 			if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -799,201 +974,236 @@ public class simple3Lexer extends Lexer {
 
 	@Override
 	public void mTokens() throws RecognitionException {
-		// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:8: ( T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | VAR | NUM | COMMENT | WS | STRING | ESC_SEQ )
-		int alt6=28;
-		alt6 = dfa6.predict(input);
-		switch (alt6) {
+		// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | VAR | NUM | COMMENT | WS | DOUBLE | STRING | ESC_SEQ )
+		int alt8=33;
+		alt8 = dfa8.predict(input);
+		switch (alt8) {
 			case 1 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:10: T__10
-				{
-				mT__10(); 
-
-				}
-				break;
-			case 2 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:16: T__11
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:10: T__11
 				{
 				mT__11(); 
 
 				}
 				break;
-			case 3 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:22: T__12
+			case 2 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:16: T__12
 				{
 				mT__12(); 
 
 				}
 				break;
-			case 4 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:28: T__13
+			case 3 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:22: T__13
 				{
 				mT__13(); 
 
 				}
 				break;
-			case 5 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:34: T__14
+			case 4 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:28: T__14
 				{
 				mT__14(); 
 
 				}
 				break;
-			case 6 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:40: T__15
+			case 5 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:34: T__15
 				{
 				mT__15(); 
 
 				}
 				break;
-			case 7 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:46: T__16
+			case 6 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:40: T__16
 				{
 				mT__16(); 
 
 				}
 				break;
-			case 8 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:52: T__17
+			case 7 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:46: T__17
 				{
 				mT__17(); 
 
 				}
 				break;
-			case 9 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:58: T__18
+			case 8 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:52: T__18
 				{
 				mT__18(); 
 
 				}
 				break;
-			case 10 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:64: T__19
+			case 9 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:58: T__19
 				{
 				mT__19(); 
 
 				}
 				break;
-			case 11 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:70: T__20
+			case 10 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:64: T__20
 				{
 				mT__20(); 
 
 				}
 				break;
-			case 12 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:76: T__21
+			case 11 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:70: T__21
 				{
 				mT__21(); 
 
 				}
 				break;
-			case 13 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:82: T__22
+			case 12 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:76: T__22
 				{
 				mT__22(); 
 
 				}
 				break;
-			case 14 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:88: T__23
+			case 13 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:82: T__23
 				{
 				mT__23(); 
 
 				}
 				break;
-			case 15 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:94: T__24
+			case 14 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:88: T__24
 				{
 				mT__24(); 
 
 				}
 				break;
-			case 16 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:100: T__25
+			case 15 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:94: T__25
 				{
 				mT__25(); 
 
 				}
 				break;
-			case 17 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:106: T__26
+			case 16 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:100: T__26
 				{
 				mT__26(); 
 
 				}
 				break;
-			case 18 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:112: T__27
+			case 17 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:106: T__27
 				{
 				mT__27(); 
 
 				}
 				break;
-			case 19 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:118: T__28
+			case 18 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:112: T__28
 				{
 				mT__28(); 
 
 				}
 				break;
-			case 20 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:124: T__29
+			case 19 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:118: T__29
 				{
 				mT__29(); 
 
 				}
 				break;
-			case 21 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:130: T__30
+			case 20 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:124: T__30
 				{
 				mT__30(); 
 
 				}
 				break;
-			case 22 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:136: T__31
+			case 21 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:130: T__31
 				{
 				mT__31(); 
 
 				}
 				break;
+			case 22 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:136: T__32
+				{
+				mT__32(); 
+
+				}
+				break;
 			case 23 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:142: VAR
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:142: T__33
+				{
+				mT__33(); 
+
+				}
+				break;
+			case 24 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:148: T__34
+				{
+				mT__34(); 
+
+				}
+				break;
+			case 25 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:154: T__35
+				{
+				mT__35(); 
+
+				}
+				break;
+			case 26 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:160: T__36
+				{
+				mT__36(); 
+
+				}
+				break;
+			case 27 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:166: VAR
 				{
 				mVAR(); 
 
 				}
 				break;
-			case 24 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:146: NUM
+			case 28 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:170: NUM
 				{
 				mNUM(); 
 
 				}
 				break;
-			case 25 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:150: COMMENT
+			case 29 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:174: COMMENT
 				{
 				mCOMMENT(); 
 
 				}
 				break;
-			case 26 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:158: WS
+			case 30 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:182: WS
 				{
 				mWS(); 
 
 				}
 				break;
-			case 27 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:161: STRING
+			case 31 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:185: DOUBLE
+				{
+				mDOUBLE(); 
+
+				}
+				break;
+			case 32 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:192: STRING
 				{
 				mSTRING(); 
 
 				}
 				break;
-			case 28 :
-				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:168: ESC_SEQ
+			case 33 :
+				// /Users/billpyne/NetBeansProjects/MakingMusic/src/simple3.g:1:199: ESC_SEQ
 				{
 				mESC_SEQ(); 
 
@@ -1004,74 +1214,78 @@ public class simple3Lexer extends Lexer {
 	}
 
 
-	protected DFA6 dfa6 = new DFA6(this);
-	static final String DFA6_eotS =
-		"\6\uffff\1\31\1\33\2\uffff\1\35\10\23\13\uffff\20\23\1\70\1\71\4\23\1"+
-		"\76\3\23\2\uffff\1\23\1\103\2\23\1\uffff\1\23\1\107\2\23\1\uffff\2\23"+
-		"\1\114\1\uffff\1\115\1\116\1\23\1\120\3\uffff\1\121\2\uffff";
-	static final String DFA6_eofS =
-		"\122\uffff";
-	static final String DFA6_minS =
-		"\1\11\5\uffff\1\76\1\57\2\uffff\1\75\1\165\1\156\1\141\1\143\1\145\1\165"+
-		"\1\145\1\157\13\uffff\1\156\1\164\2\162\1\157\1\162\3\164\1\151\1\143"+
-		"\1\145\1\164\1\141\1\162\1\151\2\60\1\165\1\144\1\164\1\147\1\60\1\163"+
-		"\1\145\1\156\2\uffff\1\162\1\60\1\151\1\145\1\uffff\1\145\1\60\1\147\1"+
-		"\156\1\uffff\1\157\1\162\1\60\1\uffff\2\60\1\156\1\60\3\uffff\1\60\2\uffff";
-	static final String DFA6_maxS =
-		"\1\172\5\uffff\1\76\1\57\2\uffff\1\75\1\165\1\156\1\150\1\164\1\145\1"+
-		"\165\1\145\1\157\13\uffff\1\156\1\164\2\162\1\157\1\162\3\164\1\151\1"+
-		"\143\1\145\1\164\1\141\1\162\1\151\2\172\1\165\1\144\1\164\1\147\1\172"+
-		"\1\163\1\145\1\156\2\uffff\1\162\1\172\1\151\1\145\1\uffff\1\145\1\172"+
-		"\1\147\1\156\1\uffff\1\157\1\162\1\172\1\uffff\2\172\1\156\1\172\3\uffff"+
-		"\1\172\2\uffff";
-	static final String DFA6_acceptS =
-		"\1\uffff\1\1\1\2\1\3\1\4\1\5\2\uffff\1\11\1\12\11\uffff\1\27\1\30\1\32"+
-		"\1\33\1\34\1\7\1\6\1\31\1\10\1\14\1\13\32\uffff\1\23\1\24\4\uffff\1\17"+
-		"\4\uffff\1\26\3\uffff\1\21\4\uffff\1\20\1\22\1\25\1\uffff\1\16\1\15";
-	static final String DFA6_specialS =
-		"\122\uffff}>";
-	static final String[] DFA6_transitionS = {
-			"\2\25\2\uffff\1\25\22\uffff\1\25\1\uffff\1\26\5\uffff\1\1\1\2\1\3\1\4"+
-			"\1\5\1\6\1\uffff\1\7\12\24\1\uffff\1\10\1\11\1\12\3\uffff\5\23\1\13\2"+
-			"\23\1\14\6\23\1\15\2\23\1\16\7\23\1\uffff\1\27\2\uffff\1\23\1\uffff\6"+
-			"\23\1\17\10\23\1\20\1\23\1\21\3\23\1\22\4\23",
+	protected DFA8 dfa8 = new DFA8(this);
+	static final String DFA8_eotS =
+		"\6\uffff\1\34\1\36\2\uffff\1\40\13\26\1\uffff\1\56\11\uffff\13\26\1\74"+
+		"\1\26\2\uffff\11\26\1\107\1\110\1\26\1\uffff\4\26\1\116\3\26\1\uffff\1"+
+		"\26\2\uffff\1\26\1\124\3\26\1\uffff\1\26\1\131\3\26\1\uffff\1\135\2\26"+
+		"\1\140\1\uffff\1\141\1\26\1\143\1\uffff\1\26\1\145\2\uffff\1\26\1\uffff"+
+		"\1\147\1\uffff\1\150\2\uffff";
+	static final String DFA8_eofS =
+		"\151\uffff";
+	static final String DFA8_minS =
+		"\1\11\5\uffff\1\76\1\57\2\uffff\1\75\1\157\1\165\1\156\1\141\1\143\1\144"+
+		"\1\145\1\165\1\145\2\157\1\uffff\1\56\11\uffff\1\165\1\156\1\164\2\162"+
+		"\1\157\1\162\1\144\1\156\2\164\1\60\1\151\2\uffff\1\142\1\143\1\145\1"+
+		"\164\1\141\1\162\1\151\1\40\1\145\2\60\1\165\1\uffff\1\144\1\154\1\164"+
+		"\1\147\1\60\1\163\1\145\1\156\1\uffff\1\162\2\uffff\1\162\1\60\1\145\1"+
+		"\151\1\145\1\uffff\1\145\1\60\1\147\1\141\1\156\1\uffff\1\60\1\157\1\162"+
+		"\1\60\1\uffff\1\60\1\164\1\60\1\uffff\1\156\1\60\2\uffff\1\145\1\uffff"+
+		"\1\60\1\uffff\1\60\2\uffff";
+	static final String DFA8_maxS =
+		"\1\172\5\uffff\1\76\1\57\2\uffff\1\75\1\157\1\165\1\156\1\150\1\164\1"+
+		"\144\1\145\1\165\1\145\2\157\1\uffff\1\71\11\uffff\1\165\1\156\1\164\2"+
+		"\162\1\157\1\162\1\144\3\164\1\172\1\151\2\uffff\1\142\1\143\1\145\1\164"+
+		"\1\141\1\162\1\151\1\40\1\145\2\172\1\165\1\uffff\1\144\1\154\1\164\1"+
+		"\147\1\172\1\163\1\145\1\156\1\uffff\1\162\2\uffff\1\162\1\172\1\145\1"+
+		"\151\1\145\1\uffff\1\145\1\172\1\147\1\141\1\156\1\uffff\1\172\1\157\1"+
+		"\162\1\172\1\uffff\1\172\1\164\1\172\1\uffff\1\156\1\172\2\uffff\1\145"+
+		"\1\uffff\1\172\1\uffff\1\172\2\uffff";
+	static final String DFA8_acceptS =
+		"\1\uffff\1\1\1\2\1\3\1\4\1\5\2\uffff\1\11\1\12\14\uffff\1\33\1\uffff\1"+
+		"\36\1\40\1\41\1\7\1\6\1\35\1\10\1\14\1\13\15\uffff\1\34\1\37\14\uffff"+
+		"\1\31\10\uffff\1\24\1\uffff\1\26\1\27\5\uffff\1\20\5\uffff\1\32\4\uffff"+
+		"\1\22\3\uffff\1\15\2\uffff\1\21\1\23\1\uffff\1\30\1\uffff\1\17\1\uffff"+
+		"\1\16\1\25";
+	static final String DFA8_specialS =
+		"\151\uffff}>";
+	static final String[] DFA8_transitionS = {
+			"\2\30\2\uffff\1\30\22\uffff\1\30\1\uffff\1\31\5\uffff\1\1\1\2\1\3\1\4"+
+			"\1\5\1\6\1\uffff\1\7\12\27\1\uffff\1\10\1\11\1\12\3\uffff\3\26\1\13\1"+
+			"\26\1\14\2\26\1\15\6\26\1\16\2\26\1\17\7\26\1\uffff\1\32\2\uffff\1\26"+
+			"\1\uffff\1\20\5\26\1\21\10\26\1\22\1\26\1\23\1\26\1\24\1\26\1\25\4\26",
 			"",
 			"",
 			"",
 			"",
 			"",
-			"\1\30",
-			"\1\32",
+			"\1\33",
+			"\1\35",
 			"",
 			"",
-			"\1\34",
-			"\1\36",
 			"\1\37",
-			"\1\40\6\uffff\1\41",
-			"\1\42\20\uffff\1\43",
-			"\1\44",
-			"\1\45",
-			"\1\46",
-			"\1\47",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
+			"\1\41",
+			"\1\42",
+			"\1\43",
+			"\1\44\6\uffff\1\45",
+			"\1\46\20\uffff\1\47",
 			"\1\50",
 			"\1\51",
 			"\1\52",
 			"\1\53",
 			"\1\54",
 			"\1\55",
-			"\1\56",
-			"\1\57",
+			"",
+			"\1\57\1\uffff\12\27",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
 			"\1\60",
 			"\1\61",
 			"\1\62",
@@ -1080,76 +1294,104 @@ public class simple3Lexer extends Lexer {
 			"\1\65",
 			"\1\66",
 			"\1\67",
-			"\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
-			"\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
+			"\1\70\5\uffff\1\71",
 			"\1\72",
 			"\1\73",
-			"\1\74",
+			"\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
 			"\1\75",
-			"\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
+			"",
+			"",
+			"\1\76",
 			"\1\77",
 			"\1\100",
 			"\1\101",
-			"",
-			"",
 			"\1\102",
-			"\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
+			"\1\103",
 			"\1\104",
 			"\1\105",
-			"",
 			"\1\106",
-			"\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
-			"\1\110",
+			"\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
+			"\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
 			"\1\111",
 			"",
 			"\1\112",
 			"\1\113",
-			"\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
-			"",
-			"\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
-			"\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
+			"\1\114",
+			"\1\115",
+			"\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
 			"\1\117",
-			"\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
+			"\1\120",
+			"\1\121",
+			"",
+			"\1\122",
 			"",
 			"",
+			"\1\123",
+			"\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
+			"\1\125",
+			"\1\126",
+			"\1\127",
 			"",
-			"\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
+			"\1\130",
+			"\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
+			"\1\132",
+			"\1\133",
+			"\1\134",
+			"",
+			"\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
+			"\1\136",
+			"\1\137",
+			"\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
+			"",
+			"\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
+			"\1\142",
+			"\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
+			"",
+			"\1\144",
+			"\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
+			"",
+			"",
+			"\1\146",
+			"",
+			"\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
+			"",
+			"\12\26\7\uffff\32\26\4\uffff\1\26\1\uffff\32\26",
 			"",
 			""
 	};
 
-	static final short[] DFA6_eot = DFA.unpackEncodedString(DFA6_eotS);
-	static final short[] DFA6_eof = DFA.unpackEncodedString(DFA6_eofS);
-	static final char[] DFA6_min = DFA.unpackEncodedStringToUnsignedChars(DFA6_minS);
-	static final char[] DFA6_max = DFA.unpackEncodedStringToUnsignedChars(DFA6_maxS);
-	static final short[] DFA6_accept = DFA.unpackEncodedString(DFA6_acceptS);
-	static final short[] DFA6_special = DFA.unpackEncodedString(DFA6_specialS);
-	static final short[][] DFA6_transition;
+	static final short[] DFA8_eot = DFA.unpackEncodedString(DFA8_eotS);
+	static final short[] DFA8_eof = DFA.unpackEncodedString(DFA8_eofS);
+	static final char[] DFA8_min = DFA.unpackEncodedStringToUnsignedChars(DFA8_minS);
+	static final char[] DFA8_max = DFA.unpackEncodedStringToUnsignedChars(DFA8_maxS);
+	static final short[] DFA8_accept = DFA.unpackEncodedString(DFA8_acceptS);
+	static final short[] DFA8_special = DFA.unpackEncodedString(DFA8_specialS);
+	static final short[][] DFA8_transition;
 
 	static {
-		int numStates = DFA6_transitionS.length;
-		DFA6_transition = new short[numStates][];
+		int numStates = DFA8_transitionS.length;
+		DFA8_transition = new short[numStates][];
 		for (int i=0; i<numStates; i++) {
-			DFA6_transition[i] = DFA.unpackEncodedString(DFA6_transitionS[i]);
+			DFA8_transition[i] = DFA.unpackEncodedString(DFA8_transitionS[i]);
 		}
 	}
 
-	protected class DFA6 extends DFA {
+	protected class DFA8 extends DFA {
 
-		public DFA6(BaseRecognizer recognizer) {
+		public DFA8(BaseRecognizer recognizer) {
 			this.recognizer = recognizer;
-			this.decisionNumber = 6;
-			this.eot = DFA6_eot;
-			this.eof = DFA6_eof;
-			this.min = DFA6_min;
-			this.max = DFA6_max;
-			this.accept = DFA6_accept;
-			this.special = DFA6_special;
-			this.transition = DFA6_transition;
+			this.decisionNumber = 8;
+			this.eot = DFA8_eot;
+			this.eof = DFA8_eof;
+			this.min = DFA8_min;
+			this.max = DFA8_max;
+			this.accept = DFA8_accept;
+			this.special = DFA8_special;
+			this.transition = DFA8_transition;
 		}
 		@Override
 		public String getDescription() {
-			return "1:1: Tokens : ( T__10 | T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | VAR | NUM | COMMENT | WS | STRING | ESC_SEQ );";
+			return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | VAR | NUM | COMMENT | WS | DOUBLE | STRING | ESC_SEQ );";
 		}
 	}
 
